@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "clean-webpack-plugin": "^2.0.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-merge": "^4.2.1"
