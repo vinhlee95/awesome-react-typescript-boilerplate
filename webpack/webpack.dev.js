@@ -1,6 +1,6 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const common = require('./webpack.common');
+const path = require('path')
+const merge = require('webpack-merge')
+const common = require('./webpack.common')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -24,7 +24,7 @@ module.exports = merge(common, {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
-    publicPath: '/',
+    publicPath: '/'
   },
 
   module: {
@@ -38,10 +38,10 @@ module.exports = merge(common, {
             options: {
               importLoaders: 1,
               modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              localIdentName: '[path][name]__[local]--[hash:base64:5]'
             },
           },
-          'sass-loader',
+          'sass-loader'
         ]
       }
     ]
