@@ -8,6 +8,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = merge(common, {
   mode: 'production',
 
+  devtool: 'source-map',
+
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
