@@ -1,1 +1,1 @@
-console.log('Hello react boilerplate!')
+import './index.scss'
