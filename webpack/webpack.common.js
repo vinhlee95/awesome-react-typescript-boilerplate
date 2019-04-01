@@ -12,6 +12,13 @@ module.exports = {
 
   module: {
     rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+				}
+			},
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
         use: 'file-loader'
