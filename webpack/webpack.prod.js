@@ -1,6 +1,7 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -43,6 +44,8 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css'
     }),
+
+    new OptimizeCssAssetsPlugin(),
 
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
