@@ -1,14 +1,14 @@
 {
 	"compilerOptions": {
-			"moduleResolution": "node",
-			"outDir": "./dist/",
-			"sourceMap": true,
-			"jsx": "react",
-			"module": "es6",
-			"target": "es5",
-			"strict": true,
-			"noImplicitAny": true,
-			"baseUrl": "src"
+		"moduleResolution": "node",
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"jsx": "react",
+		"module": "es6",
+		"target": "es5",
+		"strict": true,
+		"noImplicitAny": true,
+		"baseUrl": "src"
 	},
 	"exclude": ["dist", "node_modules"]
 }
