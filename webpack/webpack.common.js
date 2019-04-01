@@ -8,10 +8,18 @@ module.exports = {
   output: {
     path: path.resolve(__dirname,  '../dist'),
     publicPath: "/"
-  },
+		},
+
+		resolve: {
+			extensions: ['.ts', '.tsx', '.js']
+		},
 
   module: {
     rules: [
+						{
+							test: /\.tsx?$/,
+							loader: 'awesome-typescript-loader'
+						},
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
         use: 'file-loader'
