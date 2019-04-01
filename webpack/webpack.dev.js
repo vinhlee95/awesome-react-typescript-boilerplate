@@ -7,6 +7,11 @@ module.exports = merge(common, {
 
   devtool: 'source-map',
 
+  output: {
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js'
+  },
+
   devServer: {
     contentBase: path.resolve(__dirname, '../public/index.html'),
     port: 8000,
