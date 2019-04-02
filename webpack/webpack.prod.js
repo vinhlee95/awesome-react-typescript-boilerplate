@@ -42,7 +42,8 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
 
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css'
+      filename: 'style.[contenthash].css',
+      chunkFilename: '[id].[hash].css'
     }),
 
     new OptimizeCssAssetsPlugin(),
