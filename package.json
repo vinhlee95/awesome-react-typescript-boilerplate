@@ -18,7 +18,7 @@
 		"src/*.(js, jsx)": "eslint",
 		"src/*.(ts, tsx)": "tslint",
 		"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)": [
-			"prettier --write",
+			"npm run format",
 			"git add"
 		]
 	},
