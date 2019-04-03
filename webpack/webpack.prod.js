@@ -14,7 +14,7 @@ module.exports = merge(common, {
 	output: {
 		filename: '[name].[chunkhash].js',
 		chunkFilename: '[name].[chunkhash].chunk.js',
-		publicPath: '/'
+		publicPath: '/',
 	},
 
 	module: {
@@ -28,13 +28,13 @@ module.exports = merge(common, {
 						options: {
 							importLoaders: 1,
 							modules: true,
-							localIdentName: '[path][name]__[local]--[hash:base64:5]'
-						}
+							localIdentName: '[path][name]__[local]--[hash:base64:5]',
+						},
 					},
-					'sass-loader'
-				]
-			}
-		]
+					'sass-loader',
+				],
+			},
+		],
 	},
 
 	plugins: [
@@ -42,7 +42,7 @@ module.exports = merge(common, {
 
 		new MiniCssExtractPlugin({
 			filename: 'style.[contenthash].css',
-			chunkFilename: '[id].[contenthash].css'
+			chunkFilename: '[id].[contenthash].css',
 		}),
 
 		new OptimizeCssAssetsPlugin(),
@@ -55,8 +55,8 @@ module.exports = merge(common, {
 				removeRedundantAttributes: true,
 				removeScriptTypeAttributes: true,
 				removeStyleLinkTypeAttributes: true,
-				useShortDoctype: true
-			}
-		})
-	]
+				useShortDoctype: true,
+			},
+		}),
+	],
 })

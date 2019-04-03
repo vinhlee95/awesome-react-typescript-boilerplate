@@ -9,7 +9,7 @@ module.exports = merge(common, {
 
 	output: {
 		filename: '[name].js',
-		chunkFilename: '[name].chunk.js'
+		chunkFilename: '[name].chunk.js',
 	},
 
 	devServer: {
@@ -18,17 +18,30 @@ module.exports = merge(common, {
 		open: true,
 		overlay: true,
 		hot: true,
-		historyApiFallback: true
+		historyApiFallback: true,
 	},
 
 	output: {
 		filename: '[name].js',
 		chunkFilename: '[name].chunk.js',
-		publicPath: '/'
+		publicPath: '/',
 	},
 
 	module: {
 		rules: [
+			{
+				test: /\.ts$/,
+				enforce: 'pre',
+				use: [
+					{
+						loader: 'tslint-loader',
+						options: {
+							emitErrors: true,
+							failOnHint: true,
+						},
+					},
+				],
+			},
 			{
 				test: /\.(?:sa|sc|c)ss$/,
 				use: [
@@ -38,12 +51,12 @@ module.exports = merge(common, {
 						options: {
 							importLoaders: 1,
 							modules: true,
-							localIdentName: '[path][name]__[local]--[hash:base64:5]'
-						}
+							localIdentName: '[path][name]__[local]--[hash:base64:5]',
+						},
 					},
-					'sass-loader'
-				]
-			}
-		]
-	}
+					'sass-loader',
+				],
+			},
+		],
+	},
 })
