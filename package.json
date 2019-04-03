@@ -15,7 +15,6 @@
 		}
 	},
 	"lint-staged": {
-		"src/*.(js, jsx)": "eslint",
 		"src/*.(ts, tsx)": "tslint",
 		"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)": [
 			"npm run format",
@@ -37,15 +36,11 @@
 		"@babel/preset-typescript": "7.3.3",
 		"@types/react": "16.8.10",
 		"@types/react-dom": "16.8.3",
-		"babel-eslint": "10.0.1",
 		"babel-loader": "8.0.5",
 		"babel-plugin-lodash": "3.3.4",
 		"babel-plugin-transform-react-remove-prop-types": "0.4.24",
 		"clean-webpack-plugin": "2.0.1",
 		"css-loader": "2.1.1",
-		"eslint-plugin-import": "2.16.0",
-		"eslint-plugin-jsx-a11y": "6.2.1",
-		"eslint-plugin-react": "7.12.4",
 		"fork-ts-checker-webpack-plugin": "1.0.1",
 		"html-webpack-plugin": "3.2.0",
 		"husky": "1.3.1",
