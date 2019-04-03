@@ -3,7 +3,11 @@ import * as ReactDOM from 'react-dom'
 import './index.scss'
 class App extends React.Component<{ name: string }, {}> {
 	render() {
-		return <h1>{this.props.name}</h1>
+		return (
+			<div>
+				<h1>Hello React TypeScript boilerplate</h1>
+			</div>
+		)
 	}
 }
 
