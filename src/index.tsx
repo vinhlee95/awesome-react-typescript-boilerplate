@@ -5,7 +5,7 @@ class App extends React.Component<{ name: string }, {}> {
 	render() {
 		return (
 			<div>
-				<h1>Hello React TypeScript boilerplate</h1>
+				<h1>{this.props.name}</h1>
 			</div>
 		)
 	}
@@ -13,5 +13,5 @@ class App extends React.Component<{ name: string }, {}> {
 
 ReactDOM.render(
 	<App name="Awesome React boilerplate" />,
-	document.getElementById('root')
+	document.getElementById('root'),
 )
