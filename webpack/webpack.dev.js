@@ -30,19 +30,6 @@ module.exports = merge(common, {
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
-				enforce: 'pre',
-				use: [
-					{
-						loader: 'tslint-loader',
-						options: {
-							emitErrors: true,
-							failOnHint: true,
-						},
-					},
-				],
-			},
-			{
 				test: /\.(?:sa|sc|c)ss$/,
 				use: [
 					'style-loader',
