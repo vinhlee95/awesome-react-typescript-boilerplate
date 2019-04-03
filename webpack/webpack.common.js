@@ -1,14 +1,13 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = {
-
 	entry: path.resolve(__dirname, '../src/index.tsx'),
 
 	output: {
-		path: path.resolve(__dirname,  '../dist'),
-		publicPath: "/"
+		path: path.resolve(__dirname, '../dist'),
+		publicPath: '/'
 	},
 
 	resolve: {
@@ -21,7 +20,7 @@ module.exports = {
 				test: /\.(ts|js)x?$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader',
+					loader: 'babel-loader'
 				}
 			},
 			{
@@ -37,9 +36,9 @@ module.exports = {
 							// Inline files smaller than 10 kB
 							limit: 10 * 1024,
 							noquotes: true
-						},
-					},
-				],
+						}
+					}
+				]
 			},
 			{
 				test: /\.(jpg|png|gif)$/,
@@ -49,7 +48,7 @@ module.exports = {
 						options: {
 							// Inline files smaller than 10 kB
 							limit: 10 * 1024
-						},
+						}
 					},
 					{
 						loader: 'image-webpack-loader',
