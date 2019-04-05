@@ -5,7 +5,7 @@ class App extends React.Component<{ name: string }, {}> {
 	render() {
 		return (
 			<div>
-				<h1>{this.props.name} </h1>
+				<h1>{this.props.name}</h1>
 			</div>
 		)
 	}

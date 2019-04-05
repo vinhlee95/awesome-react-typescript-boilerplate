@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "webpack-dev-server --config webpack/webpack.dev.js",
 		"build": "webpack --config webpack/webpack.prod.js",
-		"lint": "tslint-config-prettier-check ./tslint.json",
-		"check-types": "tsc",
+		"tslint-prettier": "tslint-config-prettier-check ./tslint.json",
+		"check-types": "tslint -p tsconfig.json",
 		"format": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write"
 	},
 	"husky": {
@@ -16,7 +16,7 @@
 		}
 	},
 	"lint-staged": {
-		"src/*.(ts, tsx)": "tslint",
+		"src/*.{ts, tsx}": "npm run check-types",
 		"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)": [
 			"npm run format",
 			"git add"

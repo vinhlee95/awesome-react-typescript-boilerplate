@@ -4,7 +4,8 @@
 	"jsRules": {},
 	"rulesDirectory": ["tslint-plugin-prettier"],
 	"rules": {
-		"prettier": true
+		"prettier": true,
+		"member-access": false
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
