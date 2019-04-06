@@ -7,57 +7,56 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
-  mode: 'production',
+	mode: 'production',
 
-  devtool: 'source-map',
+	devtool: 'source-map',
 
-  output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
-    publicPath: '/'
-  },
+	output: {
+		filename: '[name].[chunkhash].js',
+		chunkFilename: '[name].[chunkhash].chunk.js',
+		publicPath: '/',
+	},
 
-  module: {
-    rules: [
-      {
-        test: /\.(?:sa|sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
-            },
-          },
-          'sass-loader'
-        ]
-      }
-    ]
-  },
+	module: {
+		rules: [
+			{
+				test: /\.(?:sa|sc|c)ss$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true,
+							localIdentName: '[path][name]__[local]--[hash:base64:5]',
+						},
+					},
+					'sass-loader',
+				],
+			},
+		],
+	},
 
-  plugins: [
+	plugins: [
+		new CleanWebpackPlugin(),
 
-    new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({
+			filename: 'style.[contenthash].css',
+			chunkFilename: '[id].[contenthash].css',
+		}),
 
-    new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
-      chunkFilename: '[id].[contenthash].css'
-    }),
+		new OptimizeCssAssetsPlugin(),
 
-    new OptimizeCssAssetsPlugin(),
-
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public/index.html'),
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      }
-    })
-  ]
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, '../public/index.html'),
+			minify: {
+				collapseWhitespace: true,
+				removeComments: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				useShortDoctype: true,
+			},
+		}),
+	],
 })

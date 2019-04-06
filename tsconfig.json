@@ -10,5 +10,6 @@
 		"noImplicitAny": true,
 		"baseUrl": "src"
 	},
+	"include": ["src/**/*"],
 	"exclude": ["dist", "node_modules"]
 }
