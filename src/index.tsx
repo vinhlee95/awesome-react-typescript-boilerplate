@@ -9,5 +9,6 @@ import App from './App'
 ReactDOM.render(
 	<CoreLayout>
 		<App />
-	</CoreLayout>
-, document.getElementById('root'))
+	</CoreLayout>,
+	document.getElementById('root'),
+)
