@@ -1,7 +1,7 @@
 /**
  * Core Layout component
  * Wrap the root component with layout UI components
- * e.g Footer, Modal, Alert...
+ * e.g Navigation, Footer, Modal, Alert...
  *
  * @author Vinh Le <lethanhvinh95@gmail.com>
  *
