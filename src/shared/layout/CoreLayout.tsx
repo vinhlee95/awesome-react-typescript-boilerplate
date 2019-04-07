@@ -9,8 +9,20 @@
 
 import * as React from 'react'
 
+//Component
+import Nav from '../components/Nav'
+
 const CoreLayout = (props: any) => {
-	return <>{props.children}</>
+	return (
+		<>
+			<header>
+				<nav>
+					<Nav />
+				</nav>
+			</header>
+			<main>{props.children}</main>
+		</>
+	)
 }
 
 export default CoreLayout

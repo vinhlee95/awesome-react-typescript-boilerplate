@@ -13,8 +13,10 @@ import {
 	Redirect,
 } from 'react-router-dom'
 
-// Components
-import Nav from './shared/components/Nav'
+// components
+import CoreLayout from './shared/layout/CoreLayout'
+import Home from './pages/home/Home'
+import About from './pages/about/About'
 
 // Constants
 import { routerPath } from './constants'
@@ -23,12 +25,13 @@ class App extends React.Component {
 	render() {
 		return (
 			<Router>
-				<Nav />
-				<Switch>
-					<Route exact path={routerPath.home} render={() => <h1>Home</h1>} />
-					<Route path={routerPath.about} render={() => <h1>About</h1>} />
-					<Redirect to={routerPath.home} />
-				</Switch>
+				<CoreLayout>
+					<Switch>
+						<Route exact path={routerPath.home} component={Home} />
+						<Route path={routerPath.about} component={About} />
+						<Redirect to={routerPath.home} />
+					</Switch>
+				</CoreLayout>
 			</Router>
 		)
 	}
