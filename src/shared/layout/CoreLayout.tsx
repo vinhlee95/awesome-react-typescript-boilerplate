@@ -7,16 +7,10 @@
  *
  */
 
-
 import * as React from 'react'
 
-const CoreLayout = (props:any) => {
-
-	return(
-		<>
-			{props.children}
-		</>
-	)
+const CoreLayout = (props: any) => {
+	return <>{props.children}</>
 }
 
 export default CoreLayout

@@ -15,18 +15,14 @@ import Nav from './shared/components/Nav'
 import { ROUTER_PATH } from './constants'
 
 // Define app's paths
-const homePath:string = ROUTER_PATH.home
-const aboutPath:string = ROUTER_PATH.about
+const homePath: string = ROUTER_PATH.home
+const aboutPath: string = ROUTER_PATH.about
 
 class App extends React.Component {
-
 	render() {
-		return(
+		return (
 			<Router>
-				<Nav
-					homePath={homePath}
-					aboutPath={aboutPath}
-				/>
+				<Nav homePath={homePath} aboutPath={aboutPath} />
 				<Switch>
 					<Route exact path={homePath} render={() => <h1>Home</h1>} />
 					<Route path={aboutPath} render={() => <h1>About</h1>} />

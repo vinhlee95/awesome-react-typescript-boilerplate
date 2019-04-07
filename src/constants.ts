@@ -5,12 +5,12 @@
  *
  */
 
- /**
-	* Router paths
-	*
-	* @return {String} path to route
-	*/
+/**
+ * Router paths
+ *
+ * @return {String} path to route
+ */
 export const ROUTER_PATH = {
 	home: '/',
-	about: '/about'
+	about: '/about',
 }
