@@ -19,7 +19,7 @@ import Home from './pages/home/Home'
 import About from './pages/about/About'
 
 // Constants
-import { routerPath } from './constants'
+import { RouterPath } from './constants'
 
 class App extends React.Component {
 	render() {
@@ -27,9 +27,9 @@ class App extends React.Component {
 			<Router>
 				<CoreLayout>
 					<Switch>
-						<Route exact path={routerPath.home} component={Home} />
-						<Route path={routerPath.about} component={About} />
-						<Redirect to={routerPath.home} />
+						<Route exact path={RouterPath.home} component={Home} />
+						<Route path={RouterPath.about} component={About} />
+						<Redirect to={RouterPath.home} />
 					</Switch>
 				</CoreLayout>
 			</Router>

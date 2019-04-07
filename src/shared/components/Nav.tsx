@@ -10,13 +10,13 @@ import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 
 // Constants
-import { routerPath } from '../../constants'
+import { RouterPath } from '../../constants'
 
 const Nav = () => {
 	return (
 		<>
-			<NavLink to={routerPath.home}>Home</NavLink>
-			<NavLink to={routerPath.about}>About</NavLink>
+			<NavLink to={RouterPath.home}>Home</NavLink>
+			<NavLink to={RouterPath.about}>About</NavLink>
 		</>
 	)
 }

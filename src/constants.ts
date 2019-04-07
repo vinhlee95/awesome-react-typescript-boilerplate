@@ -10,7 +10,7 @@
  *
  * @return {String} path to route
  */
-export enum routerPath {
+export enum RouterPath {
 	home = '/',
 	about = '/about',
 }
