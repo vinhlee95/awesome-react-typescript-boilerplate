@@ -10,7 +10,7 @@
  *
  * @return {String} path to route
  */
-export const ROUTER_PATH = {
-	home: '/',
-	about: '/about',
+export enum routerPath {
+	home = '/',
+	about = '/about',
 }

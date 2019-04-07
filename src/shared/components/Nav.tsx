@@ -9,16 +9,14 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-interface navProps {
-	homePath: string
-	aboutPath: string
-}
+// Constants
+import { routerPath } from '../../constants'
 
-const Nav = (props: navProps) => {
+const Nav = () => {
 	return (
 		<>
-			<Link to={props.homePath}>Home</Link>
-			<Link to={props.aboutPath}>About</Link>
+			<Link to={routerPath.home}>Home</Link>
+			<Link to={routerPath.about}>About</Link>
 		</>
 	)
 }
