@@ -6,8 +6,8 @@
 		"jsx": "react",
 		"module": "es6",
 		"target": "es5",
-		"strict": true,
-		"noImplicitAny": true,
+		"strict": false,
+		"noImplicitAny": false,
 		"baseUrl": "src"
 	},
 	"include": ["src/**/*"],
