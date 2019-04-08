@@ -81,6 +81,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
 		}),
-		new ForkTsCheckerWebpackPlugin(),
+		new ForkTsCheckerWebpackPlugin({
+			async: false,
+			tsconfig: path.resolve(__dirname, '../tsconfig.json'),
+			tslint: true,
+		}),
 	],
 }

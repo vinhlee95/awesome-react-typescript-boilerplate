@@ -9,7 +9,7 @@
 
 import * as React from 'react'
 
-//Component
+// Component
 import Nav from '../components/Nav'
 
 const CoreLayout = (props: any) => {
