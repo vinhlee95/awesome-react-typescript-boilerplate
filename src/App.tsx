@@ -15,8 +15,8 @@ import {
 
 // components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
-import Home from './pages/home/Home'
-import About from './pages/about/About'
+import Home from './pages/Home/Home'
+import About from './pages/About/About'
 
 // Constants
 import { RouterPath } from './constants'
