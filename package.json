@@ -38,7 +38,9 @@
 		"@babel/preset-typescript": "7.3.3",
 		"@types/react": "16.8.10",
 		"@types/react-dom": "16.8.3",
+		"@types/react-redux": "7.0.6",
 		"@types/react-router-dom": "4.3.1",
+		"@types/redux-devtools": "3.0.46",
 		"babel-loader": "8.0.5",
 		"babel-plugin-lodash": "3.3.4",
 		"babel-plugin-transform-react-remove-prop-types": "0.4.24",
@@ -68,6 +70,9 @@
 	"dependencies": {
 		"react": "16.8.6",
 		"react-dom": "16.8.6",
-		"react-router-dom": "5.0.0"
+		"react-redux": "6.0.1",
+		"react-router-dom": "5.0.0",
+		"redux": "4.0.1",
+		"redux-thunk": "2.3.0"
 	}
 }
