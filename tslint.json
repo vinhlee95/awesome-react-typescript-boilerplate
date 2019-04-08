@@ -5,7 +5,9 @@
 	"rulesDirectory": ["tslint-plugin-prettier"],
 	"rules": {
 		"prettier": true,
-		"member-access": false
+		"member-access": false,
+		"jsx-boolean-value": false,
+		"ordered-imports": false
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
