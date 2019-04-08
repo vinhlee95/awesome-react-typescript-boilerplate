@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom'
 
 // components
-import CoreLayout from './shared/layout/CoreLayout'
+import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 
