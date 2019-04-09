@@ -13,7 +13,7 @@ import {
 	Redirect,
 } from 'react-router-dom'
 
-// components
+// Components
 import CoreLayout from './shared/layout/CoreLayout'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
