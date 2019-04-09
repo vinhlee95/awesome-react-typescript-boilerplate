@@ -24,7 +24,7 @@ html {
 	}
 
 	@include respond(big-desktop) {
-		font-size: 75%; //1 rem = 12px; 10px/16px = 62.5%
+		font-size: 75%; //1 rem = 12px; 12px/16px = 75%
 	}
 }
 
