@@ -7,6 +7,7 @@
  */
 
 import * as React from 'react'
+import './ErrorBoundaries.scss'
 
 class ErrorBoundaries extends React.Component {
 	state = { error: null, errorInfo: null }
@@ -24,7 +25,7 @@ class ErrorBoundaries extends React.Component {
 			return (
 				<div className="error-boundaries">
 					<h2 className="error-boundaries__header">Something went wrong</h2>
-					<details style={{ whiteSpace: 'pre-wrap' }}>
+					<details className="error-boundaries__detail">
 						{this.state.error && this.state.error.toString()}
 						<br />
 						{this.state.errorInfo.componentStack}
