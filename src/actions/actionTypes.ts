@@ -1,0 +1,6 @@
+export enum ActionTypes {
+	// Post
+	GET_POSTS = 'GET_POSTS',
+	GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS',
+	GET_POSTS_FAIL = 'GET_POSTS_FAIL',
+}
