@@ -7,6 +7,7 @@
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { rootReducer } from './reducer'
+const { createLogger } = require('redux-logger')
 import thunk from 'redux-thunk'
 
 // Config redux devtool
@@ -22,6 +23,15 @@ const composeEnhancers =
 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
 	compose
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+// Config redux-logger in development
+let logger
+if (process.env.NODE_ENV === `development`) {
+	logger = createLogger()
+}
+
+const store = createStore(
+	rootReducer,
+	composeEnhancers(applyMiddleware(thunk, logger)),
+)
 
 export { store }
