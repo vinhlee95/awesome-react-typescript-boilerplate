@@ -10,7 +10,7 @@
 import * as React from 'react'
 
 // Component
-import Nav from '../components/Nav'
+import Nav from '../../components/Nav/Nav'
 
 const CoreLayout = (props: any) => {
 	return (
