@@ -6,9 +6,9 @@ const initialState = {
 	error: null,
 }
 
-const posts = (state = initialState, action) => {
+const post = (state = initialState, action) => {
 	switch (action.type) {
-		case ActionTypes.GET_POSTS:
+		case ActionTypes.GET_POST:
 			return {
 				...state,
 				loading: true,
@@ -16,7 +16,7 @@ const posts = (state = initialState, action) => {
 				data: null,
 			}
 
-		case ActionTypes.GET_POSTS_SUCCESS:
+		case ActionTypes.GET_POST_SUCCESS:
 			return {
 				...state,
 				loading: false,
@@ -24,7 +24,7 @@ const posts = (state = initialState, action) => {
 				error: null,
 			}
 
-		case ActionTypes.GET_POSTS_FAIL:
+		case ActionTypes.GET_POST_FAIL:
 			return {
 				...state,
 				loading: false,
@@ -37,4 +37,4 @@ const posts = (state = initialState, action) => {
 	}
 }
 
-export default posts
+export default post
