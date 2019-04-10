@@ -1,4 +1,6 @@
-export const startLoading = state => {
+import BaseModel from '../models/baseModel'
+
+export const startLoading = (state: BaseModel) => {
 	return {
 		...state,
 		loading: true,
@@ -6,7 +8,7 @@ export const startLoading = state => {
 	}
 }
 
-export const endLoading = (state, error) => {
+export const endLoading = (state: BaseModel, error) => {
 	return {
 		...state,
 		loading: false,
@@ -14,11 +16,20 @@ export const endLoading = (state, error) => {
 	}
 }
 
-export const updateData = (state, data) => {
+export const updateData = (state: BaseModel, data) => {
 	return {
 		...state,
 		loading: false,
 		error: undefined,
-		data,
+		...data,
+	}
+}
+
+export const updateListData = (state: BaseModel, data) => {
+	return {
+		...state,
+		loading: false,
+		error: undefined,
+		list: data,
 	}
 }

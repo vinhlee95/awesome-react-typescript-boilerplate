@@ -1,5 +1,4 @@
-import BaseState from '../models/baseState'
-import Post from '../models/post'
+import Posts from '../models/posts'
 import * as common from './common'
 import * as api from '../api/posts'
 
@@ -17,8 +16,8 @@ export enum types {
 // Reducer
 // ------------------------------------
 
-const initialState: BaseState<[Post]> = {
-	data: undefined,
+const initialState: Posts = {
+	list: undefined,
 	loading: false,
 	error: undefined,
 }
@@ -28,7 +27,7 @@ const posts = (state = initialState, action) => {
 		case types.GET_POSTS:
 			return common.startLoading(state)
 		case types.GET_POSTS_SUCCESS:
-			return common.updateData(state, action.payload.data)
+			return common.updateListData(state, action.payload.data)
 		case types.GET_POSTS_FAIL:
 			return common.endLoading(state, action.error)
 		default:

@@ -1,4 +1,3 @@
-import BaseState from '../models/baseState'
 import Post from '../models/post'
 import * as common from './common'
 import * as api from '../api/post'
@@ -17,8 +16,11 @@ export enum types {
 // Reducer
 // ------------------------------------
 
-const initialState: BaseState<Post> = {
-	data: undefined,
+const initialState: Post = {
+	id: undefined,
+	userid: undefined,
+	title: undefined,
+	body: undefined,
 	loading: false,
 	error: undefined,
 }

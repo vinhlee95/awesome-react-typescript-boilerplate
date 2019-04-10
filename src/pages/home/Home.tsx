@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import Post from './component/Post/Post'
+import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
-import PostModel from '../../models/post'
-import BaseState from '../../models/baseState'
+import Post from '../../models/post'
+import Posts from '../../models/posts'
 import { actions as postActions } from '../../modules/post'
 import { actions as postsActions } from '../../modules/posts'
 import './Home.scss'
 
 interface Props {
-	posts: BaseState<[PostModel]>
-	post: BaseState<PostModel>
+	posts: Posts
+	post: Post
 	getPosts: () => any
 	getPost: (id: number) => any
 }
@@ -25,7 +25,7 @@ class Home extends React.Component<Props, any> {
 	}
 
 	renderPostList = () => {
-		const { data, loading, error } = this.props.posts
+		const { loading, error, list } = this.props.posts
 
 		if (loading) {
 			return <p>Loading ...</p>
@@ -36,15 +36,16 @@ class Home extends React.Component<Props, any> {
 		}
 
 		return (
-			data &&
-			data.map(post => (
-				<Post onClick={this.onPostClicked} key={post.id} post={post} />
+			list &&
+			list.map(post => (
+				<PostComponent onClick={this.onPostClicked} key={post.id} post={post} />
 			))
 		)
 	}
 
 	renderPostDetail = () => {
-		const { data, loading, error } = this.props.post
+		const { post } = this.props
+		const { loading, error } = post
 
 		if (loading) {
 			return <p>Loading ...</p>
@@ -54,11 +55,11 @@ class Home extends React.Component<Props, any> {
 			return <p>Error: {error}</p>
 		}
 
-		if (!data) {
+		if (!post.body) {
 			return <p>Post Detail</p>
 		}
 
-		return <PostDetail post={data} />
+		return <PostDetail post={post} />
 	}
 
 	render() {
