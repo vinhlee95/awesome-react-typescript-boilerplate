@@ -10,8 +10,8 @@ import './Home.scss'
 interface Props {
 	posts: BaseState<[PostModel]>
 	post: BaseState<PostModel>
-	getPosts
-	getPost
+	getPosts: () => any
+	getPost: (id: number) => any
 }
 
 class Home extends React.Component<Props, any> {
