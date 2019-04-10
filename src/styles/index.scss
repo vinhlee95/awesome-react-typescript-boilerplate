@@ -2,5 +2,6 @@
  * Please use rem for styling (Desktop size: 1rem = 10px)
  */
 
-@import './base/base';
-@import './base/typography';
+@import './abstracts/index';
+@import './vendors/index';
+@import './base/index';
