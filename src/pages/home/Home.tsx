@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import { getPosts, getPost } from '../../actions'
 import Post from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
+import PostModel from '../../models/post'
+import BaseState from '../../models/baseState'
 import './Home.scss'
 
 interface Props {
-	posts
-	post
+	posts: BaseState<[PostModel]>
+	post: BaseState<PostModel>
 	getPosts
 	getPost
 }
@@ -17,7 +19,7 @@ class Home extends React.Component<Props, any> {
 		this.props.getPosts()
 	}
 
-	onPostClickd = (id: number) => {
+	onPostClicked = (id: number) => {
 		this.props.getPost(id)
 	}
 
@@ -35,7 +37,7 @@ class Home extends React.Component<Props, any> {
 		return (
 			data &&
 			data.map(post => (
-				<Post onClick={this.onPostClickd} key={post.id} post={post} />
+				<Post onClick={this.onPostClicked} key={post.id} post={post} />
 			))
 		)
 	}
@@ -68,10 +70,10 @@ class Home extends React.Component<Props, any> {
 	}
 }
 
-const mapStateToProps = reducer => {
+const mapStateToProps = ({ posts, post }) => {
 	return {
-		posts: reducer.posts,
-		post: reducer.post,
+		posts,
+		post,
 	}
 }
 

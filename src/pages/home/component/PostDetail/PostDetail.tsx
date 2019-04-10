@@ -1,7 +1,8 @@
 import * as React from 'react'
+import PostModel from '../../../../models/post'
 
 interface Props {
-	post
+	post: PostModel
 }
 
 const PostDetail = (props: Props) => {

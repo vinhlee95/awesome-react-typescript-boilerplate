@@ -1,9 +1,11 @@
 import { ActionTypes } from '../actions/actionTypes'
+import BaseState from '../models/baseState'
+import Post from '../models/post'
 
-const initialState = {
-	data: null,
+const initialState: BaseState<Post> = {
+	data: undefined,
 	loading: false,
-	error: null,
+	error: undefined,
 }
 
 const post = (state = initialState, action) => {
@@ -12,8 +14,8 @@ const post = (state = initialState, action) => {
 			return {
 				...state,
 				loading: true,
-				error: null,
-				data: null,
+				error: undefined,
+				data: undefined,
 			}
 
 		case ActionTypes.GET_POST_SUCCESS:
@@ -21,14 +23,14 @@ const post = (state = initialState, action) => {
 				...state,
 				loading: false,
 				data: action.payload.data,
-				error: null,
+				error: undefined,
 			}
 
 		case ActionTypes.GET_POST_FAIL:
 			return {
 				...state,
 				loading: false,
-				data: null,
+				data: undefined,
 				error: action.error,
 			}
 

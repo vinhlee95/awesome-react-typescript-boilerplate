@@ -1,9 +1,10 @@
 import * as React from 'react'
+import PostModel from '../../../../models/post'
 import './Post.scss'
 
 interface Props {
-	post
-	onClick
+	post: PostModel
+	onClick: (id) => void
 }
 
 const Post = (props: Props) => {
@@ -12,7 +13,7 @@ const Post = (props: Props) => {
 	return (
 		<div className="post" key={post.id} onClick={() => onClick(post.id)}>
 			<p className="post__id">id: {post.id}</p>
-			<p className="post__title">title: {post.title}</p>
+			<p className="post__title">title: {post.body}</p>
 		</div>
 	)
 }

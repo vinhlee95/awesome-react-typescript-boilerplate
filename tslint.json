@@ -11,8 +11,7 @@
 		"interface-name": false,
 		"object-literal-sort-keys": false,
 		"no-console": false,
-		"jsx-no-lambda": false,
-		"no-shadowed-variable": false
+		"jsx-no-lambda": false
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
