@@ -1,5 +1,5 @@
 /**
- * Root reducer
+ * Root reducers
  *
  * @author Vinh Le <lethanhvinh95@gmail.com>
  *
