@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { getPosts, getPost } from '../../actions'
 import Post from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
 import PostModel from '../../models/post'
 import BaseState from '../../models/baseState'
+import { actions as postActions } from '../../modules/post'
+import { actions as postsActions } from '../../modules/posts'
 import './Home.scss'
 
 interface Props {
@@ -78,8 +79,8 @@ const mapStateToProps = ({ posts, post }) => {
 }
 
 const mapDispatchToProps = {
-	getPosts,
-	getPost,
+	getPosts: postsActions.getPosts,
+	getPost: postActions.getPost,
 }
 
 export default connect(
