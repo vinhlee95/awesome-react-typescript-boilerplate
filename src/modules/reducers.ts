@@ -6,8 +6,8 @@
  */
 
 import { combineReducers } from 'redux'
-import { reducer as postsReducer } from '../modules/posts'
-import { reducer as postReducer } from '../modules/post'
+import { reducer as postsReducer } from './posts'
+import { reducer as postReducer } from './post'
 
 export const rootReducer = combineReducers({
 	posts: postsReducer,
