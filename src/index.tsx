@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { store } from './configStore'
 import App from './App'
 import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
+import './styles/index.scss'
 
 const app = (
 	<Provider store={store}>
