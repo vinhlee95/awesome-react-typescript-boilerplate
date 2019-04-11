@@ -23,7 +23,7 @@ const composeEnhancers =
 	(!isProduction && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 // Config redux-logger in development
-let middleware = [thunk]
+const middleware = [thunk]
 if (!isProduction) {
 	// tslint:disable-next-line:no-var-requires
 	const { createLogger } = require('redux-logger')
