@@ -7,7 +7,6 @@
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { rootReducer } from './reducer'
-const { createLogger } = require('redux-logger')
 import thunk from 'redux-thunk'
 
 // Config redux devtool
@@ -18,20 +17,23 @@ declare global {
 	}
 }
 
+const isProduction = process.env.NODE_ENV === 'production'
+// Config redux devtool in development
 const composeEnhancers =
-	(process.env.NODE_ENV !== 'production' &&
-		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-	compose
+	(!isProduction && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 // Config redux-logger in development
-let logger
-if (process.env.NODE_ENV === `development`) {
-	logger = createLogger()
+let middleware = [thunk]
+if (!isProduction) {
+	// tslint:disable-next-line:no-var-requires
+	const { createLogger } = require('redux-logger')
+	const logger = createLogger()
+	middleware.push(logger)
 }
 
 const store = createStore(
 	rootReducer,
-	composeEnhancers(applyMiddleware(thunk, logger)),
+	composeEnhancers(applyMiddleware(...middleware)),
 )
 
 export { store }
