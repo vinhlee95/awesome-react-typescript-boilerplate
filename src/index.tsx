@@ -3,12 +3,14 @@ import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { store } from './configStore'
 import App from './App'
+import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
 
-import './index.scss'
-
-ReactDOM.render(
+const app = (
 	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById('root'),
+		<ErrorBoundaries>
+			<App />
+		</ErrorBoundaries>
+	</Provider>
 )
+
+ReactDOM.render(app, document.getElementById('root'))
