@@ -7,7 +7,9 @@
 		"prettier": true,
 		"member-access": false,
 		"jsx-boolean-value": false,
-		"ordered-imports": false
+		"ordered-imports": false,
+		"interface-name": false,
+		"prefer-const": false
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
