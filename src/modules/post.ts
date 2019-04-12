@@ -33,12 +33,7 @@ const post = (state = initialState, action) =>
 				common.startLoading(draft)
 				break
 			case types.GET_POST_SUCCESS:
-				const { id, userId, body, title } = action.payload.data
-				draft.id = id
-				draft.userid = userId
-				draft.body = body
-				draft.title = title
-				common.updateData(draft)
+				common.updateData(draft, action.payload.data)
 				break
 			case types.GET_POST_FAIL:
 				common.endLoading(draft, action.error)

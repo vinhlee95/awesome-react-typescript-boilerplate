@@ -30,8 +30,7 @@ const posts = (state = initialState, action) =>
 				common.startLoading(draft)
 				break
 			case types.GET_POSTS_SUCCESS:
-				draft.list = action.payload.data
-				common.updateData(draft)
+				common.updateListData(draft, action.payload.data)
 				break
 			case types.GET_POSTS_FAIL:
 				common.endLoading(draft, action.error)

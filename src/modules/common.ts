@@ -1,33 +1,26 @@
 import BaseModel from '../models/baseModel'
 
 export const startLoading = (state: BaseModel) => {
-	return {
-		loading: true,
-		error: undefined,
-		state,
-	}
+	state.loading = true
+	state.error = undefined
 }
 
 export const endLoading = (state: BaseModel, error) => {
-	return {
-		state,
-		loading: false,
-		error,
-	}
+	state.loading = false
+	state.error = error
 }
 
-export const updateData = (state: BaseModel) => {
-	return {
-		state,
-		loading: false,
-		error: undefined,
-	}
+export const updateData = (state: BaseModel, data) => {
+	state.loading = false
+	state.error = undefined
+	Object.keys(data).map(key => {
+		const value = data[key]
+		state[key] = value
+	})
 }
 
-export const updateListData = (state: BaseModel) => {
-	return {
-		state,
-		loading: false,
-		error: undefined,
-	}
+export const updateListData = (state: BaseModel, data) => {
+	state.loading = false
+	state.error = undefined
+	state.list = data
 }
