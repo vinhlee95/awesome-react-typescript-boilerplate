@@ -1,6 +1,6 @@
-import BaseModel from './baseModel'
+import BaseModels from './baseModels'
 import Post from './post'
 
-export default interface Posts extends BaseModel {
+export default interface Posts extends BaseModels {
 	list?: [Post]
 }

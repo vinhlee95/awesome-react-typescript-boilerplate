@@ -1,3 +1,5 @@
+import produce from 'immer'
+
 import Posts from '../models/posts'
 import * as common from './common'
 
@@ -21,18 +23,21 @@ const initialState: Posts = {
 	error: undefined,
 }
 
-const posts = (state = initialState, action) => {
-	switch (action.type) {
-		case types.GET_POSTS:
-			return common.startLoading(state)
-		case types.GET_POSTS_SUCCESS:
-			return common.updateListData(state, action.payload.data)
-		case types.GET_POSTS_FAIL:
-			return common.endLoading(state, action.error)
-		default:
-			return state
-	}
-}
+const posts = (state = initialState, action) =>
+	produce(state, draft => {
+		switch (action.type) {
+			case types.GET_POSTS:
+				common.startLoading(draft)
+				break
+			case types.GET_POSTS_SUCCESS:
+				common.updateListData(draft, action.payload.data)
+				break
+			case types.GET_POSTS_FAIL:
+				common.endLoading(draft, action.error)
+			default:
+				return state
+		}
+	})
 
 export const reducer = posts
 
