@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { rootReducer } from './modules/reducers'
 import thunk from 'redux-thunk'
 import axiosMiddleware from 'redux-axios-middleware'
-import axios from './api/axious'
+import axios from './api/axios'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
