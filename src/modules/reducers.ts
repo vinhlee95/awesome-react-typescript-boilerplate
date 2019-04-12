@@ -6,7 +6,10 @@
  */
 
 import { combineReducers } from 'redux'
+import { reducer as postsReducer } from './posts'
+import { reducer as postReducer } from './post'
 
 export const rootReducer = combineReducers({
-	users: () => [],
+	posts: postsReducer,
+	post: postReducer,
 })

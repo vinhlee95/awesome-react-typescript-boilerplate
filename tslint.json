@@ -9,6 +9,9 @@
 		"jsx-boolean-value": false,
 		"ordered-imports": false,
 		"interface-name": false,
+		"object-literal-sort-keys": false,
+		"no-console": false,
+		"jsx-no-lambda": false,
 		"prefer-const": false
 	},
 	"linterOptions": {
