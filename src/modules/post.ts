@@ -1,6 +1,5 @@
 import Post from '../models/post'
 import * as common from './common'
-import * as api from '../api/post'
 
 // ------------------------------------
 // Action Types
@@ -45,5 +44,14 @@ export const reducer = post
 // ------------------------------------
 
 export const actions = {
-	getPost: (id: number) => api.getPost(id),
+	getPost: (id: number) => getPost(id),
 }
+
+const getPost = (id: number) => ({
+	type: types.GET_POST,
+	payload: {
+		request: {
+			url: `/posts/${id}`,
+		},
+	},
+})
