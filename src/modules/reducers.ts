@@ -5,11 +5,11 @@
  *
  */
 
-import { combineReducers } from 'redux'
-import { reducer as postsReducer } from './posts'
-import { reducer as postReducer } from './post'
-import { History } from 'history'
-import { connectRouter } from 'connected-react-router'
+import {combineReducers} from 'redux'
+import {History} from 'history'
+import {connectRouter} from 'connected-react-router'
+import {reducer as postsReducer} from './posts'
+import {reducer as postReducer} from './post'
 
 const rootReducer = (history: History) =>
 	combineReducers({
