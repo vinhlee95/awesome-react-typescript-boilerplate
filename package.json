@@ -6,7 +6,10 @@
 	"scripts": {
 		"start": "webpack-dev-server --config webpack/webpack.dev.js",
 		"build": "webpack --config webpack/webpack.prod.js",
+		"build:dev": "webpack --config webpack/webpack.dev.js",
 		"tslint-prettier": "tslint-config-prettier-check ./tslint.json",
+		"analyze:prod": "npm run build -- --env.presets analyze",
+		"analyze:dev": "npm run build:dev -- --env.presets analyze",
 		"lint": "tslint --project tsconfig.json",
 		"fix-lint": "tslint --fix --project tsconfig.json",
 		"check-types": "tsc",
@@ -40,6 +43,7 @@
 		"@types/node": "11.13.2",
 		"@types/react": "16.8.10",
 		"@types/react-dom": "16.8.3",
+		"@types/react-hot-loader": "^4.1.0",
 		"@types/react-redux": "7.0.6",
 		"@types/react-router-dom": "4.3.1",
 		"@types/redux-logger": "3.0.7",
@@ -68,12 +72,14 @@
 		"tslint-react": "4.0.0",
 		"typescript": "3.4.1",
 		"webpack": "4.29.6",
+		"webpack-bundle-analyzer": "3.3.2",
 		"webpack-cli": "3.3.0",
 		"webpack-dev-server": "3.2.1",
 		"webpack-merge": "4.2.1"
 	},
 	"dependencies": {
 		"axios": "0.18.0",
+		"connected-react-router": "6.3.2",
 		"immer": "2.1.5",
 		"react": "16.8.6",
 		"react-dom": "16.8.6",

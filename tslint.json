@@ -13,7 +13,7 @@
 		"no-console": false,
 		"jsx-no-lambda": false,
 		"prefer-const": false,
-		"defaultSeverity": "warning"
+		"no-unused-variable": true
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
