@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const postcssPresetEnv = require('postcss-preset-env')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
@@ -21,7 +22,17 @@ module.exports = merge(common, {
 		rules: [
 			{
 				test: /\.(?:sa|sc|c)ss$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'sass-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [postcssPresetEnv()],
+						},
+					},
+				],
 			},
 		],
 	},
