@@ -7,7 +7,6 @@ import Posts from '../../models/posts'
 import {actions as postActions} from '../../modules/post'
 import {actions as postsActions} from '../../modules/posts'
 import './Home.scss'
-import * as api from '../../api'
 
 interface Props {
 	posts: Posts
@@ -19,9 +18,6 @@ interface Props {
 class Home extends React.Component<Props, any> {
 	componentDidMount() {
 		this.props.getPosts()
-		// TODO: this is here to make sure that api works
-		// remove when making specific action for comments
-		api.comments.get()
 	}
 
 	onPostClicked = (id: number) => {
