@@ -72,6 +72,7 @@
 	},
 	"dependencies": {
 		"axios": "0.18.0",
+		"connected-react-router": "6.3.2",
 		"immer": "2.1.5",
 		"react": "16.8.6",
 		"react-dom": "16.8.6",

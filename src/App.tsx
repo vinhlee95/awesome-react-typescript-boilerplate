@@ -29,15 +29,13 @@ class App extends React.Component {
 	render() {
 		return (
 			<React.Suspense fallback={<div>Loading...</div>}>
-				<Router>
-					<CoreLayout>
-						<Switch>
-							<Route exact path={RouterPath.home} component={Home} />
-							<Route path={RouterPath.about} component={About} />
-							<Redirect to={RouterPath.home} />
-						</Switch>
-					</CoreLayout>
-				</Router>
+				<CoreLayout>
+					<Switch>
+						<Route exact path={RouterPath.home} component={Home} />
+						<Route path={RouterPath.about} component={About} />
+						<Redirect to={RouterPath.home} />
+					</Switch>
+				</CoreLayout>
 			</React.Suspense>
 		)
 	}
