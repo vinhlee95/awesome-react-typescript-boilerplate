@@ -1,4 +1,5 @@
-import BaseModel from '../models/baseModel'
+import BaseModel from '../models/bases/baseModel'
+import BaseModels from '../models/bases/baseModels'
 
 export const startLoading = (state: BaseModel) => {
 	state.loading = true
@@ -19,7 +20,7 @@ export const updateData = (state: BaseModel, data) => {
 	})
 }
 
-export const updateListData = (state: BaseModel, data) => {
+export const updateListData = (state: BaseModels, data) => {
 	state.loading = false
 	state.error = undefined
 	state.list = data
