@@ -5,8 +5,8 @@
  *
  */
 
-import { createStore, applyMiddleware, compose } from 'redux'
-import { rootReducer } from './modules/reducers'
+import {createStore, applyMiddleware, compose} from 'redux'
+import {rootReducer} from './modules/reducers'
 import thunk from 'redux-thunk'
 import axiosMiddleware from 'redux-axios-middleware'
 import axios from './api/axios'
@@ -30,7 +30,7 @@ const middlewares = [thunk, axiosMiddleware(axios)]
 
 if (!isProduction) {
 	// tslint:disable-next-line:no-var-requires
-	const { createLogger } = require('redux-logger')
+	const {createLogger} = require('redux-logger')
 	const logger = createLogger()
 	middlewares.push(logger)
 }
@@ -40,4 +40,4 @@ const store = createStore(
 	composeEnhancers(applyMiddleware(...middlewares)),
 )
 
-export { store }
+export {store}

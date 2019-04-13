@@ -6,7 +6,7 @@
  */
 
 import * as React from 'react'
-import { hot } from 'react-hot-loader/root'
+import {hot} from 'react-hot-loader/root'
 
 import {
 	BrowserRouter as Router,
@@ -23,7 +23,7 @@ const Home = React.lazy(() => import('./pages/Home/Home'))
 const About = React.lazy(() => import('./pages/About/About'))
 
 // Constants
-import { RouterPath } from './constants'
+import {RouterPath} from './constants'
 
 class App extends React.Component {
 	render() {
