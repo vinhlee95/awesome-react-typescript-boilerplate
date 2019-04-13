@@ -31,15 +31,13 @@ const configureStore = (preloadedState?: any) => {
 
 	// Middlewares
 
-	const middlewares = [thunk, axiosMiddleware(axios)]
+	const middlewares = [thunk, axiosMiddleware(axios), routerMiddleware(history)]
 
 	if (!isProduction) {
 		// tslint:disable-next-line:no-var-requires
 		const {createLogger} = require('redux-logger')
 		const logger = createLogger()
 		middlewares.push(logger)
-
-		middlewares.push(routerMiddleware(history))
 	}
 
 	const store = createStore(
