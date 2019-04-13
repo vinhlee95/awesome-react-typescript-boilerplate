@@ -6,10 +6,15 @@
  */
 
 import {combineReducers} from 'redux'
+import {History} from 'history'
+import {connectRouter} from 'connected-react-router'
 import {reducer as postsReducer} from './posts'
 import {reducer as postReducer} from './post'
 
-export const rootReducer = combineReducers({
-	posts: postsReducer,
-	post: postReducer,
-})
+const rootReducer = (history: History) =>
+	combineReducers({
+		posts: postsReducer,
+		post: postReducer,
+		router: connectRouter(history),
+	})
+export default rootReducer
