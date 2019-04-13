@@ -1,5 +1,4 @@
 export default interface BaseModel {
 	loading: boolean
-	error?: string
-	list?: any
+	error: any
 }
