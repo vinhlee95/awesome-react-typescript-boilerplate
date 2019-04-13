@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
 import Post from '../../models/post'
 import Posts from '../../models/posts'
-import { actions as postActions } from '../../modules/post'
-import { actions as postsActions } from '../../modules/posts'
+import {actions as postActions} from '../../modules/post'
+import {actions as postsActions} from '../../modules/posts'
 import './Home.scss'
 import * as api from '../../api'
 
@@ -29,7 +29,7 @@ class Home extends React.Component<Props, any> {
 	}
 
 	renderPostList = () => {
-		const { loading, error, list } = this.props.posts
+		const {loading, error, list} = this.props.posts
 
 		if (loading) {
 			return <p>Loading ...</p>
@@ -48,8 +48,8 @@ class Home extends React.Component<Props, any> {
 	}
 
 	renderPostDetail = () => {
-		const { post } = this.props
-		const { loading, error } = post
+		const {post} = this.props
+		const {loading, error} = post
 
 		if (loading) {
 			return <p>Loading ...</p>
@@ -76,7 +76,7 @@ class Home extends React.Component<Props, any> {
 	}
 }
 
-const mapStateToProps = ({ posts, post }) => {
+const mapStateToProps = ({posts, post}) => {
 	return {
 		posts,
 		post,

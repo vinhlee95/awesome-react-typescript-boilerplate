@@ -7,10 +7,10 @@
  */
 
 import * as React from 'react'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 // Constants
-import { RouterPath } from '../../../constants'
+import {RouterPath} from '../../../constants'
 
 const Nav = () => {
 	return (
