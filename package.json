@@ -81,18 +81,5 @@
 		"redux": "4.0.1",
 		"redux-axios-middleware": "4.0.0",
 		"redux-thunk": "2.3.0"
-	},
-	"browserslist": {
-		"development": [
-			"last 2 chrome versions",
-			"last 2 firefox versions",
-			"last 2 edge versions"
-		],
-		"production": [
-			">0.2%",
-			"last 4 versions",
-			"Firefox ESR",
-			"not ie <= 11"
-		]
 	}
 }
