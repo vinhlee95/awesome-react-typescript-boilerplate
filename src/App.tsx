@@ -19,8 +19,12 @@ import {
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
 
 // Code splitting
-const Home = React.lazy(() => import('./pages/Home/Home'))
-const About = React.lazy(() => import('./pages/About/About'))
+const Home = React.lazy(() =>
+	import(/* webpackChunkName: "home" */ './pages/Home/Home'),
+)
+const About = React.lazy(() =>
+	import(/* webpackChunkName: "about" */ './pages/About/About'),
+)
 
 // Constants
 import { RouterPath } from './constants'
