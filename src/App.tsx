@@ -6,9 +6,9 @@
  */
 
 import * as React from 'react'
-import { hot } from 'react-hot-loader/root'
+import {hot} from 'react-hot-loader/root'
 
-import { Route, Switch, Redirect } from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
@@ -18,7 +18,7 @@ const Home = React.lazy(() => import('./pages/Home/Home'))
 const About = React.lazy(() => import('./pages/About/About'))
 
 // Constants
-import { RouterPath } from './constants'
+import {RouterPath} from './constants'
 
 class App extends React.Component {
 	render() {
