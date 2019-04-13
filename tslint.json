@@ -12,7 +12,8 @@
 		"object-literal-sort-keys": false,
 		"no-console": false,
 		"jsx-no-lambda": false,
-		"prefer-const": false
+		"prefer-const": false,
+		"defaultSeverity": "warning"
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
