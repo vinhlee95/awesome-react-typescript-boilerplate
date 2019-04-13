@@ -1,5 +1,5 @@
 {
-	"defaultSeverity": "warning",
+	"defaultSeverity": "error",
 	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
 	"jsRules": {},
 	"rulesDirectory": ["tslint-plugin-prettier"],
@@ -12,7 +12,8 @@
 		"object-literal-sort-keys": false,
 		"no-console": false,
 		"jsx-no-lambda": false,
-		"prefer-const": false
+		"prefer-const": false,
+		"no-unused-variable": true
 	},
 	"linterOptions": {
 		"exclude": ["node_modules/**/*.ts"]
