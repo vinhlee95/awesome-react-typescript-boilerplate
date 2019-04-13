@@ -15,15 +15,16 @@ let baseUrl: string = process.env.API_ENDPOINT
 const getData = res => res.data
 
 const joinUrl = (endpoint, params?, query?): string => {
-	let joinedUrl = [`${baseUrl}/${endpoint}`]
+	let joinedUrl = `${baseUrl}/${endpoint}`
 	if (params) {
-		joinedUrl.push(`${params}`)
+		const strParams = params.toString()
+		joinedUrl = joinedUrl + '/' + strParams
+		console.log(joinedUrl)
 	}
 	if (query) {
-		joinedUrl.push(`${query}`)
+		joinedUrl = joinedUrl + '/' + query
 	}
-
-	return joinedUrl.join(' ')
+	return joinedUrl
 }
 
 const requests = {
@@ -42,7 +43,7 @@ const posts = {
 }
 
 const post = {
-	get: (id?: string) => requests.get('post', id),
+	get: (id: string) => requests.get('posts', id),
 }
 
 const comments = {
