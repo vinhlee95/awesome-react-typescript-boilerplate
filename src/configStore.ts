@@ -13,7 +13,7 @@ import axiosMiddleware from 'redux-axios-middleware'
 import { routerMiddleware } from 'connected-react-router'
 import axios from './api/axios'
 
-export const history = createBrowserHistory()
+const history = createBrowserHistory()
 
 declare global {
 	interface Window {
@@ -51,4 +51,4 @@ const configureStore = (preloadedState?: any) => {
 	return store
 }
 
-export default configureStore
+export { configureStore, history }
