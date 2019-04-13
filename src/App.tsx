@@ -6,6 +6,7 @@
  */
 
 import * as React from 'react'
+import { hot } from 'react-hot-loader/root'
 
 import {
 	BrowserRouter as Router,
@@ -42,4 +43,4 @@ class App extends React.Component {
 	}
 }
 
-export default App
+export default hot(App)
