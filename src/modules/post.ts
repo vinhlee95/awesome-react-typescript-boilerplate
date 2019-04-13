@@ -1,17 +1,10 @@
 import produce from 'immer'
 
+import * as types from './commons/types'
+import modelActions from './commons/modelActions'
+import * as common from './commons/common'
+
 import Post from '../models/post'
-import * as common from './common'
-
-// ------------------------------------
-// Action Types
-// ------------------------------------
-
-export enum types {
-	GET_POST = 'GET_POST',
-	GET_POST_SUCCESS = 'GET_POST_SUCCESS',
-	GET_POST_FAIL = 'GET_POST_FAIL',
-}
 
 // ------------------------------------
 // Reducer
@@ -26,16 +19,18 @@ const initialState: Post = {
 	error: undefined,
 }
 
+const modelName = 'post'
+
 const post = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
-			case types.GET_POST:
+			case types.get.start(modelName):
 				common.startLoading(draft)
 				break
-			case types.GET_POST_SUCCESS:
+			case types.get.success(modelName):
 				common.updateData(draft, action.payload.data)
 				break
-			case types.GET_POST_FAIL:
+			case types.get.fail(modelName):
 				common.endLoading(draft, action.error)
 			default:
 				return state
@@ -49,14 +44,5 @@ export const reducer = post
 // ------------------------------------
 
 export const actions = {
-	getPost: (id: number) => getPost(id),
+	getPost: (id: number) => modelActions.getModel(modelName, id),
 }
-
-const getPost = (id: number) => ({
-	type: types.GET_POST,
-	payload: {
-		request: {
-			url: `/posts/${id}`,
-		},
-	},
-})
