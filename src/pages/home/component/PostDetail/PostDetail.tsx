@@ -6,7 +6,7 @@ interface Props {
 }
 
 const PostDetail = (props: Props) => {
-	const {post} = props
+	const { post } = props
 
 	return (
 		post && (

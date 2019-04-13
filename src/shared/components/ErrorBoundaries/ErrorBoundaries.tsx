@@ -10,7 +10,7 @@ import * as React from 'react'
 import './ErrorBoundaries.scss'
 
 class ErrorBoundaries extends React.Component {
-	state = {error: null, errorInfo: null}
+	state = { error: null, errorInfo: null }
 
 	componentDidCatch(error: any, errorInfo: any) {
 		// Catch errors in any components below and re-render with error message

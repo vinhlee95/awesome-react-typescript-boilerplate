@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Post = (props: Props) => {
-	const {post, onClick} = props
+	const { post, onClick } = props
 
 	return (
 		<div className="post" key={post.id} onClick={() => onClick(post.id)}>

@@ -5,12 +5,12 @@
  *
  */
 
-import {createStore, applyMiddleware, compose} from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import createRootReducer from './modules/reducers'
-import {createBrowserHistory} from 'history'
+import { createBrowserHistory } from 'history'
 import thunk from 'redux-thunk'
 import axiosMiddleware from 'redux-axios-middleware'
-import {routerMiddleware} from 'connected-react-router'
+import { routerMiddleware } from 'connected-react-router'
 import axios from './api/axios'
 
 export const history = createBrowserHistory()
@@ -35,7 +35,7 @@ const configureStore = (preloadedState?: any) => {
 
 	if (!isProduction) {
 		// tslint:disable-next-line:no-var-requires
-		const {createLogger} = require('redux-logger')
+		const { createLogger } = require('redux-logger')
 		const logger = createLogger()
 		middlewares.push(logger)
 

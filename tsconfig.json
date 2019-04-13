@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"paths": {"*": ["types/*"]},
+		"paths": { "*": ["types/*"] },
 		"moduleResolution": "node",
 		"outDir": "./dist/",
 		"sourceMap": true,
