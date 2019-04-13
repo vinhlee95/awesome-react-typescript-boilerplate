@@ -8,6 +8,7 @@
 		"build": "webpack --config webpack/webpack.prod.js",
 		"tslint-prettier": "tslint-config-prettier-check ./tslint.json",
 		"lint": "tslint --project tsconfig.json",
+		"fix-lint": "tslint --fix --project tsconfig.json",
 		"check-types": "tsc",
 		"format": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write"
 	},
