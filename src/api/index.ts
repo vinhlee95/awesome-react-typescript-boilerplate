@@ -49,6 +49,6 @@ const comments = {
 	get: (id?: string) => requests.get('comments', id),
 }
 
-api = axios.create({ baseURL: baseUrl })
+api = axios.create({baseURL: baseUrl})
 
-export { posts, post, comments, api }
+export {posts, post, comments, api}
