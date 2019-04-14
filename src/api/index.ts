@@ -15,11 +15,9 @@ let baseUrl: string = process.env.API_ENDPOINT
 const getData = res => res.data
 
 const joinUrl = (endpoint, params?, query?): string => {
-	let joinedUrl = `${baseUrl}/${endpoint}`
+	let joinedUrl = `${endpoint}`
 	if (params) {
-		const strParams = params.toString()
-		joinedUrl = joinedUrl + '/' + strParams
-		console.log(joinedUrl)
+		joinedUrl = joinedUrl + '/' + params
 	}
 	if (query) {
 		joinedUrl = joinedUrl + '/' + query
@@ -43,11 +41,11 @@ const posts = {
 }
 
 const post = {
-	get: (id: string) => requests.get('posts', id),
+	get: (id: string) => requests.get('/posts', id),
 }
 
 const comments = {
-	get: (id?: string) => requests.get('comments', id),
+	get: (id?: string) => requests.get('/comments', id),
 }
 
 api = axios.create({baseURL: baseUrl})
