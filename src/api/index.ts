@@ -36,18 +36,17 @@ const requests = {
 		api.delete(joinUrl(endpoint, params, query)).then(getData),
 }
 
-const posts = {
+export const posts = {
 	get: () => requests.get('posts'),
 }
 
-const post = {
+export const post = {
 	get: (id: string) => requests.get('/posts', id),
 }
 
-const comments = {
+export const comments = {
 	get: (id?: string) => requests.get('/comments', id),
 }
 
 api = axios.create({baseURL: baseUrl})
-
-export {posts, post, comments, api}
+export {api}
