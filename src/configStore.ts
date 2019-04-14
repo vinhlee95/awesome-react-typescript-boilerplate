@@ -5,7 +5,7 @@
  *
  */
 
-import {createStore, applyMiddleware, compose} from 'redux'
+import {createStore, applyMiddleware, compose, Middleware} from 'redux'
 import createRootReducer from './modules/reducers'
 import {createBrowserHistory} from 'history'
 import thunk from 'redux-thunk'
@@ -29,7 +29,7 @@ const configureStore = (preloadedState?: any) => {
 
 	// Middlewares
 
-	const middlewares: any = [thunk]
+	const middlewares: [Middleware] = [thunk]
 
 	if (!isProduction) {
 		// tslint:disable-next-line:no-var-requires
