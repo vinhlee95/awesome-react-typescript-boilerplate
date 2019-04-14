@@ -20,6 +20,7 @@ const initialState: Post = {
 }
 
 const modelName = 'post'
+const path = '/posts'
 
 const post = (state = initialState, action) =>
 	produce(state, draft => {
@@ -44,5 +45,5 @@ export const reducer = post
 // ------------------------------------
 
 export const actions = {
-	getPost: (id: number) => modelActions.getModel(modelName, id),
+	getPost: (id: number) => modelActions.getModel(modelName, path, id),
 }
