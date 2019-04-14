@@ -5,7 +5,7 @@
  *
  */
 
-import {createStore, applyMiddleware, compose, Middleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import createRootReducer from './modules/reducers'
 import {createBrowserHistory} from 'history'
 import thunk from 'redux-thunk'
@@ -29,15 +29,13 @@ const configureStore = (preloadedState?: any) => {
 
 	// Middlewares
 
-	const middlewares: [Middleware] = [thunk]
+	const middlewares = [thunk, routerMiddleware(history)]
 
 	if (!isProduction) {
 		// tslint:disable-next-line:no-var-requires
 		const {createLogger} = require('redux-logger')
 		const logger = createLogger()
 		middlewares.push(logger)
-
-		middlewares.push(routerMiddleware(history))
 	}
 
 	const store = createStore(
