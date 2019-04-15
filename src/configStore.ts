@@ -9,9 +9,7 @@ import {createStore, applyMiddleware, compose} from 'redux'
 import createRootReducer from './modules/reducers'
 import {createBrowserHistory} from 'history'
 import thunk from 'redux-thunk'
-import axiosMiddleware from 'redux-axios-middleware'
 import {routerMiddleware} from 'connected-react-router'
-import axios from './api/axios'
 
 const history = createBrowserHistory()
 
@@ -31,7 +29,7 @@ const configureStore = (preloadedState?: any) => {
 
 	// Middlewares
 
-	const middlewares = [thunk, axiosMiddleware(axios), routerMiddleware(history)]
+	const middlewares = [thunk, routerMiddleware(history)]
 
 	if (!isProduction) {
 		// tslint:disable-next-line:no-var-requires
