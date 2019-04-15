@@ -9,7 +9,7 @@ import i18n from '../i18n'
 const name = 'app'
 
 // ------------------------------------
-// Reducer
+// Action Types
 // ------------------------------------
 
 const types = {
