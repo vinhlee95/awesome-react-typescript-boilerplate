@@ -92,7 +92,7 @@
 			">0.2%",
 			"last 4 versions",
 			"Firefox ESR",
-			"not ie <= 11"
+			"not ie < 11"
 		]
 	}
 }
