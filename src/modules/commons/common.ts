@@ -25,3 +25,13 @@ export const updateListData = (state: BaseModels, data) => {
 	state.error = undefined
 	state.list = data
 }
+
+export const createAction = (actionName: string) => {
+	return (payload?: any, error?: any) => {
+		return {
+			type: actionName,
+			payload,
+			error,
+		}
+	}
+}

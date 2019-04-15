@@ -1,5 +1,14 @@
 {
 	"common": {
-		"welcome": "Welcome to Typscript Boilerplate"
+		"welcome": "Welcome to Typscript Boilerplate",
+		"en": "English",
+		"de": "German"
+	},
+	"nav": {
+		"home": "Home",
+		"about": "About"
+	},
+	"error": {
+		"unexpectedError": "Something went wrong"
 	}
 }
