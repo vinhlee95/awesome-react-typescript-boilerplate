@@ -6,6 +6,7 @@
  */
 
 import axios from 'axios'
+import {stringify} from 'query-string'
 
 let baseUrl: string = process.env.API_ENDPOINT
 	? process.env.API_ENDPOINT
@@ -20,7 +21,7 @@ const joinUrl = (path, params?, query?): string => {
 		joinedUrl = joinedUrl + '/' + params
 	}
 	if (query) {
-		joinedUrl = joinedUrl + '/' + query
+		joinedUrl = joinedUrl + '/' + `?${stringify(query)}`
 	}
 	return joinedUrl
 }
