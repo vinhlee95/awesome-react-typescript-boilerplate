@@ -26,10 +26,10 @@ export const updateListData = (state: BaseModels, data) => {
 	state.list = data
 }
 
-export const createAction = (actionName: string) => {
+export const createAction = (type: string) => {
 	return (payload?: any, error?: any) => {
 		return {
-			type: actionName,
+			type,
 			payload,
 			error,
 		}
