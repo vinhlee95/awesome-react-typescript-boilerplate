@@ -8,15 +8,19 @@ import Posts from '../../models/posts'
 import {actions as postActions} from '../../modules/post'
 import {actions as postsActions} from '../../modules/posts'
 import './Home.scss'
+import i18next from 'i18next'
 
 interface Props {
 	posts: Posts
 	post: Post
 	getPosts: () => any
 	getPost: (id: number) => any
+	t: i18next.TFunction
+	i18n: i18next.i18n
+	tReady: boolean
 }
 
-class Home extends React.Component<any, any> {
+class Home extends React.Component<Props, any> {
 	componentDidMount() {
 		this.props.getPosts()
 	}
