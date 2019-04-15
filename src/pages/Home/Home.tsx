@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
+import {withTranslation} from 'react-i18next'
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
 import Post from '../../models/post'
@@ -15,7 +16,7 @@ interface Props {
 	getPost: (id: number) => any
 }
 
-class Home extends React.Component<Props, any> {
+class Home extends React.Component<any, any> {
 	componentDidMount() {
 		this.props.getPosts()
 	}
@@ -63,10 +64,17 @@ class Home extends React.Component<Props, any> {
 	}
 
 	render() {
+		const {t} = this.props
+
 		return (
-			<div className="post-container">
-				<div className="post-container__list">{this.renderPostList()}</div>
-				<div className="post-container__detail">{this.renderPostDetail()}</div>
+			<div>
+				<h2>{t('common.welcome')}</h2>
+				<div className="post-container">
+					<div className="post-container__list">{this.renderPostList()}</div>
+					<div className="post-container__detail">
+						{this.renderPostDetail()}
+					</div>
+				</div>
 			</div>
 		)
 	}
@@ -87,4 +95,4 @@ const mapDispatchToProps = {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(Home)
+)(withTranslation()(Home))

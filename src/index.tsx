@@ -5,6 +5,7 @@ import {configureStore, history} from './configStore'
 import App from './App'
 import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
 import './styles/index.scss'
+import './i18n'
 import {ConnectedRouter} from 'connected-react-router'
 
 const store = configureStore()
