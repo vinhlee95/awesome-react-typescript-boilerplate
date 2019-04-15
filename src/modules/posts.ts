@@ -7,6 +7,13 @@ import * as common from './commons/common'
 import Posts from '../models/posts'
 
 // ------------------------------------
+// Const
+// ------------------------------------
+
+const modelName = 'posts'
+const path = '/posts'
+
+// ------------------------------------
 // Reducer
 // ------------------------------------
 
@@ -15,9 +22,6 @@ const initialState: Posts = {
 	loading: false,
 	error: undefined,
 }
-
-const modelName = 'posts'
-const path = '/posts'
 
 const posts = (state = initialState, action) =>
 	produce(state, draft => {
