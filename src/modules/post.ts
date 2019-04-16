@@ -37,8 +37,7 @@ const post = (state = initialState, action) =>
 				break
 			case moduleActionTypes.GET_MODEL_FAIL:
 				endLoading(draft, action.error)
-			default:
-				return state
+				break
 		}
 	})
 
