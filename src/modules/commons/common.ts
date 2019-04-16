@@ -1,5 +1,5 @@
-import BaseModel from '../../models/bases/baseModel'
-import BaseModels from '../../models/bases/baseModels'
+import BaseModel from '../../models/bases/BaseModel'
+import BaseModels from '../../models/bases/BaseModels'
 
 export const startLoading = (state: BaseModel) => {
 	state.loading = true

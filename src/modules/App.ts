@@ -1,4 +1,4 @@
-import App from '../models/app'
+import App from '../models/App'
 import produce from 'immer'
 import {createAction} from './commons/common'
 import i18n from '../services/i18n'

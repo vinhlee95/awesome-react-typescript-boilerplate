@@ -8,9 +8,9 @@
 import {combineReducers} from 'redux'
 import {History} from 'history'
 import {connectRouter} from 'connected-react-router'
-import {reducer as postsReducer} from './posts'
-import {reducer as postReducer} from './post'
-import {reducer as appReducer} from './app'
+import {reducer as postsReducer} from './Posts'
+import {reducer as postReducer} from './Post'
+import {reducer as appReducer} from './App'
 
 const rootReducer = (history: History) =>
 	combineReducers({

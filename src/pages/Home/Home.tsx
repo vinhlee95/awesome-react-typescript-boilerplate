@@ -8,13 +8,13 @@ import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
 
 // Models
-import Post from '../../models/post'
-import Posts from '../../models/posts'
+import Post from '../../models/Post'
+import Posts from '../../models/Posts'
 
 // Modules
-import {getPost} from '../../modules/post'
-import {getPosts} from '../../modules/posts'
-import {changeLanguage} from '../../modules/app'
+import {getPost} from '../../modules/Post'
+import {getPosts} from '../../modules/Posts'
+import {changeLanguage} from '../../modules/App'
 
 import './Home.scss'
 

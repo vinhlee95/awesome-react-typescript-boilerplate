@@ -1,4 +1,4 @@
-import BaseModel from './bases/baseModel'
+import BaseModel from './bases/BaseModel'
 
 export default interface Post extends BaseModel {
 	id: number

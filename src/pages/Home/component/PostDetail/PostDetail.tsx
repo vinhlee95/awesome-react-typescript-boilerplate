@@ -1,5 +1,5 @@
 import * as React from 'react'
-import PostModel from '../../../../models/post'
+import PostModel from '../../../../models/Post'
 
 interface Props {
 	post: PostModel

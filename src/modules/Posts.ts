@@ -1,7 +1,8 @@
 import produce from 'immer'
 import {startLoading, updateListData, endLoading} from './commons/common'
 import useModuleActions from './commons/moduleActions'
-import Posts from '../models/posts'
+
+import Posts from '../models/Posts'
 
 // ------------------------------------
 // Const
