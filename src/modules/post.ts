@@ -11,7 +11,7 @@ import Post from '../models/post'
 const moduleName = 'post'
 const path = '/posts'
 
-const {moduleActionTypes, moduleActions} = useModuleActions(moduleName)
+const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 
 // ------------------------------------
 // Reducer
@@ -47,4 +47,4 @@ export const reducer = post
 // Actions
 // ------------------------------------
 
-export const getPost = (id: number) => moduleActions.getModel(path, id)
+export const getPost = (id: number) => moduleActions.getModel(id)

@@ -1,7 +1,7 @@
 import * as api from '../../services/api'
 import {createAction} from './common'
 
-const useModuleActions = (moduleName: string) => {
+const useModuleActions = (moduleName: string, path: string) => {
 	// ------------------------------------
 	// Action Creator
 	// ------------------------------------
@@ -35,7 +35,7 @@ const useModuleActions = (moduleName: string) => {
 	// ------------------------------------
 
 	const moduleActions = {
-		getModel: (path: string, params?: number, query?: string) => dispatch => {
+		getModel: (params?: number, query?: string) => dispatch => {
 			dispatch(actions.getModel())
 
 			api.requests.get(path, params, query).then(
