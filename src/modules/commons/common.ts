@@ -1,22 +1,22 @@
 import BaseModel from '../../models/bases/BaseModel'
 import BaseModels from '../../models/bases/BaseModels'
 
-export const startOfLoading = (state: BaseModel) => {
+export const startLoading = (state: BaseModel) => {
 	state.loading = true
 	state.error = undefined
 }
 
-export const endOfLoading = (state: BaseModel, error) => {
+export const endLoading = (state: BaseModel, error) => {
 	state.loading = false
 	state.error = error
 }
 
-export const startOfSaving = (state: BaseModel) => {
+export const startSaving = (state: BaseModel) => {
 	state.saving = true
 	state.error = undefined
 }
 
-export const endOfSaving = (state: BaseModel, error) => {
+export const endSaving = (state: BaseModel, error) => {
 	state.saving = false
 	state.error = error
 }
