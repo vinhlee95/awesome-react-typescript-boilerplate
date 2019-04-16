@@ -12,9 +12,9 @@ import Post from '../../models/post'
 import Posts from '../../models/posts'
 
 // Modules
-import {actions as postActions} from '../../modules/post'
-import {actions as postsActions} from '../../modules/posts'
-import {actions as appActions} from '../../modules/app'
+import {getPost} from '../../modules/post'
+import {getPosts} from '../../modules/posts'
+import {changeLanguage} from '../../modules/app'
 
 import './Home.scss'
 
@@ -111,9 +111,9 @@ const mapStateToProps = ({posts, post}) => {
 }
 
 const mapDispatchToProps = {
-	getPosts: postsActions.getPosts,
-	getPost: postActions.getPost,
-	changeLanguage: appActions.changeLanguage,
+	getPosts,
+	getPost,
+	changeLanguage,
 }
 
 export default connect(

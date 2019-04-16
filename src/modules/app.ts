@@ -16,7 +16,7 @@ const types = {
 	CHANGE_LANGUAGE: `${name}.CHANGE_LANGUAGE`,
 }
 
-const actionCreators = {
+const actions = {
 	changeLanguage: createAction(types.CHANGE_LANGUAGE),
 }
 
@@ -43,14 +43,10 @@ export const reducer = app
 // Actions
 // ------------------------------------
 
-export const actions = {
-	changeLanguage: (language: string) => changeLanguage(language),
-}
-
-const changeLanguage = (language: string) => {
+export const changeLanguage = (language: string) => {
 	return dispatch => {
 		i18n
 			.changeLanguage(language)
-			.then(() => dispatch(actionCreators.changeLanguage(language)))
+			.then(() => dispatch(actions.changeLanguage(language)))
 	}
 }

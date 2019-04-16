@@ -1,12 +1,12 @@
 import * as api from '../../services/api'
 import {createAction} from './common'
 
-const useModelActions = (modelName: string) => {
+const useModuleActions = (modelName: string) => {
 	// ------------------------------------
 	// Action Creator
 	// ------------------------------------
 
-	const modelActionTypes = {
+	const moduleActionTypes = {
 		GET_MODEL: `${modelName}.GET_MODEL`,
 		GET_MODEL_SUCCESS: `${modelName}.GET_MODEL_SUCCESS`,
 		GET_MODEL_FAIL: `${modelName}.GET_MODEL_FAIL`,
@@ -24,32 +24,32 @@ const useModelActions = (modelName: string) => {
 		PUT_MODEL_FAIL: `${modelName}.PUT_MODEL_FAIL`,
 	}
 
-	const actionCreators = {
-		getModel: createAction(modelActionTypes.GET_MODEL),
-		getModelSuccess: createAction(modelActionTypes.GET_MODEL_SUCCESS),
-		getModelFail: createAction(modelActionTypes.GET_MODEL_FAIL),
+	const actions = {
+		getModel: createAction(moduleActionTypes.GET_MODEL),
+		getModelSuccess: createAction(moduleActionTypes.GET_MODEL_SUCCESS),
+		getModelFail: createAction(moduleActionTypes.GET_MODEL_FAIL),
 	}
 
 	// ------------------------------------
 	// Actions
 	// ------------------------------------
 
-	const modelActions = {
+	const moduleActions = {
 		getModel: (path: string, params?: number, query?: string) => dispatch => {
-			dispatch(actionCreators.getModel())
+			dispatch(actions.getModel())
 
 			api.requests.get(path, params, query).then(
 				data => {
-					dispatch(actionCreators.getModelSuccess(data))
+					dispatch(actions.getModelSuccess(data))
 				},
 				error => {
-					dispatch(actionCreators.getModelFail(undefined, error))
+					dispatch(actions.getModelFail(undefined, error))
 				},
 			)
 		},
 	}
 
-	return {modelActionTypes, modelActions}
+	return {moduleActionTypes, moduleActions}
 }
 
-export default useModelActions
+export default useModuleActions

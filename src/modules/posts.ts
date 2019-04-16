@@ -1,6 +1,6 @@
 import produce from 'immer'
 import {startLoading, updateListData, endLoading} from './commons/common'
-import useModelActions from './commons/modelActions'
+import useModuleActions from './commons/moduleActions'
 import Posts from '../models/posts'
 
 // ------------------------------------
@@ -10,7 +10,7 @@ import Posts from '../models/posts'
 const modelName = 'posts'
 const path = '/posts'
 
-const {modelActionTypes, modelActions} = useModelActions(modelName)
+const {moduleActionTypes, moduleActions} = useModuleActions(modelName)
 
 // ------------------------------------
 // Reducer
@@ -25,13 +25,13 @@ const initialState: Posts = {
 const posts = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
-			case modelActionTypes.GET_MODEL:
+			case moduleActionTypes.GET_MODEL:
 				startLoading(draft)
 				break
-			case modelActionTypes.GET_MODEL_SUCCESS:
+			case moduleActionTypes.GET_MODEL_SUCCESS:
 				updateListData(draft, action.payload)
 				break
-			case modelActionTypes.GET_MODEL_FAIL:
+			case moduleActionTypes.GET_MODEL_FAIL:
 				endLoading(draft, action.error)
 			default:
 				return state
@@ -44,6 +44,4 @@ export const reducer = posts
 // Actions
 // ------------------------------------
 
-export const actions = {
-	getPosts: () => modelActions.getModel(path),
-}
+export const getPosts = () => moduleActions.getModel(path)
