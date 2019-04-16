@@ -1,23 +1,23 @@
-import App from '../models/app'
+import App from '../models/App'
 import produce from 'immer'
-import * as common from './commons/common'
-import i18n from '../i18n'
+import {createAction} from './commons/common'
+import i18n from '../services/i18n'
 
 // ------------------------------------
 // Const
 // ------------------------------------
-const name = 'app'
+const moduleName = 'app'
 
 // ------------------------------------
-// Action Types
+// Action Creator
 // ------------------------------------
 
 const types = {
-	CHANGE_LANGUAGE: `${name}.CHANGE_LANGUAGE`,
+	CHANGE_LANGUAGE: `${moduleName}.CHANGE_LANGUAGE`,
 }
 
-const actionCreators = {
-	changeLanguage: common.createAction(types.CHANGE_LANGUAGE),
+const actions = {
+	changeLanguage: createAction(types.CHANGE_LANGUAGE),
 }
 
 // ------------------------------------
@@ -43,14 +43,10 @@ export const reducer = app
 // Actions
 // ------------------------------------
 
-const changeLanguage = (language: string) => {
+export const changeLanguage = (language: string) => {
 	return dispatch => {
 		i18n
 			.changeLanguage(language)
-			.then(() => dispatch(actionCreators.changeLanguage(language)))
+			.then(() => dispatch(actions.changeLanguage(language)))
 	}
-}
-
-export const actions = {
-	changeLanguage,
 }
