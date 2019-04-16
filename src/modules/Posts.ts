@@ -1,5 +1,5 @@
 import produce from 'immer'
-import {startLoading, updateListData, endLoading} from './commons/common'
+import {startOfLoading, updateListData, endOfLoading} from './commons/common'
 import useModuleActions from './commons/moduleActions'
 
 import Posts from '../models/Posts'
@@ -20,6 +20,7 @@ const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 const initialState: Posts = {
 	list: undefined,
 	loading: false,
+	saving: false,
 	error: undefined,
 }
 
@@ -27,13 +28,13 @@ const posts = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case moduleActionTypes.GET_MODEL:
-				startLoading(draft)
+				startOfLoading(draft)
 				break
 			case moduleActionTypes.GET_MODEL_SUCCESS:
 				updateListData(draft, action.payload)
 				break
 			case moduleActionTypes.GET_MODEL_FAIL:
-				endLoading(draft, action.error)
+				endOfLoading(draft, action.error)
 				break
 		}
 	})
