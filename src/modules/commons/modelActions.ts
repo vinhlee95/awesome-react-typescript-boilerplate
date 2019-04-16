@@ -1,4 +1,4 @@
-import * as api from '../../api'
+import * as api from '../../services/api'
 import {createAction} from './common'
 
 const useModelActions = (modelName: string) => {

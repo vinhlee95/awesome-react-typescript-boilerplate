@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import {configureStore, history} from './configStore'
 import App from './App'
 import './styles/index.scss'
-import './i18n'
+import './services/i18n'
 import {ConnectedRouter} from 'connected-react-router'
 
 const store = configureStore()

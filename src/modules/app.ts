@@ -1,7 +1,7 @@
 import App from '../models/app'
 import produce from 'immer'
-import * as common from './commons/common'
-import i18n from '../i18n'
+import {createAction} from './commons/common'
+import i18n from '../services/i18n'
 
 // ------------------------------------
 // Const
@@ -17,7 +17,7 @@ const types = {
 }
 
 const actionCreators = {
-	changeLanguage: common.createAction(types.CHANGE_LANGUAGE),
+	changeLanguage: createAction(types.CHANGE_LANGUAGE),
 }
 
 // ------------------------------------
