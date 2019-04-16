@@ -1,27 +1,27 @@
 import * as api from '../../services/api'
 import {createAction} from './common'
 
-const useModuleActions = (modelName: string) => {
+const useModuleActions = (moduleName: string) => {
 	// ------------------------------------
 	// Action Creator
 	// ------------------------------------
 
 	const moduleActionTypes = {
-		GET_MODEL: `${modelName}.GET_MODEL`,
-		GET_MODEL_SUCCESS: `${modelName}.GET_MODEL_SUCCESS`,
-		GET_MODEL_FAIL: `${modelName}.GET_MODEL_FAIL`,
+		GET_MODEL: `${moduleName}.GET_MODEL`,
+		GET_MODEL_SUCCESS: `${moduleName}.GET_MODEL_SUCCESS`,
+		GET_MODEL_FAIL: `${moduleName}.GET_MODEL_FAIL`,
 
-		DELETE_MODEL: `${modelName}.DELETE_MODEL`,
-		DELETE_MODEL_SUCCESS: `${modelName}.DELETE_MODEL_SUCCESS`,
-		DELETE_MODEL_FAIL: `${modelName}.DELETE_MODEL_FAIL`,
+		DELETE_MODEL: `${moduleName}.DELETE_MODEL`,
+		DELETE_MODEL_SUCCESS: `${moduleName}.DELETE_MODEL_SUCCESS`,
+		DELETE_MODEL_FAIL: `${moduleName}.DELETE_MODEL_FAIL`,
 
-		POST_MODEL: `${modelName}.POST_MODEL`,
-		POST_MODEL_SUCCESS: `${modelName}.POST_MODEL_SUCCESS`,
-		POST_MODEL_FAIL: `${modelName}.POST_MODEL_FAIL`,
+		POST_MODEL: `${moduleName}.POST_MODEL`,
+		POST_MODEL_SUCCESS: `${moduleName}.POST_MODEL_SUCCESS`,
+		POST_MODEL_FAIL: `${moduleName}.POST_MODEL_FAIL`,
 
-		PUT_MODEL: `${modelName}.PUT_MODEL`,
-		PUT_MODEL_SUCCESS: `${modelName}.PUT_MODEL_SUCCESS`,
-		PUT_MODEL_FAIL: `${modelName}.PUT_MODEL_FAIL`,
+		PUT_MODEL: `${moduleName}.PUT_MODEL`,
+		PUT_MODEL_SUCCESS: `${moduleName}.PUT_MODEL_SUCCESS`,
+		PUT_MODEL_FAIL: `${moduleName}.PUT_MODEL_FAIL`,
 	}
 
 	const actions = {

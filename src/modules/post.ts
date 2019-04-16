@@ -8,10 +8,10 @@ import Post from '../models/post'
 // Const
 // ------------------------------------
 
-const modelName = 'post'
+const moduleName = 'post'
 const path = '/posts'
 
-const {moduleActionTypes, moduleActions} = useModuleActions(modelName)
+const {moduleActionTypes, moduleActions} = useModuleActions(moduleName)
 
 // ------------------------------------
 // Reducer

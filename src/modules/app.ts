@@ -6,14 +6,14 @@ import i18n from '../services/i18n'
 // ------------------------------------
 // Const
 // ------------------------------------
-const name = 'app'
+const moduleName = 'app'
 
 // ------------------------------------
 // Action Creator
 // ------------------------------------
 
 const types = {
-	CHANGE_LANGUAGE: `${name}.CHANGE_LANGUAGE`,
+	CHANGE_LANGUAGE: `${moduleName}.CHANGE_LANGUAGE`,
 }
 
 const actions = {
