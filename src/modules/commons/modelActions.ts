@@ -1,5 +1,6 @@
 import * as api from '../../api'
-import * as types from './types'
+import {getTypes} from './types'
+import {createAction} from './common'
 
 const modelActions = {
 	getModel: (
@@ -8,22 +9,14 @@ const modelActions = {
 		params?: number,
 		query?: string,
 	) => dispatch => {
-		dispatch({
-			type: types.get.start(modelName),
-		})
+		dispatch(createAction(getTypes.success(modelName))())
 
 		api.requests.get(path, params, query).then(
 			data => {
-				dispatch({
-					type: types.get.success(modelName),
-					payload: {data},
-				})
+				dispatch(createAction(getTypes.success(modelName))(data))
 			},
 			error => {
-				dispatch({
-					type: types.get.fail(modelName),
-					error,
-				})
+				dispatch(createAction(getTypes.fail(modelName))(undefined, error))
 			},
 		)
 	},

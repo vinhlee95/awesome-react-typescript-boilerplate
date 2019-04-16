@@ -1,10 +1,17 @@
 import produce from 'immer'
 
-import * as types from './commons/types'
+import {getTypes} from './commons/types'
 import modelActions from './commons/modelActions'
-import * as common from './commons/common'
+import {startLoading, updateData, endLoading} from './commons/common'
 
 import Post from '../models/post'
+
+// ------------------------------------
+// Const
+// ------------------------------------
+
+const modelName = 'post'
+const path = '/posts'
 
 // ------------------------------------
 // Reducer
@@ -19,20 +26,17 @@ const initialState: Post = {
 	error: undefined,
 }
 
-const modelName = 'post'
-const path = '/posts'
-
 const post = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
-			case types.get.start(modelName):
-				common.startLoading(draft)
+			case getTypes.start(modelName):
+				startLoading(draft)
 				break
-			case types.get.success(modelName):
-				common.updateData(draft, action.payload.data)
+			case getTypes.success(modelName):
+				updateData(draft, action.payload)
 				break
-			case types.get.fail(modelName):
-				common.endLoading(draft, action.error)
+			case getTypes.fail(modelName):
+				endLoading(draft, action.error)
 			default:
 				return state
 		}

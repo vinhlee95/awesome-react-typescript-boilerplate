@@ -1,0 +1,14 @@
+{
+	"common": {
+		"welcome": "Willkommen bei Typcript Boilerplate",
+		"en": "Englisch",
+		"de": "Deutsch"
+	},
+	"nav": {
+		"home": "Zuhause",
+		"about": "Über"
+	},
+	"error": {
+		"unexpectedError": "Etwas ist schief gelaufen"
+	}
+}

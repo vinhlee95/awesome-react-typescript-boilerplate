@@ -23,18 +23,21 @@ const About = React.lazy(() =>
 
 // Constants
 import {RouterPath} from './constants'
+import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
 
 class App extends React.Component {
 	render() {
 		return (
 			<React.Suspense fallback={<div>Loading...</div>}>
-				<CoreLayout>
-					<Switch>
-						<Route exact path={RouterPath.home} component={Home} />
-						<Route path={RouterPath.about} component={About} />
-						<Redirect to={RouterPath.home} />
-					</Switch>
-				</CoreLayout>
+				<ErrorBoundaries>
+					<CoreLayout>
+						<Switch>
+							<Route exact path={RouterPath.home} component={Home} />
+							<Route path={RouterPath.about} component={About} />
+							<Redirect to={RouterPath.home} />
+						</Switch>
+					</CoreLayout>
+				</ErrorBoundaries>
 			</React.Suspense>
 		)
 	}
