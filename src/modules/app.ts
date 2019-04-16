@@ -43,14 +43,14 @@ export const reducer = app
 // Actions
 // ------------------------------------
 
-export const actions = {
-	changeLanguage: (language: string) => changeLanguage(language),
-}
-
 const changeLanguage = (language: string) => {
 	return dispatch => {
 		i18n
 			.changeLanguage(language)
 			.then(() => dispatch(actionCreators.changeLanguage(language)))
 	}
+}
+
+export const actions = {
+	changeLanguage,
 }
