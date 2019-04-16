@@ -25,12 +25,6 @@ module.exports = env =>
 				historyApiFallback: true,
 			},
 
-			output: {
-				filename: '[name].js',
-				chunkFilename: '[name].chunk.js',
-				publicPath: '/',
-			},
-
 			module: {
 				rules: [
 					{
