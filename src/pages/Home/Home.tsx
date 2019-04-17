@@ -2,6 +2,7 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 import i18next from 'i18next'
 import {withTranslation} from 'react-i18next'
+import {Language} from '../../constants'
 
 // Components
 import PostComponent from './component/Post/Post'
@@ -81,15 +82,15 @@ class Home extends React.Component<Props, any> {
 	}
 
 	render() {
-		const {t} = this.props
+		const {t, i18n} = this.props
 
 		return (
 			<div>
 				<h2>{t('common.welcome')}</h2>
 				<div>
-					<select onChange={this.changeLanguage}>
-						<option value="en">{t('common.en')}</option>
-						<option value="de">{t('common.de')}</option>
+					<select defaultValue={i18n.language} onChange={this.changeLanguage}>
+						<option value={Language.en}>{t('common.en')}</option>
+						<option value={Language.de}>{t('common.de')}</option>
 					</select>
 				</div>
 				<div className="post-container">

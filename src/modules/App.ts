@@ -25,7 +25,7 @@ const actions = {
 // ------------------------------------
 
 const initialState: App = {
-	language: undefined,
+	language: 'Huy',
 }
 
 const app = (state = initialState, action) =>
