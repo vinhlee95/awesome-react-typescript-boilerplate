@@ -2,7 +2,6 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 import i18next from 'i18next'
 import {withTranslation} from 'react-i18next'
-import {Language} from '../../constants'
 
 // Components
 import PostComponent from './component/Post/Post'
@@ -85,7 +84,7 @@ class Home extends React.Component<Props, any> {
 			<div>
 				<h2>{t('common.welcome')}</h2>
 				<div className="language-selector">
-					<LanguageSelector changeLanguage={changeLanguage} />
+					<LanguageSelector onChangeLanguage={changeLanguage} />
 				</div>
 				<div className="post-container">
 					<div className="post-container__list">{this.renderPostList()}</div>
@@ -106,9 +105,9 @@ const mapStateToProps = ({posts, post}) => {
 }
 
 const mapDispatchToProps = {
+	changeLanguage,
 	getPosts,
 	getPost,
-	changeLanguage,
 }
 
 export default connect(

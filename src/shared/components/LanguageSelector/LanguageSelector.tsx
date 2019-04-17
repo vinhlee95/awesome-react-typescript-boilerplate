@@ -3,14 +3,14 @@ import {Language} from '../../../constants'
 import {useTranslation} from 'react-i18next'
 
 interface Props {
-	changeLanguage: (language: string) => void
+	onChangeLanguage: (language: string) => void
 }
 
 const LanguageSelector = (props: Props) => {
 	const {t, i18n} = useTranslation()
 
 	const changeLanguage = e => {
-		props.changeLanguage(e.target.value)
+		props.onChangeLanguage(e.target.value)
 	}
 
 	return (
