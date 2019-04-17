@@ -7,6 +7,7 @@ import {Language} from '../../constants'
 // Components
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
+import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
 
 // Models
 import Post from '../../models/Post'
@@ -77,21 +78,14 @@ class Home extends React.Component<Props, any> {
 		return <PostDetail post={post} />
 	}
 
-	changeLanguage = e => {
-		this.props.changeLanguage(e.target.value)
-	}
-
 	render() {
-		const {t, i18n} = this.props
+		const {t, changeLanguage} = this.props
 
 		return (
 			<div>
 				<h2>{t('common.welcome')}</h2>
-				<div>
-					<select defaultValue={i18n.language} onChange={this.changeLanguage}>
-						<option value={Language.en}>{t('common.en')}</option>
-						<option value={Language.de}>{t('common.de')}</option>
-					</select>
+				<div className="language-selector">
+					<LanguageSelector changeLanguage={changeLanguage} />
 				</div>
 				<div className="post-container">
 					<div className="post-container__list">{this.renderPostList()}</div>
