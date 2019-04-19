@@ -32,7 +32,7 @@ module.exports = env =>
 						use: ['style-loader', 'css-loader', 'sass-loader'],
 					},
 					{
-						test: /\.(js|jsx)$/,
+						test: /\.(ts|js)x?$/,
 						use: 'react-hot-loader/webpack',
 					},
 				],
