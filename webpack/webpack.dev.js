@@ -31,6 +31,10 @@ module.exports = env =>
 						test: /\.(?:sa|sc|c)ss$/,
 						use: ['style-loader', 'css-loader', 'sass-loader'],
 					},
+					{
+						test: /\.(js|jsx)$/,
+						use: 'react-hot-loader/webpack',
+					},
 				],
 			},
 		},
