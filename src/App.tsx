@@ -7,11 +7,13 @@
 
 import * as React from 'react'
 import {hot} from 'react-hot-loader/root'
-
+import {connect} from 'react-redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
+import {initialize, tearDown} from './modules/App'
 
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
+import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
 
 // Code splitting
 const Home = React.lazy(() =>
@@ -23,9 +25,21 @@ const About = React.lazy(() =>
 
 // Constants
 import {RouterPath} from './constants'
-import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
 
-class App extends React.Component {
+interface Props {
+	initialize: () => any
+	tearDown: () => any
+}
+
+class App extends React.Component<Props, any> {
+	componentDidMount() {
+		this.props.initialize()
+	}
+
+	componentWillUnmount() {
+		this.props.tearDown()
+	}
+
 	render() {
 		return (
 			<React.Suspense fallback={<div>Loading...</div>}>
@@ -43,4 +57,14 @@ class App extends React.Component {
 	}
 }
 
-export default hot(App)
+const mapDispatchToProps = {
+	initialize,
+	tearDown,
+}
+
+export default hot(
+	connect(
+		null,
+		mapDispatchToProps,
+	)(App),
+)

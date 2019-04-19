@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const postcssPresetEnv = require('postcss-preset-env')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = merge(common, {
 	mode: 'production',
@@ -58,5 +59,7 @@ module.exports = merge(common, {
 				useShortDoctype: true,
 			},
 		}),
+
+		new CopyPlugin([{from: path.resolve(__dirname, '../public'), to: ''}]),
 	],
 })

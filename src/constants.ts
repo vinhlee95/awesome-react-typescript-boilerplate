@@ -8,9 +8,17 @@
 /**
  * Router paths
  *
- * @return {String} path to route
  */
 export enum RouterPath {
 	home = '/',
 	about = '/about',
+}
+
+/**
+ * Available languages
+ *
+ */
+export enum Language {
+	en = 'en',
+	de = 'de',
 }

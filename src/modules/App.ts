@@ -13,10 +13,14 @@ const moduleName = 'app'
 // ------------------------------------
 
 const types = {
+	INITIALIZE: `${moduleName}.INITIALIZE`,
+	TEAR_DOWN: `${moduleName}.TEAR_DOWN`,
 	CHANGE_LANGUAGE: `${moduleName}.CHANGE_LANGUAGE`,
 }
 
 const actions = {
+	initialize: createAction(types.INITIALIZE),
+	tearDown: createAction(types.TEAR_DOWN),
 	changeLanguage: createAction(types.CHANGE_LANGUAGE),
 }
 
@@ -43,6 +47,25 @@ export const reducer = app
 // Actions
 // ------------------------------------
 
+export const initialize = () => {
+	return dispatch => {
+		dispatch(actions.initialize())
+
+		i18n.on('initialized', () => {
+			dispatch(actions.changeLanguage(i18n.language))
+		})
+	}
+}
+
+export const tearDown = () => {
+	return dispatch => {
+		dispatch(actions.tearDown())
+
+		i18n.off('initialized', () => {
+			dispatch(actions.changeLanguage(undefined))
+		})
+	}
+}
 export const changeLanguage = (language: string) => {
 	return dispatch => {
 		i18n
