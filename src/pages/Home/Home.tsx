@@ -1,5 +1,7 @@
 import * as React from 'react'
+import {useEffect} from 'react'
 import {connect} from 'react-redux'
+import {compose} from 'redux'
 import i18next from 'i18next'
 import {withTranslation} from 'react-i18next'
 
@@ -26,21 +28,26 @@ interface Props {
 	getPost: (id: number) => any
 	changeLanguage: (language: string) => any
 	t: i18next.TFunction
-	i18n: i18next.i18n
-	tReady: boolean
 }
 
-class Home extends React.Component<Props, any> {
-	componentDidMount() {
-		this.props.getPosts()
+const Home: React.FunctionComponent<Props> = ({
+	post,
+	posts,
+	getPosts,
+	getPost,
+	changeLanguage,
+	t,
+}) => {
+	useEffect(() => {
+		getPosts()
+	}, [])
+
+	const onPostClicked = (id: number) => {
+		getPost(id)
 	}
 
-	onPostClicked = (id: number) => {
-		this.props.getPost(id)
-	}
-
-	renderPostList = () => {
-		const {loading, error, list} = this.props.posts
+	const renderPostList = () => {
+		const {loading, error, list} = posts
 
 		if (loading) {
 			return <p>Loading ...</p>
@@ -53,13 +60,12 @@ class Home extends React.Component<Props, any> {
 		return (
 			list &&
 			list.map(post => (
-				<PostComponent onClick={this.onPostClicked} key={post.id} post={post} />
+				<PostComponent onClick={onPostClicked} key={post.id} post={post} />
 			))
 		)
 	}
 
-	renderPostDetail = () => {
-		const {post} = this.props
+	const renderPostDetail = () => {
 		const {loading, error} = post
 
 		if (loading) {
@@ -77,24 +83,18 @@ class Home extends React.Component<Props, any> {
 		return <PostDetail post={post} />
 	}
 
-	render() {
-		const {t, changeLanguage} = this.props
-
-		return (
-			<div>
-				<h2>{t('common.welcome')}</h2>
-				<div className="language-selector">
-					<LanguageSelector onChangeLanguage={changeLanguage} />
-				</div>
-				<div className="post-container">
-					<div className="post-container__list">{this.renderPostList()}</div>
-					<div className="post-container__detail">
-						{this.renderPostDetail()}
-					</div>
-				</div>
+	return (
+		<div>
+			<h2>{t('common.welcome')}</h2>
+			<div className="language-selector">
+				<LanguageSelector onChangeLanguage={changeLanguage} />
 			</div>
-		)
-	}
+			<div className="post-container">
+				<div className="post-container__list">{renderPostList()}</div>
+				<div className="post-container__detail">{renderPostDetail()}</div>
+			</div>
+		</div>
+	)
 }
 
 const mapStateToProps = ({posts, post}) => {
@@ -110,7 +110,12 @@ const mapDispatchToProps = {
 	getPost,
 }
 
-export default connect(
+const withConnect = connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(withTranslation()(Home))
+)
+
+export default compose(
+	withConnect,
+	withTranslation(),
+)(Home)
