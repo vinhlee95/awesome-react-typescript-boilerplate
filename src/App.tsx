@@ -6,8 +6,10 @@
  */
 
 import * as React from 'react'
+import {useEffect} from 'react'
 import {hot} from 'react-hot-loader/root'
 import {connect} from 'react-redux'
+import {compose} from 'redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import {initialize, tearDown} from './modules/App'
 
@@ -31,30 +33,26 @@ interface Props {
 	tearDown: () => any
 }
 
-class App extends React.Component<Props, any> {
-	componentDidMount() {
-		this.props.initialize()
-	}
+const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
+	useEffect(() => {
+		initialize()
 
-	componentWillUnmount() {
-		this.props.tearDown()
-	}
+		return () => tearDown()
+	}, [])
 
-	render() {
-		return (
-			<React.Suspense fallback={<div>Loading...</div>}>
-				<ErrorBoundaries>
-					<CoreLayout>
-						<Switch>
-							<Route exact path={RouterPath.home} component={Home} />
-							<Route path={RouterPath.about} component={About} />
-							<Redirect to={RouterPath.home} />
-						</Switch>
-					</CoreLayout>
-				</ErrorBoundaries>
-			</React.Suspense>
-		)
-	}
+	return (
+		<React.Suspense fallback={<div>Loading...</div>}>
+			<ErrorBoundaries>
+				<CoreLayout>
+					<Switch>
+						<Route exact path={RouterPath.home} component={Home} />
+						<Route path={RouterPath.about} component={About} />
+						<Redirect to={RouterPath.home} />
+					</Switch>
+				</CoreLayout>
+			</ErrorBoundaries>
+		</React.Suspense>
+	)
 }
 
 const mapDispatchToProps = {
@@ -62,9 +60,12 @@ const mapDispatchToProps = {
 	tearDown,
 }
 
-export default hot(
-	connect(
-		null,
-		mapDispatchToProps,
-	)(App),
+const withConnect = connect(
+	null,
+	mapDispatchToProps,
 )
+
+export default compose(
+	hot,
+	withConnect,
+)(App)
