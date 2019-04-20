@@ -9,7 +9,6 @@ import * as React from 'react'
 import {useEffect} from 'react'
 import {hot} from 'react-hot-loader/root'
 import {connect} from 'react-redux'
-import {compose} from 'redux'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import {initialize, tearDown} from './modules/App'
 
@@ -60,12 +59,9 @@ const mapDispatchToProps = {
 	tearDown,
 }
 
-const withConnect = connect(
-	null,
-	mapDispatchToProps,
+export default hot(
+	connect(
+		null,
+		mapDispatchToProps,
+	)(App),
 )
-
-export default compose(
-	hot,
-	withConnect,
-)(App)
