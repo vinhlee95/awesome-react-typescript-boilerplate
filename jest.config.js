@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+	preset: 'ts-jest',
 	collectCoverageFrom: [
 		'src/**/*.{js,jsx,ts,tsx}',
 		'!src/**/*.test.{js,jsx,ts,tsx}',
@@ -17,14 +18,15 @@ module.exports = {
 	// Automatically clear mock calls and instances between every test
 	clearMocks: true,
 	moduleDirectories: ['node_modules', 'src'],
+	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'node', 'json'],
 	// configure minimum threshold enforcement for coverage results
 	// https://jestjs.io/docs/en/configuration#coveragethreshold-object
 	coverageThreshold: {
 		global: {
-			statements: 98,
-			branches: 91,
-			functions: 98,
-			lines: 98,
+			branches: 80,
+			functions: 80,
+			lines: 80,
+			statements: -10,
 		},
 	},
 }
