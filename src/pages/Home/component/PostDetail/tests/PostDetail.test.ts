@@ -1,7 +1,7 @@
 // Dummy jest test
 // Remove when get react-testing-library into use
 
-function sub(a, b) {
+function sub(a: number, b: number): number {
 	return a - b
 }
 

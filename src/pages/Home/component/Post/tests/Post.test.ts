@@ -1,7 +1,7 @@
 // Dummy jest test
 // Remove when get react-testing-library into use
 
-function sum(a, b) {
+function sum(a: number, b: number): number {
 	return a + b
 }
 
