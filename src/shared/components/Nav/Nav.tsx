@@ -17,10 +17,10 @@ const Nav = () => {
 	const {t} = useTranslation()
 
 	return (
-		<>
+		<nav>
 			<NavLink to={RouterPath.home}>{t('nav.home')}</NavLink>
 			<NavLink to={RouterPath.about}>{t('nav.about')}</NavLink>
-		</>
+		</nav>
 	)
 }
 
