@@ -14,7 +14,7 @@ import {useTranslation} from 'react-i18next'
 import {RouterPath} from '../../../constants'
 
 const Nav = () => {
-	const {t} = useTranslation()
+	const [t] = useTranslation()
 
 	return (
 		<nav>

@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
-import {compose} from 'redux'
-import i18next from 'i18next'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 
 // Components
 import PostComponent from './component/Post/Post'
@@ -27,7 +25,6 @@ interface Props {
 	getPosts: () => any
 	getPost: (id: number) => any
 	changeLanguage: (language: string) => any
-	t: i18next.TFunction
 }
 
 const Home: React.FunctionComponent<Props> = ({
@@ -36,8 +33,9 @@ const Home: React.FunctionComponent<Props> = ({
 	getPosts,
 	getPost,
 	changeLanguage,
-	t,
 }) => {
+	const [t] = useTranslation()
+
 	useEffect(() => {
 		getPosts()
 	}, [])
@@ -110,12 +108,7 @@ const mapDispatchToProps = {
 	getPost,
 }
 
-const withConnect = connect(
+export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)
-
-export default compose(
-	withConnect,
-	withTranslation(),
 )(Home)
