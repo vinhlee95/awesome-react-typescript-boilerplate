@@ -7,6 +7,7 @@
 
 module.exports = {
 	preset: 'ts-jest',
+	setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
 	collectCoverageFrom: [
 		'src/**/*.{js,jsx,ts,tsx}',
 		'!src/**/*.test.{js,jsx,ts,tsx}',
