@@ -20,8 +20,8 @@ const Nav = () => {
 	const [t] = useTranslation()
 
 	return (
-		<nav className="nav">
-			<ul>
+		<nav>
+			<ul className="nav">
 				<NavItem path={RouterPath.home} exact={true} name={t('nav.home')} />
 				<NavItem path={RouterPath.about} name={t('nav.about')} />
 			</ul>

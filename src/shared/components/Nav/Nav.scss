@@ -3,6 +3,7 @@ $link-border-default: 0.1rem solid transparent;
 $link-border-bottom: 0.1rem solid $active-link-color;
 
 .nav {
+	list-style: none;
 	display: flex;
 	justify-content: flex-end;
 
