@@ -1,4 +1,5 @@
-$active-link-color: rgb(133, 129, 129);
+$link-color: rgb(133, 129, 129);
+$active-link-color: #191919;
 $link-border-default: 0.1rem solid transparent;
 $link-border-bottom: 0.1rem solid $active-link-color;
 
@@ -9,7 +10,7 @@ $link-border-bottom: 0.1rem solid $active-link-color;
 
 	&__item {
 		text-decoration: none;
-		color: #191919;
+		color: $link-color;
 		text-transform: uppercase;
 		border-bottom: $link-border-default;
 
@@ -25,6 +26,7 @@ $link-border-bottom: 0.1rem solid $active-link-color;
 
 		&.active {
 			color: $active-link-color;
+			border-bottom: $link-border-bottom;
 		}
 	}
 }
