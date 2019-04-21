@@ -2,11 +2,11 @@ $active-link-color: rgb(133, 129, 129);
 $link-border-default: 0.1rem solid transparent;
 $link-border-bottom: 0.1rem solid $active-link-color;
 
-nav {
+.nav {
 	display: flex;
 	justify-content: flex-end;
 
-	a {
+	&__item {
 		text-decoration: none;
 		color: #191919;
 		text-transform: uppercase;

@@ -20,14 +20,29 @@ const Nav = () => {
 	const [t] = useTranslation()
 
 	return (
-		<nav>
-			<NavLink to={RouterPath.home} className="home">
-				{t('nav.home')}
-			</NavLink>
-			<NavLink to={RouterPath.about} className="about">
-				{t('nav.about')}
-			</NavLink>
+		<nav className="nav">
+			<ul>
+				<NavItem path={RouterPath.home} exact={true} name={t('nav.home')} />
+				<NavItem path={RouterPath.about} name={t('nav.about')} />
+			</ul>
 		</nav>
+	)
+}
+
+const NavItem = props => {
+	const {path, name, exact} = props
+
+	return (
+		<li>
+			<NavLink
+				className="nav__item"
+				exact={exact}
+				to={path}
+				activeClassName="active"
+			>
+				{name}
+			</NavLink>
+		</li>
 	)
 }
 
