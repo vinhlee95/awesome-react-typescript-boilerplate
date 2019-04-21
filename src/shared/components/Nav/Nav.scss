@@ -1,0 +1,29 @@
+$active-link-color: rgb(133, 129, 129);
+$link-border-default: 0.1rem solid transparent;
+$link-border-bottom: 0.1rem solid $active-link-color;
+
+nav {
+	display: flex;
+	justify-content: flex-end;
+
+	a {
+		text-decoration: none;
+		color: #191919;
+		text-transform: uppercase;
+		border-bottom: $link-border-default;
+
+		&:hover,
+		&:active {
+			color: $active-link-color;
+			border-bottom: $link-border-bottom;
+		}
+
+		&:last-child {
+			margin-left: 0.8rem;
+		}
+
+		&.active {
+			color: $active-link-color;
+		}
+	}
+}
