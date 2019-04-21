@@ -16,9 +16,7 @@ const CoreLayout = (props: any) => {
 	return (
 		<>
 			<header>
-				<nav>
-					<Nav />
-				</nav>
+				<Nav />
 			</header>
 			<main>{props.children}</main>
 		</>

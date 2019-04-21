@@ -12,13 +12,13 @@
 		"analyze:prod": "npm run build -- --env.presets analyze",
 		"analyze:dev": "npm run build:dev -- --env.presets analyze",
 		"lint": "tslint --project tsconfig.json",
-		"fix-lint": "tslint --fix --project tsconfig.json",
-		"check-types": "tsc",
+		"lint:fix": "tslint --fix --project tsconfig.json",
+		"types-check": "tsc",
 		"format": "prettier \"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)\" --write"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged & npm run check-types"
+			"pre-commit": "lint-staged & npm run types-check"
 		}
 	},
 	"lint-staged": {

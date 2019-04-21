@@ -7,7 +7,7 @@ interface Props {
 }
 
 const LanguageSelector = (props: Props) => {
-	const {t, i18n} = useTranslation()
+	const [t, i18n] = useTranslation()
 
 	const changeLanguage = e => {
 		props.onChangeLanguage(e.target.value)
