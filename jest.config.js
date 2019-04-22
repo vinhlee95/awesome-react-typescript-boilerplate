@@ -19,6 +19,11 @@ module.exports = {
 	clearMocks: true,
 	moduleDirectories: ['node_modules', 'src'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'node', 'json'],
+	// Where Jest detectes test files
+	testMatch: [
+		'<rootDir>/src/**/__tests__/**/*.{ts,tsx,js,jsx}',
+		'<rootDir>/src/**/?(*.)(spec|test).{ts,tsx,js,jsx}',
+	],
 	// configure minimum threshold enforcement for coverage results
 	// https://jestjs.io/docs/en/configuration#coveragethreshold-object
 	coverageThreshold: {
