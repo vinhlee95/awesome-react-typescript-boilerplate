@@ -7,21 +7,21 @@ const useModuleActions = (moduleName: string, path: string) => {
 	// ------------------------------------
 
 	const moduleActionTypes = {
-		GET_MODEL: `${moduleName}.GET_MODEL`,
-		GET_MODEL_SUCCESS: `${moduleName}.GET_MODEL_SUCCESS`,
-		GET_MODEL_FAIL: `${moduleName}.GET_MODEL_FAIL`,
+		GET_MODEL: `@@${moduleName}/GET_MODEL`,
+		GET_MODEL_SUCCESS: `@@${moduleName}/GET_MODEL_SUCCESS`,
+		GET_MODEL_FAIL: `@@${moduleName}/GET_MODEL_FAIL`,
 
-		CREATE_MODEL: `${moduleName}.CREATE_MODEL`,
-		CREATE_MODEL_SUCCESS: `${moduleName}.CREATE_MODEL_SUCCESS`,
-		CREATE_MODEL_FAIL: `${moduleName}.CREATE_MODEL_FAIL`,
+		CREATE_MODEL: `@@${moduleName}/CREATE_MODEL`,
+		CREATE_MODEL_SUCCESS: `@@${moduleName}/CREATE_MODEL_SUCCESS`,
+		CREATE_MODEL_FAIL: `@@${moduleName}/CREATE_MODEL_FAIL`,
 
-		UPDATE_MODEL: `${moduleName}.UPDATE_MODEL`,
-		UPDATE_MODEL_SUCCESS: `${moduleName}.UPDATE_MODEL_SUCCESS`,
-		UPDATE_MODEL_FAIL: `${moduleName}.UPDATE_MODEL_FAIL`,
+		UPDATE_MODEL: `@@${moduleName}/UPDATE_MODEL`,
+		UPDATE_MODEL_SUCCESS: `@@${moduleName}/UPDATE_MODEL_SUCCESS`,
+		UPDATE_MODEL_FAIL: `@@${moduleName}/UPDATE_MODEL_FAIL`,
 
-		DELETE_MODEL: `${moduleName}.DELETE_MODEL`,
-		DELETE_MODEL_SUCCESS: `${moduleName}.DELETE_MODEL_SUCCESS`,
-		DELETE_MODEL_FAIL: `${moduleName}.DELETE_MODEL_FAIL`,
+		DELETE_MODEL: `@@${moduleName}/DELETE_MODEL`,
+		DELETE_MODEL_SUCCESS: `@@${moduleName}/DELETE_MODEL_SUCCESS`,
+		DELETE_MODEL_FAIL: `@@${moduleName}/DELETE_MODEL_FAIL`,
 	}
 
 	const actions = {
