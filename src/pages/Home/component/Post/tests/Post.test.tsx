@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {render, fireEvent} from 'react-testing-library'
+import {render} from 'react-testing-library'
 import 'jest-dom/extend-expect'
 import Post from '../Post'
 import PostModel from '../../../../../models/Post'
@@ -11,13 +11,13 @@ const renderPost = () => {
 
 	const utils = render(<Post post={mockPost} onClick={mockOnClick} />)
 
-	return {...utils, mockPost, mockOnClick}
+	return {...utils, mockPost}
 }
 
 describe('<Post/>', () => {
 	it('should render Post', () => {
 		// Act
-		const {getByText, mockPost, debug} = renderPost()
+		const {getByText, mockPost} = renderPost()
 
 		// Assert
 		expect(getByText(`id: ${mockPost.id}`)).toBeInTheDocument()
