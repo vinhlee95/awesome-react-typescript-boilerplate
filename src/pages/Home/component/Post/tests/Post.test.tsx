@@ -17,7 +17,7 @@ const renderPost = () => {
 describe('<Post/>', () => {
 	it('should render Post', () => {
 		// Act
-		const {getByText, mockPost, debug} = renderPost()
+		const {getByText, mockPost} = renderPost()
 
 		// Assert
 		expect(getByText(`id: ${mockPost.id}`)).toBeInTheDocument()
