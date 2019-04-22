@@ -20,18 +20,18 @@ declare global {
 }
 
 const configureStore = (preloadedState?: any) => {
-	const isProduction = process.env.NODE_ENV === 'production'
+	const isDevelopment = process.env.NODE_ENV === 'development'
 
 	// Config redux devtool in development
 
 	const composeEnhancers =
-		(!isProduction && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+		(isDevelopment && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 	// Middlewares
 
 	const middlewares = [thunk, routerMiddleware(history)]
 
-	if (!isProduction) {
+	if (isDevelopment) {
 		// tslint:disable-next-line:no-var-requires
 		const {createLogger} = require('redux-logger')
 		const logger = createLogger()
