@@ -4,10 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --config webpack/webpack.dev.js",
+		"start": "webpack-dev-server --config config/webpack/webpack.dev.js",
 		"test": "jest",
-		"build": "webpack --config webpack/webpack.prod.js",
-		"build:dev": "webpack --config webpack/webpack.dev.js",
+		"build": "webpack --config config/webpack/webpack.prod.js",
+		"build:dev": "webpack --config config/webpack/webpack.dev.js",
 		"tslint-prettier": "tslint-config-prettier-check ./tslint.json",
 		"analyze:prod": "npm run build -- --env.presets analyze",
 		"analyze:dev": "npm run build:dev -- --env.presets analyze",

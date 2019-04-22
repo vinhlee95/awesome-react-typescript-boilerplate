@@ -49,7 +49,7 @@ module.exports = merge(common, {
 		new OptimizeCssAssetsPlugin(),
 
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, '../public/index.html'),
+			template: path.resolve(__dirname, '../../public/index.html'),
 			minify: {
 				collapseWhitespace: true,
 				removeComments: true,
@@ -60,6 +60,6 @@ module.exports = merge(common, {
 			},
 		}),
 
-		new CopyPlugin([{from: path.resolve(__dirname, '../public'), to: ''}]),
+		new CopyPlugin([{from: path.resolve(__dirname, '../../public'), to: ''}]),
 	],
 })
