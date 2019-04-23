@@ -3,7 +3,7 @@ import {fireEvent, render} from 'react-testing-library'
 import 'jest-dom/extend-expect'
 import Post from '../Post'
 import PostModel from '../../../../../models/Post'
-import {postBuilder} from '../../../../../utils/testUtils'
+import {postBuilder} from '../../../../../utils/mockUtils'
 
 const renderPost = () => {
 	// Arrange

@@ -3,7 +3,7 @@ import {render} from 'react-testing-library'
 import PostDetail from '../PostDetail'
 import 'jest-dom/extend-expect'
 import PostModel from '../../../../../models/Post'
-import {postBuilder} from '../../../../../utils/testUtils'
+import {postBuilder} from '../../../../../utils/mockUtils'
 
 describe('<PostDetail/>', () => {
 	it('should render PostDetail', () => {
