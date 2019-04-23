@@ -25,6 +25,11 @@ module.exports = {
 			'<rootDir>/config/testing/fileMock.ts',
 		'\\.(css|less|sass|scss)$': '<rootDir>/config/testing/styleMock.ts',
 	},
+	// Where Jest detectes test files
+	testMatch: [
+		'<rootDir>/src/**/tests/**/*.{ts,tsx,js,jsx}',
+		'<rootDir>/src/**/?(*.)(spec|test).{ts,tsx,js,jsx}',
+	],
 	// configure minimum threshold enforcement for coverage results
 	// https://jestjs.io/docs/en/configuration#coveragethreshold-object
 	coverageThreshold: {
