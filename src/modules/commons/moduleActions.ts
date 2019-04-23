@@ -55,7 +55,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 					dispatch(actions.getModelSuccess(data))
 				},
 				error => {
-					dispatch(actions.getModelFail(undefined, error))
+					dispatch(actions.getModelFail(undefined, error.message))
 				},
 			)
 		},
@@ -68,7 +68,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 					dispatch(actions.createModelSuccess(data))
 				},
 				error => {
-					dispatch(actions.createModelFail(undefined, error))
+					dispatch(actions.createModelFail(undefined, error.message))
 				},
 			)
 		},
@@ -81,7 +81,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 					dispatch(actions.updateModelSuccess(data))
 				},
 				error => {
-					dispatch(actions.updateModelFail(undefined, error))
+					dispatch(actions.updateModelFail(undefined, error.message))
 				},
 			)
 		},
@@ -94,7 +94,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 					dispatch(actions.deleteModelSuccess(data))
 				},
 				error => {
-					dispatch(actions.deleteModelFail(undefined, error))
+					dispatch(actions.deleteModelFail(undefined, error.message))
 				},
 			)
 		},
