@@ -1,8 +1,11 @@
+import * as React from 'react'
 import {render as rtlRender} from 'react-testing-library'
-import {createStore} from 'redux'
+import {Provider} from 'react-redux'
 import {configureStore} from '../configStore'
 
-const render = (ui, options) => {
-	const store = configureStore()
-	return rtlRender(ui, options)
+export const renderWithStore = (
+	ui,
+	{initialState = {}, store = configureStore(initialState), ...options} = {},
+) => {
+	return rtlRender(<Provider store={store}>{ui}</Provider>, options)
 }
