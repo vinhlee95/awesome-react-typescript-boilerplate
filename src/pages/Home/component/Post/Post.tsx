@@ -13,7 +13,7 @@ const Post = (props: Props) => {
 	return (
 		<div className="post" key={post.id} onClick={() => onClick(post.id)}>
 			<p className="post__id">id: {post.id}</p>
-			<p className="post__title">title: {post.body}</p>
+			<p className="post__title">title: {post.title}</p>
 		</div>
 	)
 }
