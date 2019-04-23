@@ -58,6 +58,7 @@
 		"clean-webpack-plugin": "2.0.1",
 		"copy-webpack-plugin": "5.0.2",
 		"css-loader": "2.1.1",
+		"cross-env": "5.2.0",
 		"dom-testing-library": "3.19.3",
 		"dotenv-webpack": "1.7.0",
 		"fork-ts-checker-webpack-plugin": "1.0.1",
@@ -93,7 +94,6 @@
 	"dependencies": {
 		"axios": "0.18.0",
 		"connected-react-router": "6.3.2",
-		"cross-env": "5.2.0",
 		"i18next": "15.0.9",
 		"i18next-browser-languagedetector": "3.0.1",
 		"i18next-xhr-backend": "2.0.1",
