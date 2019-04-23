@@ -19,7 +19,7 @@ module.exports = env =>
 
 			devServer: {
 				contentBase: path.resolve(__dirname, '../../public/'),
-				port: 5000,
+				port: 3000,
 				open: true,
 				overlay: true,
 				hot: true,
