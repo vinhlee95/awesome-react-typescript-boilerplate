@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {fireEvent, render, wait} from 'react-testing-library'
+import {fireEvent, render} from 'react-testing-library'
 import 'jest-dom/extend-expect'
 import Post from '../Post'
 import PostModel from '../../../../../models/Post'
