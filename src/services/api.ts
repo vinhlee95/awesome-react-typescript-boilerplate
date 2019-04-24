@@ -28,13 +28,11 @@ const joinUrl = (path, params?, query?): string => {
 	return joinedUrl
 }
 
-export const requests = {
-	get: (path: string, params?, query?) =>
-		api.get(joinUrl(path, params, query)).then(getData),
-	post: (path: string, body, params?, query?) =>
-		api.post(joinUrl(path, params, query), body).then(getData),
-	put: (path: string, body, params?, query?) =>
-		api.put(joinUrl(path, params, query), body).then(getData),
-	delete: (path: string, params?, query?) =>
-		api.delete(joinUrl(path, params, query)).then(getData),
-}
+export const getRequest = (path: string, params?, query?) =>
+	api.get(joinUrl(path, params, query)).then(getData)
+export const postRequest = (path: string, body, params?, query?) =>
+	api.post(joinUrl(path, params, query), body).then(getData)
+export const putRequest = (path: string, body, params?, query?) =>
+	api.put(joinUrl(path, params, query), body).then(getData)
+export const deleteRequest = (path: string, params?, query?) =>
+	api.delete(joinUrl(path, params, query)).then(getData)

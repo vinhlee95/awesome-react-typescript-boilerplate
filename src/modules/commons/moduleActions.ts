@@ -1,5 +1,10 @@
-import * as api from '../../services/api'
 import {createAction} from './common'
+import {
+	getRequest,
+	putRequest,
+	deleteRequest,
+	postRequest,
+} from '../../services/api'
 
 const useModuleActions = (moduleName: string, path: string) => {
 	// ------------------------------------
@@ -50,8 +55,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 		getModel: (params?: number, query?: object) => dispatch => {
 			dispatch(actions.getModel())
 
-			api.requests
-				.get(path, params, query)
+			getRequest(path, params, query)
 				.then(data => dispatch(actions.getModelSuccess(data)))
 				.catch(error =>
 					dispatch(actions.getModelFail(undefined, error.message)),
@@ -61,8 +65,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 		createModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.createModel())
 
-			api.requests
-				.post(path, body, params, query)
+			postRequest(path, body, params, query)
 				.then(data => dispatch(actions.createModelSuccess(data)))
 				.catch(error =>
 					dispatch(actions.createModelFail(undefined, error.message)),
@@ -72,8 +75,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 		updateModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.updateModel())
 
-			api.requests
-				.put(path, body, params, query)
+			putRequest(path, body, params, query)
 				.then(data => dispatch(actions.updateModelSuccess(data)))
 				.catch(error =>
 					dispatch(actions.updateModelFail(undefined, error.message)),
@@ -83,8 +85,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 		deleteModel: (params?: number, query?: object) => dispatch => {
 			dispatch(actions.deleteModel())
 
-			api.requests
-				.delete(path, params, query)
+			deleteRequest(path, params, query)
 				.then(data => dispatch(actions.deleteModelSuccess(data)))
 				.catch(error =>
 					dispatch(actions.deleteModelFail(undefined, error.message)),
