@@ -42,13 +42,13 @@ describe('<Home/>', () => {
 
 	it('should fetch Posts on mount and display them', async () => {
 		// Act
-		const {getByText, queryByText} = renderWithStore(<Home />)
+		const {getByText, getByTestId, queryByTestId} = renderWithStore(<Home />)
 
 		// Assert
 		expect(mockGetRequest).toHaveBeenCalledTimes(1)
-		expect(getByText('Loading ...')).toBeInTheDocument()
+		expect(getByTestId('loading-post-list')).toBeInTheDocument()
 
-		await wait(() => expect(queryByText('Loading ...')).toBeNull())
+		await wait(() => expect(queryByTestId('loading-post-list')).toBeNull())
 
 		mockPosts.forEach(mockPost => {
 			expect(getByText(`id: ${mockPost.id}`)).toBeInTheDocument()
@@ -91,7 +91,6 @@ describe('<Home/>', () => {
 			getAllByTestId,
 			getByTestId,
 			queryByTestId,
-			debug,
 		} = renderWithStore(<Home />)
 
 		await wait(() =>
