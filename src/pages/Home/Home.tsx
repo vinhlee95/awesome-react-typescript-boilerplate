@@ -52,7 +52,7 @@ const Home: React.FunctionComponent<Props> = ({
 		}
 
 		if (error) {
-			return <p>Error: {error}</p>
+			return <p data-testid="error-post-list">Error: {error}</p>
 		}
 
 		return (
@@ -71,7 +71,7 @@ const Home: React.FunctionComponent<Props> = ({
 		}
 
 		if (error) {
-			return <p>Error: {error}</p>
+			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
 		if (!post.body) {

@@ -29,7 +29,6 @@ describe('<Home/>', () => {
 		const {getByText, queryByText} = renderWithStore(<Home />)
 
 		// Assert
-
 		expect(getByText('Loading ...')).toBeInTheDocument()
 
 		await wait(() => expect(queryByText('Loading ...')).toBeNull())
@@ -38,6 +37,25 @@ describe('<Home/>', () => {
 			expect(getByText(`id: ${mockPost.id}`)).toBeInTheDocument()
 			expect(getByText(`title: ${mockPost.title}`)).toBeInTheDocument()
 		})
+	})
+
+	it('should display error when fetch Posts fail', async () => {
+		// Arrange
+		const mockErrorMessage = 'This is the error'
+		const mockError = new Error(mockErrorMessage)
+		mockRequests.get = jest.fn(() => Promise.reject(mockError))
+
+		// Act
+		const {getByText, queryByText, getByTestId} = renderWithStore(<Home />)
+
+		// Assert
+		expect(getByText('Loading ...')).toBeInTheDocument()
+
+		await wait(() => expect(queryByText('Loading ...')).toBeNull())
+
+		expect(getByTestId('error-post-list')).toHaveTextContent(
+			`Error: ${mockErrorMessage}`,
+		)
 	})
 
 	it('should initially show Post Detail as default text', () => {
