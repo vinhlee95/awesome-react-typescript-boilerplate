@@ -15,7 +15,7 @@ describe('<Home/>', () => {
 		expect(getByText('common.welcome')).toBeInTheDocument()
 	})
 
-	it('should fetch Posts and render them to the page', async () => {
+	it('should fetch and display Posts to the page', async () => {
 		// Arrange
 		const post1 = postBuilder()
 		const post2 = postBuilder()
