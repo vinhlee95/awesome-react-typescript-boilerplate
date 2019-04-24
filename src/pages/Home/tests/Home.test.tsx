@@ -107,4 +107,29 @@ describe('<Home/>', () => {
 		expect(getByText(`title: ${mockPost1.title}`)).toBeInTheDocument()
 		expect(getByText(`body: ${mockPost1.body}`)).toBeInTheDocument()
 	})
+
+	it('should display error when fetch single Post fail', async () => {
+		// Arrange
+		mockGetRequest.mockResolvedValueOnce(mockPosts) // Fetch Posts
+		mockGetRequest.mockRejectedValueOnce(new Error(mockErrorMessage)) // Fetch Post Detail
+
+		// Act
+		const {getAllByTestId, getByTestId, queryByTestId} = renderWithStore(
+			<Home />,
+		)
+
+		await wait(() =>
+			expect(getAllByTestId('post-component')[0]).toBeInTheDocument(),
+		)
+
+		fireEvent.click(getAllByTestId('post-component')[0])
+
+		expect(getByTestId('loading-post-detail')).toBeInTheDocument()
+
+		await wait(() => expect(queryByTestId('loading-post-detail')).toBeNull())
+
+		expect(getByTestId('error-post-detail')).toHaveTextContent(
+			`Error: ${mockErrorMessage}`,
+		)
+	})
 })
