@@ -50,6 +50,8 @@ describe('<Home/>', () => {
 
 		await wait(() => expect(queryByTestId('loading-post-list')).toBeNull())
 
+		expect(queryByTestId('error-post-list')).toBeNull()
+
 		mockPosts.forEach(mockPost => {
 			expect(getByText(`id: ${mockPost.id}`)).toBeInTheDocument()
 			expect(getByText(`title: ${mockPost.title}`)).toBeInTheDocument()
@@ -102,6 +104,8 @@ describe('<Home/>', () => {
 		expect(getByTestId('loading-post-detail')).toBeInTheDocument()
 
 		await wait(() => expect(queryByTestId('loading-post-detail')).toBeNull())
+
+		expect(queryByTestId('error-post-detail')).toBeNull()
 
 		expect(getByText(`id: ${mockPost1.id}`)).toBeInTheDocument()
 		expect(getByText(`title: ${mockPost1.title}`)).toBeInTheDocument()
