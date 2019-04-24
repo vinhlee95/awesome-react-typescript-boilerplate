@@ -1,12 +1,33 @@
 import * as React from 'react'
 import 'jest-dom/extend-expect'
-import {fireEvent, getByText, wait} from 'react-testing-library'
+import {fireEvent, wait} from 'react-testing-library'
 import {renderWithStore} from '../../../utils/testUtils'
 import {postBuilder} from '../../../utils/mockUtils'
-import {requests as mockRequests} from '../../../services/api'
+import {getRequest} from '../../../services/api'
 import Home from '../Home'
 
+jest.mock('../../../services/api', () => {
+	return {getRequest: jest.fn()}
+})
+
 describe('<Home/>', () => {
+	let mockGetRequest
+	let mockPosts
+	let post1
+
+	beforeEach(() => {
+		// Arrange
+		mockGetRequest = getRequest as jest.Mock<any>
+
+		post1 = postBuilder()
+		const post2 = postBuilder()
+		const post3 = postBuilder()
+
+		mockPosts = [post1, post2, post3]
+
+		mockGetRequest.mockResolvedValue(mockPosts)
+	})
+
 	it('should render Welcome text', () => {
 		// Act
 		const {getByText} = renderWithStore(<Home />)
@@ -15,20 +36,12 @@ describe('<Home/>', () => {
 		expect(getByText('common.welcome')).toBeInTheDocument()
 	})
 
-	it('should fetch and display Posts to the page', async () => {
-		// Arrange
-		const post1 = postBuilder()
-		const post2 = postBuilder()
-		const post3 = postBuilder()
-
-		const mockPosts = [post1, post2, post3]
-
-		mockRequests.get = jest.fn(() => Promise.resolve(mockPosts))
-
+	it('should fetch Posts on mount and display them', async () => {
 		// Act
 		const {getByText, queryByText} = renderWithStore(<Home />)
 
 		// Assert
+		expect(mockGetRequest).toHaveBeenCalledTimes(1)
 		expect(getByText('Loading ...')).toBeInTheDocument()
 
 		await wait(() => expect(queryByText('Loading ...')).toBeNull())
@@ -43,10 +56,12 @@ describe('<Home/>', () => {
 		// Arrange
 		const mockErrorMessage = 'This is the error'
 		const mockError = new Error(mockErrorMessage)
-		mockRequests.get = jest.fn(() => Promise.reject(mockError))
+		mockGetRequest.mockRejectedValueOnce(mockError)
 
 		// Act
-		const {getByText, queryByText, getByTestId} = renderWithStore(<Home />)
+		const {getByText, queryByText, getByTestId, debug} = renderWithStore(
+			<Home />,
+		)
 
 		// Assert
 		expect(getByText('Loading ...')).toBeInTheDocument()
@@ -58,7 +73,7 @@ describe('<Home/>', () => {
 		)
 	})
 
-	it('should initially show Post Detail as default text', () => {
+	it('should render Post Detail as default text', () => {
 		// Act
 
 		const {getByText} = renderWithStore(<Home />)
