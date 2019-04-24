@@ -2,6 +2,7 @@ const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
 const loadPresets = require('./presets/loadPresets')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = env =>
 	merge(
@@ -37,6 +38,12 @@ module.exports = env =>
 					},
 				],
 			},
+			plugins: [
+				new CircularDependencyPlugin({
+					exclude: /a\.{tsx, ts, jsx, js}|node_modules/, // exclude node_modules
+					failOnError: false, // show a warning when there is a circular dependency
+				}),
+			],
 		},
 		loadPresets(env),
 	)
