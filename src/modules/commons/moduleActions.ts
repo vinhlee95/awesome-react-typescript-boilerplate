@@ -50,53 +50,45 @@ const useModuleActions = (moduleName: string, path: string) => {
 		getModel: (params?: number, query?: object) => dispatch => {
 			dispatch(actions.getModel())
 
-			api.requests.get(path, params, query).then(
-				data => {
-					dispatch(actions.getModelSuccess(data))
-				},
-				error => {
-					dispatch(actions.getModelFail(undefined, error.message))
-				},
-			)
+			api.requests
+				.get(path, params, query)
+				.then(data => dispatch(actions.getModelSuccess(data)))
+				.catch(error =>
+					dispatch(actions.getModelFail(undefined, error.message)),
+				)
 		},
 
 		createModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.createModel())
 
-			api.requests.post(path, body, params, query).then(
-				data => {
-					dispatch(actions.createModelSuccess(data))
-				},
-				error => {
-					dispatch(actions.createModelFail(undefined, error.message))
-				},
-			)
+			api.requests
+				.post(path, body, params, query)
+				.then(data => dispatch(actions.createModelSuccess(data)))
+				.catch(error =>
+					dispatch(actions.createModelFail(undefined, error.message)),
+				)
 		},
 
 		updateModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.updateModel())
 
-			api.requests.put(path, body, params, query).then(
-				data => {
-					dispatch(actions.updateModelSuccess(data))
-				},
-				error => {
-					dispatch(actions.updateModelFail(undefined, error.message))
-				},
-			)
+			api.requests
+				.put(path, body, params, query)
+				.then(data => dispatch(actions.updateModelSuccess(data)))
+				.catch(error =>
+					dispatch(actions.updateModelFail(undefined, error.message)),
+				)
 		},
 
 		deleteModel: (params?: number, query?: object) => dispatch => {
 			dispatch(actions.deleteModel())
 
-			api.requests.delete(path, params, query).then(
-				data => {
-					dispatch(actions.deleteModelSuccess(data))
-				},
-				error => {
-					dispatch(actions.deleteModelFail(undefined, error.message))
-				},
-			)
+			api.requests
+				.delete(path, params, query)
+				.then(data => dispatch(actions.deleteModelSuccess(data)))
+				.catch(error =>
+					dispatch(actions.deleteModelFail(undefined, error.message)),
+				)
 		},
 	}
 
