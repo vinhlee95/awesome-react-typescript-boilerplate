@@ -13,17 +13,17 @@ jest.mock('../../../services/api', () => {
 describe('<Home/>', () => {
 	let mockGetRequest
 	let mockPosts
-	let post1
+	let mockPost1
 
 	beforeEach(() => {
 		// Arrange
 		mockGetRequest = getRequest as jest.Mock<any>
 
-		post1 = postBuilder()
-		const post2 = postBuilder()
-		const post3 = postBuilder()
+		mockPost1 = postBuilder()
+		const mockPost2 = postBuilder()
+		const mockPost3 = postBuilder()
 
-		mockPosts = [post1, post2, post3]
+		mockPosts = [mockPost1, mockPost2, mockPost3]
 
 		mockGetRequest.mockResolvedValue(mockPosts)
 	})
@@ -59,14 +59,12 @@ describe('<Home/>', () => {
 		mockGetRequest.mockRejectedValueOnce(mockError)
 
 		// Act
-		const {getByText, queryByText, getByTestId, debug} = renderWithStore(
-			<Home />,
-		)
+		const {getByTestId, queryByTestId} = renderWithStore(<Home />)
 
 		// Assert
-		expect(getByText('Loading ...')).toBeInTheDocument()
+		expect(getByTestId('loading-post-list')).toBeInTheDocument()
 
-		await wait(() => expect(queryByText('Loading ...')).toBeNull())
+		await wait(() => expect(queryByTestId('loading-post-list')).toBeNull())
 
 		expect(getByTestId('error-post-list')).toHaveTextContent(
 			`Error: ${mockErrorMessage}`,
@@ -75,7 +73,6 @@ describe('<Home/>', () => {
 
 	it('should render Post Detail as default text', () => {
 		// Act
-
 		const {getByText} = renderWithStore(<Home />)
 
 		expect(getByText('Post Detail')).toBeInTheDocument()
