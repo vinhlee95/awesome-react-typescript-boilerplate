@@ -15,9 +15,10 @@ describe('<Home/>', () => {
 	let mockPosts
 	let mockPost1
 
+	let mockErrorMessage
+
 	beforeEach(() => {
 		// Arrange
-		mockGetRequest = getRequest as jest.Mock<any>
 
 		mockPost1 = postBuilder()
 		const mockPost2 = postBuilder()
@@ -25,6 +26,9 @@ describe('<Home/>', () => {
 
 		mockPosts = [mockPost1, mockPost2, mockPost3]
 
+		mockErrorMessage = 'This is the error'
+
+		mockGetRequest = getRequest as jest.Mock<any>
 		mockGetRequest.mockResolvedValue(mockPosts)
 	})
 
@@ -54,9 +58,7 @@ describe('<Home/>', () => {
 
 	it('should display error when fetch Posts fail', async () => {
 		// Arrange
-		const mockErrorMessage = 'This is the error'
-		const mockError = new Error(mockErrorMessage)
-		mockGetRequest.mockRejectedValueOnce(mockError)
+		mockGetRequest.mockRejectedValueOnce(new Error(mockErrorMessage))
 
 		// Act
 		const {getByTestId, queryByTestId} = renderWithStore(<Home />)
@@ -76,5 +78,34 @@ describe('<Home/>', () => {
 		const {getByText} = renderWithStore(<Home />)
 
 		expect(getByText('Post Detail')).toBeInTheDocument()
+	})
+
+	it('should fetch Post Detail when click on single Post', async () => {
+		// Arrange
+		mockGetRequest.mockResolvedValueOnce(mockPosts) // Fetch Posts
+		mockGetRequest.mockResolvedValueOnce(mockPost1) // Fetch Post Detail
+
+		// Act
+		const {
+			getByText,
+			getAllByTestId,
+			getByTestId,
+			queryByTestId,
+			debug,
+		} = renderWithStore(<Home />)
+
+		await wait(() =>
+			expect(getAllByTestId('post-component')[0]).toBeInTheDocument(),
+		)
+
+		fireEvent.click(getAllByTestId('post-component')[0])
+
+		expect(getByTestId('loading-post-detail')).toBeInTheDocument()
+
+		await wait(() => expect(queryByTestId('loading-post-detail')).toBeNull())
+
+		expect(getByText(`id: ${mockPost1.id}`)).toBeInTheDocument()
+		expect(getByText(`title: ${mockPost1.title}`)).toBeInTheDocument()
+		expect(getByText(`body: ${mockPost1.body}`)).toBeInTheDocument()
 	})
 })
