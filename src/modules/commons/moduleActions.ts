@@ -64,7 +64,6 @@ const useModuleActions = (moduleName: string, path: string) => {
 
 		createModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.createModel())
-
 			postRequest(path, body, params, query)
 				.then(data => dispatch(actions.createModelSuccess(data)))
 				.catch(error =>
@@ -74,7 +73,6 @@ const useModuleActions = (moduleName: string, path: string) => {
 
 		updateModel: (body, params?: number, query?: object) => dispatch => {
 			dispatch(actions.updateModel())
-
 			putRequest(path, body, params, query)
 				.then(data => dispatch(actions.updateModelSuccess(data)))
 				.catch(error =>
