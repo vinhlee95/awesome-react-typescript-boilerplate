@@ -4,7 +4,7 @@ import {renderWithRouter} from '../../../../utils/testUtils'
 import Nav from '../Nav'
 
 describe('<About/>', () => {
-	it('should render Nav', () => {
+	it('should render Nav items', () => {
 		// Act
 		const {getByText} = renderWithRouter(<Nav />)
 
