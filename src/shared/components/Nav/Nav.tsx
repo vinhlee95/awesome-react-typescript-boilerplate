@@ -20,7 +20,7 @@ const Nav = () => {
 	const [t] = useTranslation()
 
 	return (
-		<nav>
+		<nav data-testid="nav-component">
 			<ul className="nav">
 				<NavItem path={RouterPath.home} exact name={t('nav.home')} />
 				<NavItem path={RouterPath.about} name={t('nav.about')} />

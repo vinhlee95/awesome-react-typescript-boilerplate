@@ -14,7 +14,11 @@ const LanguageSelector = (props: Props) => {
 	}
 
 	return (
-		<select defaultValue={i18n.language} onChange={changeLanguage}>
+		<select
+			data-testid="language-selector-component"
+			defaultValue={i18n.language}
+			onChange={changeLanguage}
+		>
 			<option value={Language.en}>{t('common.en')}</option>
 			<option value={Language.de}>{t('common.de')}</option>
 		</select>
