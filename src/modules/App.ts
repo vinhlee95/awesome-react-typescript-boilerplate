@@ -13,9 +13,9 @@ const moduleName = 'app'
 // ------------------------------------
 
 const types = {
-	INITIALIZE: `${moduleName}.INITIALIZE`,
-	TEAR_DOWN: `${moduleName}.TEAR_DOWN`,
-	CHANGE_LANGUAGE: `${moduleName}.CHANGE_LANGUAGE`,
+	INITIALIZE: `@@${moduleName}/INITIALIZE`,
+	TEAR_DOWN: `@@${moduleName}/TEAR_DOWN`,
+	CHANGE_LANGUAGE: `@@${moduleName}/CHANGE_LANGUAGE`,
 }
 
 const actions = {
