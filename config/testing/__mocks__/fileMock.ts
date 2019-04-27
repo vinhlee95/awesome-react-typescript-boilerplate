@@ -1,1 +1,1 @@
-export default 'test-file-stub'
+export default 'tests-file-stub'
