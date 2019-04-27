@@ -7,7 +7,7 @@
 
 module.exports = {
 	preset: 'ts-jest',
-	setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
+	setupFilesAfterEnv: ['<rootDir>/config/testing/setupTests.ts'],
 	collectCoverageFrom: [
 		'src/**/*.{js,jsx,ts,tsx}',
 		'!src/**/*.test.{js,jsx,ts,tsx}',
@@ -22,8 +22,11 @@ module.exports = {
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'node', 'json'],
 	moduleNameMapper: {
 		'\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-			'<rootDir>/config/testing/fileMock.ts',
-		'\\.(css|less|sass|scss)$': '<rootDir>/config/testing/styleMock.ts',
+			'<rootDir>/config/testing/__mocks__/fileMock.ts',
+		'\\.(css|less|sass|scss)$':
+			'<rootDir>/config/testing/__mocks__/styleMock.ts',
+		'<rootDir>/src/services/i18n.ts':
+			'<rootDir>/config/testing/__mocks__/i18nMock.tsx',
 	},
 	// Where Jest detectes test files
 	testMatch: [

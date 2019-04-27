@@ -48,11 +48,11 @@ const Home: React.FunctionComponent<Props> = ({
 		const {loading, error, list} = posts
 
 		if (loading) {
-			return <p>Loading ...</p>
+			return <p data-testid="loading-post-list">Loading ...</p>
 		}
 
 		if (error) {
-			return <p>Error: {error}</p>
+			return <p data-testid="error-post-list">Error: {error}</p>
 		}
 
 		return (
@@ -67,11 +67,11 @@ const Home: React.FunctionComponent<Props> = ({
 		const {loading, error} = post
 
 		if (loading) {
-			return <p>Loading ...</p>
+			return <p data-testid="loading-post-detail">Loading ...</p>
 		}
 
 		if (error) {
-			return <p>Error: {error}</p>
+			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
 		if (!post.body) {
