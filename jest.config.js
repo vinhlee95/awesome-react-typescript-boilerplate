@@ -14,9 +14,9 @@ module.exports = {
 		'!src/index.tsx',
 		'!src/App.tsx',
 	],
-	// individual tests will be reported
+	// individual test will be reported
 	verbose: true,
-	// Automatically clear mock calls and instances between every tests
+	// Automatically clear mock calls and instances between every test
 	clearMocks: true,
 	moduleDirectories: ['node_modules', 'src'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'node', 'json'],
@@ -28,10 +28,10 @@ module.exports = {
 		'<rootDir>/src/services/i18n.ts':
 			'<rootDir>/config/testing/__mocks__/i18nMock.tsx',
 	},
-	// Where Jest detectes tests files
+	// Where Jest detectes test files
 	testMatch: [
 		'<rootDir>/src/**/tests/**/*.{ts,tsx,js,jsx}',
-		'<rootDir>/src/**/?(*.)(spec|tests).{ts,tsx,js,jsx}',
+		'<rootDir>/src/**/?(*.)(spec|test).{ts,tsx,js,jsx}',
 	],
 	// configure minimum threshold enforcement for coverage results
 	// https://jestjs.io/docs/en/configuration#coveragethreshold-object
