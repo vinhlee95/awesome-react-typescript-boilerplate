@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const About = () => {
 	return (
-		<div>
+		<div data-testid="about-page">
 			<p>About page</p>
 		</div>
 	)
