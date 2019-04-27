@@ -9,23 +9,12 @@ import * as React from 'react'
 import {useEffect} from 'react'
 import {hot} from 'react-hot-loader/root'
 import {connect} from 'react-redux'
-import {Route, Switch, Redirect} from 'react-router-dom'
 import {initialize, tearDown} from './modules/App'
 
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
 import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
-
-// Code splitting
-const Home = React.lazy(() =>
-	import(/* webpackChunkName: "Home" */ './pages/Home/Home'),
-)
-const About = React.lazy(() =>
-	import(/* webpackChunkName: "About" */ './pages/About/About'),
-)
-
-// Constants
-import {RouterPath} from './constants'
+import Router from './router/router'
 
 interface Props {
 	initialize: () => any
@@ -43,11 +32,7 @@ const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
 		<React.Suspense fallback={<div>Loading...</div>}>
 			<ErrorBoundaries>
 				<CoreLayout>
-					<Switch>
-						<Route exact path={RouterPath.home} component={Home} />
-						<Route path={RouterPath.about} component={About} />
-						<Redirect to={RouterPath.home} />
-					</Switch>
+					<Router />
 				</CoreLayout>
 			</ErrorBoundaries>
 		</React.Suspense>
