@@ -14,7 +14,7 @@ import {initialize, tearDown} from './modules/App'
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
 import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
-import Router from './router/router'
+import Router from './router/Router'
 
 interface Props {
 	initialize: () => any
