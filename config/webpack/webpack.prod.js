@@ -7,6 +7,7 @@ const path = require('path')
 const postcssPresetEnv = require('postcss-preset-env')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 module.exports = merge(common, {
 	mode: 'production',
@@ -61,5 +62,9 @@ module.exports = merge(common, {
 		}),
 
 		new CopyPlugin([{from: path.resolve(__dirname, '../../public'), to: ''}]),
+
+		new ManifestPlugin({
+			fileName: 'awesome-typescript-react-manifest.json',
+		}),
 	],
 })
