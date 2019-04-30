@@ -58,8 +58,8 @@
 		"circular-dependency-plugin": "5.0.2",
 		"clean-webpack-plugin": "2.0.1",
 		"copy-webpack-plugin": "5.0.2",
-		"css-loader": "2.1.1",
 		"cross-env": "5.2.0",
+		"css-loader": "2.1.1",
 		"dom-testing-library": "3.19.3",
 		"dotenv-webpack": "1.7.0",
 		"fork-ts-checker-webpack-plugin": "1.0.1",
@@ -90,6 +90,7 @@
 		"webpack-bundle-analyzer": "3.3.2",
 		"webpack-cli": "3.3.0",
 		"webpack-dev-server": "3.2.1",
+		"webpack-manifest-plugin": "2.0.4",
 		"webpack-merge": "4.2.1"
 	},
 	"dependencies": {
