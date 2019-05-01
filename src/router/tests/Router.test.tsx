@@ -1,7 +1,6 @@
 import * as React from 'react'
 import 'jest-dom/extend-expect'
 import {wait} from 'dom-testing-library'
-import {fireEvent} from 'dom-testing-library'
 import {render} from '../../utils/testUtils'
 import Router from '../Router'
 import {RouterPath} from '../../constants'
@@ -9,13 +8,13 @@ import * as faker from 'faker'
 import 'react-testing-library/cleanup-after-each'
 
 describe('<Router/>', () => {
-	it('should render Home page by default', () => {
+	it('should render Home page by default', async () => {
 		// Action
 		const {getByTestId} = render(<Router />)
 
 		// Assert
 		expect(getByTestId('suspense')).toBeInTheDocument()
-		wait(() => expect(getByTestId('home-page')).toBeInTheDocument())
+		await wait(() => expect(getByTestId('home-page')).toBeInTheDocument())
 	})
 
 	it('should render Home page when go to not found path', () => {
@@ -31,7 +30,7 @@ describe('<Router/>', () => {
 		expect(getByTestId('home-page')).toBeInTheDocument()
 	})
 
-	it('should render About page when go to path /about', () => {
+	it('should render About page when go to path /about', async () => {
 		// Action
 		const {getByTestId} = render(<Router />, {
 			route: RouterPath.about,
@@ -39,6 +38,6 @@ describe('<Router/>', () => {
 
 		// Assert
 		expect(getByTestId('suspense')).toBeInTheDocument()
-		wait(() => expect(getByTestId('about-page')).toBeInTheDocument())
+		await wait(() => expect(getByTestId('about-page')).toBeInTheDocument())
 	})
 })
