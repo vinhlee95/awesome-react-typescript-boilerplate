@@ -21,7 +21,7 @@ interface Props {
 	tearDown: () => any
 }
 
-const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
+export const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
 	useEffect(() => {
 		initialize()
 
@@ -29,13 +29,11 @@ const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
 	}, [])
 
 	return (
-		<React.Suspense fallback={<div>Loading...</div>}>
-			<ErrorBoundaries>
-				<CoreLayout>
-					<Router />
-				</CoreLayout>
-			</ErrorBoundaries>
-		</React.Suspense>
+		<ErrorBoundaries>
+			<CoreLayout>
+				<Router />
+			</CoreLayout>
+		</ErrorBoundaries>
 	)
 }
 
