@@ -4,24 +4,25 @@ import {createMemoryHistory} from 'history'
 import {Router} from 'react-router'
 import {Provider} from 'react-redux'
 import {configureStore} from '../configStore'
+import CoreLayout from '../shared/layout/CoreLayout/CoreLayout'
 
-export const renderWithStore = (
+export const render = (
 	ui,
-	{initialState = {}, store = configureStore(initialState), ...options} = {},
-) => {
-	return rtlRender(<Provider store={store}>{ui}</Provider>, options)
-}
-
-export const renderWithRouter = (
-	ui,
-	{
-		route = '/',
-		history = createMemoryHistory({initialEntries: ['/']}),
-		...options
-	} = {},
+	{route = '/', history = createMemoryHistory({initialEntries: [route]})} = {},
+	{initialState = {}, store = configureStore(initialState)} = {},
+	options = {},
 ) => {
 	return {
-		...rtlRender(<Router history={history}>{ui}</Router>, options),
+		...rtlRender(
+			<Provider store={store}>
+				<Router history={history}>
+					<React.Suspense fallback={<div data-testid="suspense">Loading</div>}>
+						<CoreLayout>{ui}</CoreLayout>
+					</React.Suspense>
+				</Router>
+			</Provider>,
+			options,
+		),
 		history,
 	}
 }

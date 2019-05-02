@@ -82,7 +82,7 @@ const Home: React.FunctionComponent<Props> = ({
 	}
 
 	return (
-		<div>
+		<div data-testid="home-page">
 			<h2>{t('common.welcome')}</h2>
 			<div className="language-selector">
 				<LanguageSelector onChangeLanguage={changeLanguage} />

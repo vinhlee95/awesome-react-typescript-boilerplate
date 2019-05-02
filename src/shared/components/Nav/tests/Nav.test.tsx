@@ -1,15 +1,19 @@
 import * as React from 'react'
 import 'jest-dom/extend-expect'
-import {renderWithRouter} from '../../../../utils/testUtils'
+import {render} from '../../../../utils/testUtils'
 import Nav from '../Nav'
+import {RouterPath} from '../../../../constants'
 
 describe('<About/>', () => {
 	it('should render Nav items', () => {
 		// Act
-		const {getByText} = renderWithRouter(<Nav />)
+		const {getByText} = render(<Nav />)
 
 		// Assert
-		expect(getByText('nav.home')).toBeInTheDocument()
-		expect(getByText('nav.about')).toBeInTheDocument()
+		const navHome = getByText('nav.home')
+		expect(navHome).toHaveAttribute('href', RouterPath.home)
+
+		const navAbout = getByText('nav.about')
+		expect(navAbout).toHaveAttribute('href', RouterPath.about)
 	})
 })

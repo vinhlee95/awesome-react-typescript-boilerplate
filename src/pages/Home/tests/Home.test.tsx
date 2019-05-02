@@ -1,7 +1,7 @@
 import * as React from 'react'
 import 'jest-dom/extend-expect'
 import {fireEvent, wait} from 'react-testing-library'
-import {renderWithStore} from '../../../utils/testUtils'
+import {render} from '../../../utils/testUtils'
 import {postBuilder} from '../../../utils/mockUtils'
 import {getRequest} from '../../../services/api'
 import Home from '../Home'
@@ -34,7 +34,7 @@ describe('<Home/>', () => {
 
 	it('should render Welcome text', () => {
 		// Act
-		const {getByText} = renderWithStore(<Home />)
+		const {getByText} = render(<Home />)
 
 		// Assert
 		expect(getByText('common.welcome')).toBeInTheDocument()
@@ -42,7 +42,7 @@ describe('<Home/>', () => {
 
 	it('should fetch Posts on mount and display them', async () => {
 		// Act
-		const {getByText, getByTestId, queryByTestId} = renderWithStore(<Home />)
+		const {getByText, getByTestId, queryByTestId} = render(<Home />)
 
 		// Assert
 		expect(mockGetRequest).toHaveBeenCalledTimes(1)
@@ -63,7 +63,7 @@ describe('<Home/>', () => {
 		mockGetRequest.mockRejectedValueOnce(new Error(mockErrorMessage))
 
 		// Act
-		const {getByTestId, queryByTestId} = renderWithStore(<Home />)
+		const {getByTestId, queryByTestId} = render(<Home />)
 
 		// Assert
 		expect(getByTestId('loading-post-list')).toBeInTheDocument()
@@ -77,7 +77,7 @@ describe('<Home/>', () => {
 
 	it('should render Post Detail as default text', () => {
 		// Act
-		const {getByText} = renderWithStore(<Home />)
+		const {getByText} = render(<Home />)
 
 		expect(getByText('Post Detail')).toBeInTheDocument()
 	})
@@ -88,12 +88,9 @@ describe('<Home/>', () => {
 		mockGetRequest.mockResolvedValueOnce(mockPost1) // Fetch Post Detail
 
 		// Act
-		const {
-			getByText,
-			getAllByTestId,
-			getByTestId,
-			queryByTestId,
-		} = renderWithStore(<Home />)
+		const {getByText, getAllByTestId, getByTestId, queryByTestId} = render(
+			<Home />,
+		)
 
 		await wait(() =>
 			expect(getAllByTestId('post-component')[0]).toBeInTheDocument(),
@@ -118,9 +115,7 @@ describe('<Home/>', () => {
 		mockGetRequest.mockRejectedValueOnce(new Error(mockErrorMessage)) // Fetch Post Detail
 
 		// Act
-		const {getAllByTestId, getByTestId, queryByTestId} = renderWithStore(
-			<Home />,
-		)
+		const {getAllByTestId, getByTestId, queryByTestId} = render(<Home />)
 
 		await wait(() =>
 			expect(getAllByTestId('post-component')[0]).toBeInTheDocument(),

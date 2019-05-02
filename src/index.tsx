@@ -13,7 +13,9 @@ const store = configureStore()
 const app = (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<App />
+			<React.Suspense fallback={<div>Loading...</div>}>
+				<App />
+			</React.Suspense>
 		</ConnectedRouter>
 	</Provider>
 )
