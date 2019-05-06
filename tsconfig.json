@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"paths": {"*": ["types/*"]},
 		"moduleResolution": "node",
-		"outDir": "./dist/",
+		"noEmit": true,
 		"sourceMap": true,
 		"jsx": "react",
 		"module": "commonjs",
