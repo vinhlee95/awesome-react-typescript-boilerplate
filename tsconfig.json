@@ -4,6 +4,7 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"sourceMap": true,
+		"noUnusedLocals": true,
 		"jsx": "react",
 		"module": "commonjs",
 		"target": "esnext",
