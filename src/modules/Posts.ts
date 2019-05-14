@@ -18,7 +18,7 @@ const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 // ------------------------------------
 
 const initialState: Posts = {
-	list: undefined,
+	list: [],
 	loading: false,
 	saving: false,
 	error: undefined,
