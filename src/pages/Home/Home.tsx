@@ -3,38 +3,50 @@ import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {useTranslation} from 'react-i18next'
 
-// Components
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
 import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
 
-// Models
 import Post from '../../models/Post'
-import Posts from '../../models/Posts'
 
-// Modules
 import {getPost} from '../../modules/Post'
 import {getPosts} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
 
 import './Home.scss'
+import {
+	getDataSelector,
+	getErrorSelector,
+	getListDataSelector,
+	getLoadingSelector,
+} from '../../modules/reducers'
+import ModuleName from '../../modules/commons/ModuleName'
 
 interface Props {
-	posts: Posts
+	posts: Post[]
+	postsLoading: boolean
+	postsError: string
 	post: Post
+	postLoading: boolean
+	postError: string
 	getPosts: () => any
 	getPost: (id: number) => any
 	changeLanguage: (language: string) => any
 }
 
-const Home: React.FunctionComponent<Props> = ({
-	post,
-	posts,
-	getPosts,
-	getPost,
-	changeLanguage,
-}) => {
+const Home: React.FunctionComponent<Props> = props => {
 	const [t] = useTranslation()
+	const {
+		post,
+		postLoading,
+		postError,
+		posts,
+		postsLoading,
+		postsError,
+		getPosts,
+		getPost,
+		changeLanguage,
+	} = props
 
 	useEffect(() => {
 		getPosts()
@@ -45,36 +57,32 @@ const Home: React.FunctionComponent<Props> = ({
 	}
 
 	const renderPostList = () => {
-		const {loading, error, list} = posts
-
-		if (loading) {
+		if (postsLoading) {
 			return <p data-testid="loading-post-list">Loading ...</p>
 		}
 
-		if (error) {
-			return <p data-testid="error-post-list">Error: {error}</p>
+		if (postsError) {
+			return <p data-testid="error-post-list">Error: {postsError}</p>
 		}
 
 		return (
-			list &&
-			list.map(post => (
+			posts &&
+			posts.map(post => (
 				<PostComponent onClick={onPostClicked} key={post.id} post={post} />
 			))
 		)
 	}
 
 	const renderPostDetail = () => {
-		const {loading, error} = post
-
-		if (loading) {
+		if (postLoading) {
 			return <p data-testid="loading-post-detail">Loading ...</p>
 		}
 
-		if (error) {
-			return <p data-testid="error-post-detail">Error: {error}</p>
+		if (postError) {
+			return <p data-testid="error-post-detail">Error: {postError}</p>
 		}
 
-		if (!post.body) {
+		if (!post) {
 			return <p>Post Detail</p>
 		}
 
@@ -95,10 +103,14 @@ const Home: React.FunctionComponent<Props> = ({
 	)
 }
 
-const mapStateToProps = ({posts, post}) => {
+const mapStateToProps = state => {
 	return {
-		posts,
-		post,
+		posts: getListDataSelector(state, ModuleName.posts),
+		postsLoading: getLoadingSelector(state, ModuleName.posts),
+		postsError: getErrorSelector(state, ModuleName.posts),
+		post: getDataSelector(state, ModuleName.post),
+		postLoading: getLoadingSelector(state, ModuleName.post),
+		postError: getErrorSelector(state, ModuleName.post),
 	}
 }
 

@@ -29,7 +29,7 @@ const actions = {
 // ------------------------------------
 
 const initialState: App = {
-	language: undefined,
+	language: null,
 }
 
 const app = (state = initialState, action) =>
@@ -62,7 +62,7 @@ export const tearDown = () => {
 		dispatch(actions.tearDown())
 
 		i18n.off('initialized', () => {
-			dispatch(actions.changeLanguage(undefined))
+			dispatch(actions.changeLanguage(null))
 		})
 	}
 }
