@@ -52,7 +52,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 	// ------------------------------------
 
 	const moduleActions = {
-		getModel: (params?: number, query?: object) => dispatch => {
+		getModel: (params?: string, query?: object) => dispatch => {
 			dispatch(actions.getModel())
 
 			getRequest(path, params, query)
@@ -62,7 +62,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 				)
 		},
 
-		createModel: (body, params?: number, query?: object) => dispatch => {
+		createModel: (body, params?: string, query?: object) => dispatch => {
 			dispatch(actions.createModel())
 			postRequest(path, body, params, query)
 				.then(data => dispatch(actions.createModelSuccess(data)))
@@ -71,7 +71,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 				)
 		},
 
-		updateModel: (body, params?: number, query?: object) => dispatch => {
+		updateModel: (body, params?: string, query?: object) => dispatch => {
 			dispatch(actions.updateModel())
 			putRequest(path, body, params, query)
 				.then(data => dispatch(actions.updateModelSuccess(data)))
@@ -80,7 +80,7 @@ const useModuleActions = (moduleName: string, path: string) => {
 				)
 		},
 
-		deleteModel: (params?: number, query?: object) => dispatch => {
+		deleteModel: (params?: string, query?: object) => dispatch => {
 			dispatch(actions.deleteModel())
 
 			deleteRequest(path, params, query)

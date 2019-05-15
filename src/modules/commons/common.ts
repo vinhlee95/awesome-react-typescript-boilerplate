@@ -1,39 +1,30 @@
-import BaseModel from '../../models/bases/BaseModel'
-import BaseModels from '../../models/bases/BaseModels'
+import BaseState from '../../models/bases/BaseState'
+import ModelState from '../../models/bases/ModelState'
 
-export const startLoading = (state: BaseModel) => {
-	state.loading = true
+export const startFetching = (state: BaseState) => {
+	state.loading = 'fetching'
 	state.error = undefined
 }
 
-export const endLoading = (state: BaseModel, error) => {
-	state.loading = false
+export const endFetching = (state: BaseState, error: string) => {
+	state.loading = undefined
 	state.error = error
 }
 
-export const startSaving = (state: BaseModel) => {
-	state.saving = true
+export const startSaving = (state: BaseState) => {
+	state.loading = 'saving'
 	state.error = undefined
 }
 
-export const endSaving = (state: BaseModel, error) => {
-	state.saving = false
+export const endSaving = (state: BaseState, error: string) => {
+	state.loading = 'saving'
 	state.error = error
 }
 
-export const updateData = (state: BaseModel, data) => {
-	state.loading = false
+export const updateData = <T>(state: ModelState<T>, data: T) => {
+	state.loading = undefined
 	state.error = undefined
-	Object.keys(data).map(key => {
-		const value = data[key]
-		state[key] = value
-	})
-}
-
-export const updateListData = (state: BaseModels, data) => {
-	state.loading = false
-	state.error = undefined
-	state.list = data
+	state.data = data
 }
 
 export const createAction = (type: string) => {

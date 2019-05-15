@@ -1,7 +1,5 @@
-import BaseModel from './bases/BaseModel'
-
-export default interface Post extends BaseModel {
-	id: number
+export default interface Post {
+	id: string
 	userid: number
 	title: string
 	body: string

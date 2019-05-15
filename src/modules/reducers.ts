@@ -19,4 +19,5 @@ const rootReducer = (history: History) =>
 		app: appReducer,
 		router: connectRouter(history),
 	})
+
 export default rootReducer

@@ -9,8 +9,8 @@ import PostDetail from './component/PostDetail/PostDetail'
 import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
 
 // Models
+import ModelState from '../../models/bases/ModelState'
 import Post from '../../models/Post'
-import Posts from '../../models/Posts'
 
 // Modules
 import {getPost} from '../../modules/Post'
@@ -20,32 +20,28 @@ import {changeLanguage} from '../../modules/App'
 import './Home.scss'
 
 interface Props {
-	posts: Posts
-	post: Post
+	posts: ModelState<Post[]>
+	post: ModelState<Post>
 	getPosts: () => any
-	getPost: (id: number) => any
+	getPost: (id: string) => any
 	changeLanguage: (language: string) => any
 }
 
-const Home: React.FunctionComponent<Props> = ({
-	post,
-	posts,
-	getPosts,
-	getPost,
-	changeLanguage,
-}) => {
+const Home: React.FunctionComponent<Props> = props => {
+	const {post, posts, getPosts, getPost, changeLanguage} = props
+
 	const [t] = useTranslation()
 
 	useEffect(() => {
 		getPosts()
 	}, [])
 
-	const onPostClicked = (id: number) => {
+	const onPostClicked = (id: string) => {
 		getPost(id)
 	}
 
 	const renderPostList = () => {
-		const {loading, error, list} = posts
+		const {loading, error, data} = posts
 
 		if (loading) {
 			return <p data-testid="loading-post-list">Loading ...</p>
@@ -56,15 +52,15 @@ const Home: React.FunctionComponent<Props> = ({
 		}
 
 		return (
-			list &&
-			list.map(post => (
+			data &&
+			data.map(post => (
 				<PostComponent onClick={onPostClicked} key={post.id} post={post} />
 			))
 		)
 	}
 
 	const renderPostDetail = () => {
-		const {loading, error} = post
+		const {loading, error, data} = post
 
 		if (loading) {
 			return <p data-testid="loading-post-detail">Loading ...</p>
@@ -74,11 +70,11 @@ const Home: React.FunctionComponent<Props> = ({
 			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
-		if (!post.body) {
+		if (!data) {
 			return <p>Post Detail</p>
 		}
 
-		return <PostDetail post={post} />
+		return <PostDetail post={data} />
 	}
 
 	return (
