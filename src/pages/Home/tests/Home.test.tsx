@@ -1,10 +1,12 @@
 import * as React from 'react'
 import 'jest-dom/extend-expect'
+import * as faker from 'faker'
 import {fireEvent, wait} from 'react-testing-library'
 import {render} from '../../../utils/testUtils'
 import {postBuilder} from '../../../utils/mockUtils'
 import {getRequest} from '../../../services/api'
 import Home from '../Home'
+import Post from '../../../models/Post'
 
 jest.mock('../../../services/api', () => {
 	return {getRequest: jest.fn()}
@@ -12,10 +14,10 @@ jest.mock('../../../services/api', () => {
 
 describe('<Home/>', () => {
 	let mockGetRequest
-	let mockPosts
-	let mockPost1
+	let mockPosts: Post[]
+	let mockPost1: Post
 
-	let mockErrorMessage
+	let mockErrorMessage: string
 
 	beforeEach(() => {
 		// Arrange
@@ -26,7 +28,7 @@ describe('<Home/>', () => {
 
 		mockPosts = [mockPost1, mockPost2, mockPost3]
 
-		mockErrorMessage = 'This is the error'
+		mockErrorMessage = faker.lorem.words()
 
 		mockGetRequest = getRequest as jest.Mock<any>
 		mockGetRequest.mockResolvedValue(mockPosts)

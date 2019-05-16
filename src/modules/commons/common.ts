@@ -27,8 +27,14 @@ export const updateData = <T>(state: ModelState<T>, data: T) => {
 	state.data = data
 }
 
-export const createAction = (type: string) => {
-	return (payload?: any, error?: any) => {
+export interface Action<T> {
+	type: string
+	payload?: any
+	error?: string
+}
+
+export const createAction = <T>(type: string) => {
+	return (payload?: any, error?: any): Action<T> => {
 		return {
 			type,
 			payload,

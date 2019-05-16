@@ -1,5 +1,5 @@
 import produce from 'immer'
-import {startFetching, endFetching, updateData} from './commons/common'
+import {startFetching, endFetching, updateData, Action} from './commons/common'
 import useModuleActions from './commons/moduleActions'
 
 import Post from '../models/Post'
@@ -24,7 +24,7 @@ const initialState: ModelState<Post[]> = {
 	error: undefined,
 }
 
-const posts = (state = initialState, action) =>
+const posts = (state = initialState, action: Action<Post[]>) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case moduleActionTypes.GET_MODEL:

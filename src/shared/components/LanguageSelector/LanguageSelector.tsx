@@ -9,7 +9,7 @@ interface Props {
 const LanguageSelector = (props: Props) => {
 	const [t, i18n] = useTranslation()
 
-	const changeLanguage = e => {
+	const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		props.onChangeLanguage(e.target.value)
 	}
 

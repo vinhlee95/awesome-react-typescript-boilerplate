@@ -5,8 +5,9 @@ import {
 	deleteRequest,
 	postRequest,
 } from '../../services/api'
+import {Dispatch} from 'redux'
 
-const useModuleActions = (moduleName: string, path: string) => {
+const useModuleActions = <T>(moduleName: string, path: string) => {
 	// ------------------------------------
 	// Action Creator
 	// ------------------------------------
@@ -30,21 +31,21 @@ const useModuleActions = (moduleName: string, path: string) => {
 	}
 
 	const actions = {
-		getModel: createAction(moduleActionTypes.GET_MODEL),
-		getModelSuccess: createAction(moduleActionTypes.GET_MODEL_SUCCESS),
-		getModelFail: createAction(moduleActionTypes.GET_MODEL_FAIL),
+		getModel: createAction<T>(moduleActionTypes.GET_MODEL),
+		getModelSuccess: createAction<T>(moduleActionTypes.GET_MODEL_SUCCESS),
+		getModelFail: createAction<T>(moduleActionTypes.GET_MODEL_FAIL),
 
-		createModel: createAction(moduleActionTypes.CREATE_MODEL),
-		createModelSuccess: createAction(moduleActionTypes.CREATE_MODEL_SUCCESS),
-		createModelFail: createAction(moduleActionTypes.CREATE_MODEL_FAIL),
+		createModel: createAction<T>(moduleActionTypes.CREATE_MODEL),
+		createModelSuccess: createAction<T>(moduleActionTypes.CREATE_MODEL_SUCCESS),
+		createModelFail: createAction<T>(moduleActionTypes.CREATE_MODEL_FAIL),
 
-		updateModel: createAction(moduleActionTypes.UPDATE_MODEL),
-		updateModelSuccess: createAction(moduleActionTypes.UPDATE_MODEL_SUCCESS),
-		updateModelFail: createAction(moduleActionTypes.UPDATE_MODEL_FAIL),
+		updateModel: createAction<T>(moduleActionTypes.UPDATE_MODEL),
+		updateModelSuccess: createAction<T>(moduleActionTypes.UPDATE_MODEL_SUCCESS),
+		updateModelFail: createAction<T>(moduleActionTypes.UPDATE_MODEL_FAIL),
 
-		deleteModel: createAction(moduleActionTypes.DELETE_MODEL),
-		deleteModelSuccess: createAction(moduleActionTypes.DELETE_MODEL_SUCCESS),
-		deleteModelFail: createAction(moduleActionTypes.DELETE_MODEL_FAIL),
+		deleteModel: createAction<T>(moduleActionTypes.DELETE_MODEL),
+		deleteModelSuccess: createAction<T>(moduleActionTypes.DELETE_MODEL_SUCCESS),
+		deleteModelFail: createAction<T>(moduleActionTypes.DELETE_MODEL_FAIL),
 	}
 
 	// ------------------------------------
@@ -52,40 +53,44 @@ const useModuleActions = (moduleName: string, path: string) => {
 	// ------------------------------------
 
 	const moduleActions = {
-		getModel: (params?: string, query?: object) => dispatch => {
+		getModel: (params?: string, query?: object) => (dispatch: Dispatch) => {
 			dispatch(actions.getModel())
 
 			getRequest(path, params, query)
-				.then(data => dispatch(actions.getModelSuccess(data)))
-				.catch(error =>
+				.then((data: T) => dispatch(actions.getModelSuccess(data)))
+				.catch((error: Error) =>
 					dispatch(actions.getModelFail(undefined, error.message)),
 				)
 		},
 
-		createModel: (body, params?: string, query?: object) => dispatch => {
+		createModel: (body: object, params?: string, query?: object) => (
+			dispatch: Dispatch,
+		) => {
 			dispatch(actions.createModel())
 			postRequest(path, body, params, query)
-				.then(data => dispatch(actions.createModelSuccess(data)))
-				.catch(error =>
+				.then((data: T) => dispatch(actions.createModelSuccess(data)))
+				.catch((error: Error) =>
 					dispatch(actions.createModelFail(undefined, error.message)),
 				)
 		},
 
-		updateModel: (body, params?: string, query?: object) => dispatch => {
+		updateModel: (body: object, params?: string, query?: object) => (
+			dispatch: Dispatch,
+		) => {
 			dispatch(actions.updateModel())
 			putRequest(path, body, params, query)
-				.then(data => dispatch(actions.updateModelSuccess(data)))
-				.catch(error =>
+				.then((data: T) => dispatch(actions.updateModelSuccess(data)))
+				.catch((error: Error) =>
 					dispatch(actions.updateModelFail(undefined, error.message)),
 				)
 		},
 
-		deleteModel: (params?: string, query?: object) => dispatch => {
+		deleteModel: (params?: string, query?: object) => (dispatch: Dispatch) => {
 			dispatch(actions.deleteModel())
 
 			deleteRequest(path, params, query)
-				.then(data => dispatch(actions.deleteModelSuccess(data)))
-				.catch(error =>
+				.then((data: T) => dispatch(actions.deleteModelSuccess(data)))
+				.catch((error: Error) =>
 					dispatch(actions.deleteModelFail(undefined, error.message)),
 				)
 		},

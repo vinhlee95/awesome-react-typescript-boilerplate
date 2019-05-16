@@ -4,7 +4,7 @@ import './Post.scss'
 
 interface Props {
 	post: PostModel
-	onClick: (id) => void
+	onClick: (id: string) => void
 }
 
 const Post = (props: Props) => {

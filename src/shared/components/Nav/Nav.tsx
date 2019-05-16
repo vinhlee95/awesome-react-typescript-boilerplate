@@ -29,7 +29,13 @@ const Nav = () => {
 	)
 }
 
-const NavItem = props => {
+interface NavItemProps {
+	path: string
+	name: string
+	exact?: boolean
+}
+
+const NavItem: React.FunctionComponent<NavItemProps> = props => {
 	const {path, name, exact} = props
 
 	return (
