@@ -2,31 +2,32 @@ import BaseState from '../../models/bases/BaseState'
 import ModelState from '../../models/bases/ModelState'
 
 export const startFetching = (state: BaseState) => {
-	state.loading = 'fetching'
-	state.error = undefined
+	state.loading = 'pending'
+	state.error = null
 }
 
-export const endFetching = (state: BaseState, error: string) => {
-	state.loading = undefined
+export const errorFetching = (state: BaseState, error: string) => {
+	state.loading = 'error'
 	state.error = error
 }
 
 export const startSaving = (state: BaseState) => {
-	state.loading = 'saving'
-	state.error = undefined
+	state.saving = 'pending'
+	state.error = null
 }
 
-export const endSaving = (state: BaseState, error: string) => {
-	state.loading = 'saving'
+export const errorSaving = (state: BaseState, error: string) => {
+	state.saving = 'error'
 	state.error = error
 }
 
 export const endCanceling = (state: BaseState) => {
-	state.loading = undefined
+	state.loading = 'idle'
+	state.saving = 'idle'
 }
 
 export const updateData = <T>(state: ModelState<T>, data: T) => {
-	state.loading = undefined
-	state.error = undefined
+	state.loading = 'success'
+	state.error = null
 	state.data = data
 }

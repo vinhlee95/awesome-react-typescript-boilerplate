@@ -1,6 +1,6 @@
 import produce from 'immer'
 import {getType} from 'typesafe-actions'
-import {startFetching, endFetching, updateData} from './commons/common'
+import {startFetching, errorFetching, updateData} from './commons/common'
 import useModuleEpic from './commons/moduleActions'
 
 import Post from '../models/Post'
@@ -24,8 +24,9 @@ export type PostsState = ModelState<Post[]>
 
 const initialState: PostsState = {
 	data: [],
-	loading: undefined,
-	error: undefined,
+	loading: 'idle',
+	saving: 'idle',
+	error: null,
 }
 
 const posts = (state = initialState, action: any) =>
@@ -38,7 +39,7 @@ const posts = (state = initialState, action: any) =>
 				updateData(draft, action.payload)
 				break
 			case getType(getAsync.failure):
-				endFetching(draft, action.payload.message)
+				errorFetching(draft, action.payload.message)
 				break
 		}
 	})

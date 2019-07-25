@@ -58,11 +58,11 @@ const Home: React.FunctionComponent<Props> = props => {
 	const renderPostList = () => {
 		const {loading, error, data} = posts
 
-		if (loading) {
+		if (loading === 'pending') {
 			return <p data-testid="loading-post-list">Loading ...</p>
 		}
 
-		if (error) {
+		if (loading === 'error') {
 			return <p data-testid="error-post-list">Error: {error}</p>
 		}
 
@@ -77,15 +77,15 @@ const Home: React.FunctionComponent<Props> = props => {
 	const renderPostDetail = () => {
 		const {loading, error, data} = post
 
-		if (loading) {
+		if (loading === 'pending') {
 			return <p data-testid="loading-post-detail">Loading ...</p>
 		}
 
-		if (error) {
+		if (loading === 'error') {
 			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
-		if (!data) {
+		if (loading === 'idle') {
 			return <p>Post Detail</p>
 		}
 
