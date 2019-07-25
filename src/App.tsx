@@ -9,7 +9,7 @@ import * as React from 'react'
 import {useEffect} from 'react'
 import {hot} from 'react-hot-loader/root'
 import {connect} from 'react-redux'
-import {actions} from './modules/App'
+import {initialize, tearDown} from './modules/App'
 
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
@@ -38,8 +38,8 @@ export const App: React.FunctionComponent<Props> = ({initialize, tearDown}) => {
 }
 
 const mapDispatchToProps = {
-	initialize: actions.initialize,
-	tearDown: actions.tearDown,
+	initialize,
+	tearDown,
 }
 
 export default hot(
