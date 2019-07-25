@@ -60,7 +60,6 @@ const initializeEpic: Epic<Action, Action, RootState> = (
 		tap(() => console.log('Initialize app')),
 		switchMap(action => {
 			return new Observable<Action>(observer => {
-				console.log('run here too: ', i18n)
 				i18n.on('initialized', () => {
 					console.log('Change language: ')
 					observer.next(changeLanguage(i18n.language))

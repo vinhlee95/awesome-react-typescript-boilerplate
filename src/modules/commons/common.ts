@@ -21,6 +21,10 @@ export const endSaving = (state: BaseState, error: string) => {
 	state.error = error
 }
 
+export const endCanceling = (state: BaseState) => {
+	state.loading = undefined
+}
+
 export const updateData = <T>(state: ModelState<T>, data: T) => {
 	state.loading = undefined
 	state.error = undefined

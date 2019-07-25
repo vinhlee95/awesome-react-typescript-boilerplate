@@ -13,8 +13,8 @@ import ModelState from '../../models/bases/ModelState'
 import Post from '../../models/Post'
 
 // Modules
-import {getPost} from '../../modules/Post'
-import {getPosts} from '../../modules/Posts'
+import {getPost, cancelPostRequest} from '../../modules/Post'
+import {getPosts, cancelPostsRequest} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
 
 import './Home.scss'
@@ -24,16 +24,31 @@ interface Props {
 	post: ModelState<Post>
 	getPosts: () => any
 	getPost: (id: string) => any
+	cancelPostRequest: () => any
+	cancelPostsRequest: () => any
 	changeLanguage: (language: string) => any
 }
 
 const Home: React.FunctionComponent<Props> = props => {
-	const {post, posts, getPosts, getPost, changeLanguage} = props
+	const {
+		post,
+		posts,
+		getPosts,
+		getPost,
+		changeLanguage,
+		cancelPostsRequest,
+		cancelPostRequest,
+	} = props
 
 	const [t] = useTranslation()
 
 	useEffect(() => {
 		getPosts()
+
+		return () => {
+			cancelPostRequest()
+			cancelPostsRequest()
+		}
 	}, [])
 
 	const onPostClicked = (id: string) => {
@@ -102,6 +117,8 @@ const mapDispatchToProps = {
 	changeLanguage,
 	getPosts,
 	getPost,
+	cancelPostRequest,
+	cancelPostsRequest,
 }
 
 export default connect(

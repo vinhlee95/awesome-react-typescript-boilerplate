@@ -1,6 +1,11 @@
 import produce from 'immer'
 import {getType} from 'typesafe-actions'
-import {startFetching, updateData, endFetching} from './commons/common'
+import {
+	startFetching,
+	updateData,
+	endFetching,
+	endCanceling,
+} from './commons/common'
 import useModuleEpic from './commons/moduleActions'
 
 import Post from '../models/Post'
@@ -40,6 +45,9 @@ const post = (state = initialState, action: any) =>
 			case getType(getAsync.failure):
 				endFetching(draft, action.payload.message)
 				break
+			case getType(getAsync.cancel):
+				endCanceling(draft)
+				break
 		}
 	})
 
@@ -50,3 +58,4 @@ export const reducer = post
 // ------------------------------------
 
 export const getPost = (id: string) => getAsync.request({params: id})
+export const cancelPostRequest = () => getAsync.cancel()

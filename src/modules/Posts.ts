@@ -50,3 +50,4 @@ export const reducer = posts
 // ------------------------------------
 
 export const getPosts = () => getAsync.request({})
+export const cancelPostsRequest = () => getAsync.cancel()

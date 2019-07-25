@@ -16,7 +16,7 @@ const useModuleEpic = <T>(moduleName: string, path: string) => {
 		`@@${moduleName}/GET_SUCCESS`,
 		`@@${moduleName}/GET_FAILURE`,
 		`@@${moduleName}/GET_CANCEL`,
-	)<{params?: string; query?: object}, T, Error, string>()
+	)<{params?: string; query?: object}, T, Error, void>()
 
 	const actions = {
 		getAsync,
