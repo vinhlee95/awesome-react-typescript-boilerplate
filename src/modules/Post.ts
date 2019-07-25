@@ -38,7 +38,7 @@ const post = (state = initialState, action: any) =>
 				updateData(draft, action.payload)
 				break
 			case getType(getAsync.failure):
-				endFetching(draft, action.error)
+				endFetching(draft, action.payload.message)
 				break
 		}
 	})
