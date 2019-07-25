@@ -1,6 +1,4 @@
 language: node_js
-node_js:
- - "stable"
 cache:
   directories:
   - "node_modules"
@@ -9,5 +7,5 @@ install:
 script:
   - npm run test
 notifications:
-  slack: kentsclub:uHb84aeLAKMA5ofu25d5N8tq
+  slack: kentsclub:6iTgGJ9LubZfmpn606ta1epV
   email: false
