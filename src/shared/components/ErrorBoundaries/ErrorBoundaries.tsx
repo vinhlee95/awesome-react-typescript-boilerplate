@@ -17,8 +17,13 @@ interface Props {
 	tReady: boolean
 }
 
-class ErrorBoundaries extends React.Component<Props, any> {
-	state = {error: null, errorInfo: null}
+interface State {
+	error: any
+	errorInfo: any
+}
+
+class ErrorBoundaries extends React.Component<Props, State> {
+	state = {error: undefined, errorInfo: undefined}
 
 	componentDidCatch(error: any, errorInfo: any) {
 		// Catch errors in any components below and re-render with error message

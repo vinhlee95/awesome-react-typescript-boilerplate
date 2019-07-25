@@ -1,5 +1,5 @@
-export const enumToValues = (enumObject, isNumberEnum?: boolean) => {
+export const enumToValues = (enumObject: object, isNumberEnum?: boolean) => {
 	return Object.keys(enumObject)
-		.map(k => enumObject[k])
+		.map((k: string) => enumObject[k])
 		.filter(val => typeof val === (!isNumberEnum ? 'string' : 'number'))
 }

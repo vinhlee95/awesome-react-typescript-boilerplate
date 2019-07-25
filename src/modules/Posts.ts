@@ -1,8 +1,9 @@
 import produce from 'immer'
-import {startLoading, updateListData, endLoading} from './commons/common'
+import {startFetching, endFetching, updateData, Action} from './commons/common'
 import useModuleActions from './commons/moduleActions'
 
-import Posts from '../models/Posts'
+import Post from '../models/Post'
+import ModelState from '../models/bases/ModelState'
 
 // ------------------------------------
 // Const
@@ -17,24 +18,23 @@ const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 // Reducer
 // ------------------------------------
 
-const initialState: Posts = {
-	list: undefined,
-	loading: false,
-	saving: false,
+const initialState: ModelState<Post[]> = {
+	data: [],
+	loading: undefined,
 	error: undefined,
 }
 
-const posts = (state = initialState, action) =>
+const posts = (state = initialState, action: Action<Post[]>) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case moduleActionTypes.GET_MODEL:
-				startLoading(draft)
+				startFetching(draft)
 				break
 			case moduleActionTypes.GET_MODEL_SUCCESS:
-				updateListData(draft, action.payload)
+				updateData(draft, action.payload)
 				break
 			case moduleActionTypes.GET_MODEL_FAIL:
-				endLoading(draft, action.error)
+				endFetching(draft, action.error)
 				break
 		}
 	})

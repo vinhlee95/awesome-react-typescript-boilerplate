@@ -1,8 +1,9 @@
 import produce from 'immer'
-import {startLoading, updateData, endLoading} from './commons/common'
+import {startFetching, updateData, endFetching, Action} from './commons/common'
 import useModuleActions from './commons/moduleActions'
 
 import Post from '../models/Post'
+import ModelState from '../models/bases/ModelState'
 
 // ------------------------------------
 // Const
@@ -17,27 +18,23 @@ const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 // Reducer
 // ------------------------------------
 
-const initialState: Post = {
-	id: undefined,
-	userid: undefined,
-	title: undefined,
-	body: undefined,
-	loading: false,
-	saving: false,
+const initialState: ModelState<Post> = {
+	data: undefined,
+	loading: undefined,
 	error: undefined,
 }
 
-const post = (state = initialState, action) =>
+const post = (state = initialState, action: Action<Post>) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case moduleActionTypes.GET_MODEL:
-				startLoading(draft)
+				startFetching(draft)
 				break
 			case moduleActionTypes.GET_MODEL_SUCCESS:
 				updateData(draft, action.payload)
 				break
 			case moduleActionTypes.GET_MODEL_FAIL:
-				endLoading(draft, action.error)
+				endFetching(draft, action.error)
 				break
 		}
 	})
@@ -48,4 +45,4 @@ export const reducer = post
 // Actions
 // ------------------------------------
 
-export const getPost = (id: number) => moduleActions.getModel(id)
+export const getPost = (id: string) => moduleActions.getModel(id)
