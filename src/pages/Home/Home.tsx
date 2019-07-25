@@ -15,7 +15,7 @@ import Post from '../../models/Post'
 // Modules
 import {getPost} from '../../modules/Post'
 import {getPosts} from '../../modules/Posts'
-import {changeLanguage} from '../../modules/App'
+import {actions} from '../../modules/App'
 
 import './Home.scss'
 
@@ -99,7 +99,7 @@ const mapStateToProps = ({posts, post}) => {
 }
 
 const mapDispatchToProps = {
-	changeLanguage,
+	changeLanguage: actions.changeLanguage,
 	getPosts,
 	getPost,
 }

@@ -109,7 +109,9 @@
 		"react-redux": "6.0.1",
 		"react-router-dom": "5.0.0",
 		"redux": "4.0.1",
-		"redux-thunk": "2.3.0"
+		"redux-observable": "1.1.0",
+		"rxjs": "6.5.2",
+		"typesafe-actions": "4.4.2"
 	},
 	"browserslist": {
 		"development": [

@@ -5,11 +5,15 @@
  *
  */
 
-import {createStore, applyMiddleware, compose} from 'redux'
-import createRootReducer from './modules/reducers'
+import {createStore, applyMiddleware, compose, Action} from 'redux'
+import createRootReducer, {RootState} from './modules/reducers'
 import {createBrowserHistory} from 'history'
-import thunk from 'redux-thunk'
 import {routerMiddleware} from 'connected-react-router'
+
+import i18n from './services/i18n'
+
+import {createEpicMiddleware} from 'redux-observable'
+import {createRootEpic} from './modules/epics'
 
 const history = createBrowserHistory()
 
@@ -19,7 +23,7 @@ declare global {
 	}
 }
 
-const configureStore = (preloadedState?: any) => {
+const configureStore = (preloadedState?: any, dependencies = {}) => {
 	const isDevelopment = process.env.NODE_ENV === 'development'
 
 	// Config redux devtool in development
@@ -29,7 +33,14 @@ const configureStore = (preloadedState?: any) => {
 
 	// Middlewares
 
-	const middlewares = [thunk, routerMiddleware(history)]
+	const epicMiddleware = createEpicMiddleware<Action, Action, RootState>({
+		dependencies: {
+			i18n,
+			...dependencies,
+		},
+	})
+
+	const middlewares = [epicMiddleware, routerMiddleware(history)]
 
 	if (isDevelopment) {
 		// tslint:disable-next-line:no-var-requires
@@ -43,6 +54,10 @@ const configureStore = (preloadedState?: any) => {
 		preloadedState,
 		composeEnhancers(applyMiddleware(...middlewares)),
 	)
+
+	const rootEpic = createRootEpic()
+
+	epicMiddleware.run(rootEpic)
 
 	return store
 }

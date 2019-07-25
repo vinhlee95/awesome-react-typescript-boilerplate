@@ -1,6 +1,7 @@
 import produce from 'immer'
-import {startFetching, updateData, endFetching, Action} from './commons/common'
-import useModuleActions from './commons/moduleActions'
+import {getType} from 'typesafe-actions'
+import {startFetching, updateData, endFetching} from './commons/common'
+import useModuleEpic from './commons/moduleActions'
 
 import Post from '../models/Post'
 import ModelState from '../models/bases/ModelState'
@@ -12,11 +13,14 @@ import ModelState from '../models/bases/ModelState'
 const moduleName = 'post'
 const path = '/posts'
 
-const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
+export const {actions, moduleEpics} = useModuleEpic(moduleName, path)
+const {getAsync} = actions
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
+
+export type PostState = ModelState<Post>
 
 const initialState: ModelState<Post> = {
 	data: undefined,
@@ -24,16 +28,16 @@ const initialState: ModelState<Post> = {
 	error: undefined,
 }
 
-const post = (state = initialState, action: Action<Post>) =>
+const post = (state = initialState, action: any) =>
 	produce(state, draft => {
 		switch (action.type) {
-			case moduleActionTypes.GET_MODEL:
+			case getType(getAsync.request):
 				startFetching(draft)
 				break
-			case moduleActionTypes.GET_MODEL_SUCCESS:
+			case getType(getAsync.success):
 				updateData(draft, action.payload)
 				break
-			case moduleActionTypes.GET_MODEL_FAIL:
+			case getType(getAsync.failure):
 				endFetching(draft, action.error)
 				break
 		}
@@ -45,4 +49,4 @@ export const reducer = post
 // Actions
 // ------------------------------------
 
-export const getPost = (id: string) => moduleActions.getModel(id)
+export const getPost = (id: string) => getAsync.request({params: id})

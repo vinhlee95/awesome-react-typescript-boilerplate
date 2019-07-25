@@ -10,6 +10,8 @@ const About = React.lazy(() =>
 	import(/* webpackChunkName: "About" */ '../pages/About/About'),
 )
 
+const Hello = () => <p>Hello</p>
+
 const Router = () => {
 	return (
 		<Switch>
