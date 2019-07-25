@@ -4,8 +4,8 @@ import App from '../models/App'
 import {Epic} from 'redux-observable'
 import {Action} from 'redux'
 import {RootState} from './reducers'
-import {filter, switchMap, mapTo, tap} from 'rxjs/operators'
-import {from, Observable} from 'rxjs'
+import {filter, switchMap, tap, ignoreElements} from 'rxjs/operators'
+import {of} from 'rxjs'
 
 // ------------------------------------
 // Const
@@ -58,31 +58,17 @@ const initializeEpic: Epic<Action, Action, RootState> = (
 	return action$.pipe(
 		filter(isActionOf(initialize)),
 		tap(() => console.log('Initialize app')),
-		switchMap(action => {
-			return new Observable<Action>(observer => {
-				i18n.on('initialized', () => {
-					console.log('Change language: ')
-					observer.next(changeLanguage(i18n.language))
-				})
-			})
+		switchMap(() => {
+			return of(changeLanguage(i18n.language))
 		}),
 	)
 }
 
-const tearDownEpic: Epic<Action, Action, RootState> = (
-	action$,
-	state$,
-	{i18n},
-) => {
+const tearDownEpic: Epic<Action, Action, RootState> = action$ => {
 	return action$.pipe(
 		filter(isActionOf(tearDown)),
-		switchMap(action => {
-			return new Observable<Action>(observer => {
-				i18n.off('initialized', () => {
-					observer.next(changeLanguage(undefined))
-				})
-			})
-		}),
+		tap(() => console.log('Tear down')),
+		ignoreElements(),
 	)
 }
 
@@ -93,12 +79,11 @@ const changeLanguageEpic: Epic<Action, Action, RootState> = (
 ) => {
 	return action$.pipe(
 		filter(isActionOf(changeLanguage)),
-		switchMap(action => {
+		tap(action => {
 			const {language} = action.payload
-			return from(i18n.changeLanguage(language)).pipe(
-				mapTo(changeLanguage(language)),
-			)
+			i18n.changeLanguage(language)
 		}),
+		ignoreElements(),
 	)
 }
 
