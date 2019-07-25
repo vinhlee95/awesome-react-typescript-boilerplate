@@ -56,13 +56,13 @@ const Home: React.FunctionComponent<Props> = props => {
 	}
 
 	const renderPostList = () => {
-		const {loading, error, data} = posts
+		const {status, error, data} = posts
 
-		if (loading === 'pending') {
+		if (status === 'fetching') {
 			return <p data-testid="loading-post-list">Loading ...</p>
 		}
 
-		if (loading === 'error') {
+		if (status === 'error') {
 			return <p data-testid="error-post-list">Error: {error}</p>
 		}
 
@@ -75,17 +75,17 @@ const Home: React.FunctionComponent<Props> = props => {
 	}
 
 	const renderPostDetail = () => {
-		const {loading, error, data} = post
+		const {status, error, data} = post
 
-		if (loading === 'pending') {
+		if (status === 'fetching') {
 			return <p data-testid="loading-post-detail">Loading ...</p>
 		}
 
-		if (loading === 'error') {
+		if (status === 'error') {
 			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
-		if (loading === 'idle') {
+		if (status === 'idle') {
 			return <p>Post Detail</p>
 		}
 

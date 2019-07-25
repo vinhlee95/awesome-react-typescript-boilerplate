@@ -1,7 +1,6 @@
-export type RequestStatus = 'idle' | 'pending' | 'success' | 'error'
+export type RequestStatus = 'idle' | 'fetching' | 'saving' | 'success' | 'error'
 
 export default interface BaseState {
 	error: string
-	loading: RequestStatus
-	saving: RequestStatus
+	status: RequestStatus
 }

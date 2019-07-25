@@ -3,7 +3,7 @@ import {getType} from 'typesafe-actions'
 import {
 	startFetching,
 	updateData,
-	errorFetching,
+	endWithError,
 	endCanceling,
 } from './commons/common'
 import useModuleEpic from './commons/moduleActions'
@@ -29,8 +29,7 @@ export type PostState = ModelState<Post>
 
 const initialState: ModelState<Post> = {
 	data: null,
-	loading: 'idle',
-	saving: 'idle',
+	status: 'idle',
 	error: null,
 }
 
@@ -44,7 +43,7 @@ const post = (state = initialState, action: any) =>
 				updateData(draft, action.payload)
 				break
 			case getType(getAsync.failure):
-				errorFetching(draft, action.payload.message)
+				endWithError(draft, action.payload.message)
 				break
 			case getType(getAsync.cancel):
 				endCanceling(draft)
