@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {Language} from '../../../constants'
 import {useTranslation} from 'react-i18next'
+import {Language} from '../../../services/i18n'
 
 interface Props {
 	onChangeLanguage: (language: string) => void

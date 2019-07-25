@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
-import {RouterPath} from '../constants'
 
 // Code splitting
 const Home = React.lazy(() =>
@@ -10,7 +9,10 @@ const About = React.lazy(() =>
 	import(/* webpackChunkName: "About" */ '../pages/About/About'),
 )
 
-const Hello = () => <p>Hello</p>
+export enum RouterPath {
+	home = '/',
+	about = '/about',
+}
 
 const Router = () => {
 	return (

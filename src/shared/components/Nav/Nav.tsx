@@ -9,9 +9,7 @@
 import * as React from 'react'
 import {NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
-
-// Constants
-import {RouterPath} from '../../../constants'
+import {RouterPath} from '../../../router/Router'
 
 // Styles
 import './Nav.scss'

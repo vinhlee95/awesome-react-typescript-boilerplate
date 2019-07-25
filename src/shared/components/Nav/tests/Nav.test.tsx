@@ -2,7 +2,7 @@ import * as React from 'react'
 import 'jest-dom/extend-expect'
 import {render} from '../../../../utils/testUtils'
 import Nav from '../Nav'
-import {RouterPath} from '../../../../constants'
+import {RouterPath} from '../../../../router/Router'
 
 describe('<About/>', () => {
 	it('should render Nav items', () => {
