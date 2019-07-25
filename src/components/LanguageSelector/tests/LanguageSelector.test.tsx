@@ -2,8 +2,8 @@ import * as React from 'react'
 import {fireEvent, render} from 'react-testing-library'
 import 'jest-dom/extend-expect'
 import LanguageSelector from '../LanguageSelector'
-import {Language} from '../../../../constants'
-import {enumToValues} from '../../../../utils/utils'
+import {Language} from '../../../constants'
+import {enumToValues} from '../../../utils/utils'
 
 const renderLanguageSelector = () => {
 	// Arrange

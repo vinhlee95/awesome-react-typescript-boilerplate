@@ -11,7 +11,7 @@ import {NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 
 // Constants
-import {RouterPath} from '../../../constants'
+import {RouterPath} from '../../constants'
 
 // Styles
 import './Nav.scss'

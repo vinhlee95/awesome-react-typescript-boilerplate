@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Language} from '../../../constants'
+import {Language} from '../../constants'
 import {useTranslation} from 'react-i18next'
 
 interface Props {
