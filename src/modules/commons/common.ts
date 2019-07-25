@@ -1,4 +1,3 @@
-import BaseState from '../../models/bases/BaseState'
 import ModelState from '../../models/bases/ModelState'
 
 export const startFetching = <T>(state: ModelState<T>) => {
@@ -7,17 +6,17 @@ export const startFetching = <T>(state: ModelState<T>) => {
 	state.data = null
 }
 
-export const startSaving = (state: BaseState) => {
+export const startSaving = <T>(state: ModelState<T>) => {
 	state.status = 'saving'
 	state.error = null
 }
 
-export const endWithError = (state: BaseState, error: string) => {
+export const endWithError = <T>(state: ModelState<T>, error: string) => {
 	state.status = 'error'
 	state.error = error
 }
 
-export const endCanceling = (state: BaseState) => {
+export const endCanceling = <T>(state: ModelState<T>) => {
 	state.status = 'idle'
 }
 
