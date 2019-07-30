@@ -1,7 +1,8 @@
 {
 	"name": "awesome-react-typescript-boilerplate",
 	"version": "1.0.0",
-	"description": "",
+	"description": "A boilerplate for React applications with all the latest and greatest technologies and practices.",
+	"author": "Huy Trinh, Vinh Le",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --config config/webpack/webpack.dev.js",
@@ -29,8 +30,15 @@
 			"git add"
 		]
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": [
+		"react",
+		"redux",
+		"typescript",
+		"webpack",
+		"babel",
+		"frontend",
+		"javascript"
+	],
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "7.4.3",
