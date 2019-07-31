@@ -30,6 +30,8 @@ A boilerplate for React applications with all the latest and greatest technologi
 
 - _**[react-i18next](https://github.com/i18next/react-i18next/)**_
 
+- _**Selector**_
+
 ## **🖍️ Style**
 
 - _**[SCSS](https://sass-lang.com/)**_

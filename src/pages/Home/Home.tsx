@@ -13,8 +13,8 @@ import ModelState from '../../models/bases/ModelState'
 import Post from '../../models/Post'
 
 // Modules
-import {getPost} from '../../modules/Post'
-import {getPosts} from '../../modules/Posts'
+import {getPost, postSelector} from '../../modules/Post'
+import {getPosts, postsSelector} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
 
 import './Home.scss'
@@ -91,10 +91,10 @@ const Home: React.FunctionComponent<Props> = props => {
 	)
 }
 
-const mapStateToProps = ({posts, post}) => {
+const mapStateToProps = state => {
 	return {
-		posts,
-		post,
+		posts: postsSelector(state),
+		post: postSelector(state),
 	}
 }
 
