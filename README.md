@@ -59,6 +59,8 @@ A boilerplate for React applications with all the latest and greatest technologi
 - _**[Jest](https://github.com/facebook/jest)**_
 - _**[react-testing-library](https://github.com/testing-library/react-testing-library)**_
 
+![test](https://user-images.githubusercontent.com/26871154/62182451-545a9b80-b35f-11e9-834d-a4aba85519ed.png)
+
 ## **🏆 Contious integration**
 
 - _**[TravisCI](https://travis-ci.org/)**_
