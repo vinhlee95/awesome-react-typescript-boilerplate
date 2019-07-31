@@ -14,46 +14,45 @@ A boilerplate for React applications with all the latest and greatest technologi
 
 ## **🏎 Core technologies**
 
-- ### 🔥 _**React**_
+- _**[Typescript](https://www.typescriptlang.org/)**_
 
-      	- _**[Hooks](https://reactjs.org/docs/hooks-intro.html)**_
-      	- _**[Code-Splitting with Lazy and Suspense](https://reactjs.org/docs/code-splitting.html)**_
-      	- _**[Error Boundaries](https://reactjs.org/docs/error-boundaries.html)**_
+- _**[Hooks](https://reactjs.org/docs/hooks-intro.html)**_
+- _**[Code-Splitting with Lazy and Suspense](https://reactjs.org/docs/code-splitting.html)**_
+- _**[Error Boundaries](https://reactjs.org/docs/error-boundaries.html)**_
 
-- ### 🔥 _**Routing**_
-      	- _**[React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**_
-      	- _**[Connected React Router](https://github.com/supasate/connected-react-router/)**_
+- _**[React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**_
+- _**[Connected React Router](https://github.com/supasate/connected-react-router/)**_
 
-* ### 🔥 _**Redux**_
+- _**[Redux](https://github.com/reduxjs/redux)**_
+- _**[Redux Thunk](https://github.com/reduxjs/redux-thunk#redux-thunk)**_
 
-      	- _**[Redux Thunk](https://github.com/reduxjs/redux-thunk#redux-thunk)**_
+- _**[Immer](https://github.com/immerjs/immer)**_
 
-* ### 🔥 _**Immutable state**_
+- _**[react-i18next](https://github.com/i18next/react-i18next/)**_
 
-      	- _**[Immer](https://github.com/immerjs/immer)**_
+## **🖍️ Style**
 
-* ### 🔥 _**TypeScript**_
+- _**[SCSS](https://sass-lang.com/)**_
+- _**[7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)**_
+- _**[BEM Architecture](http://getbem.com/introduction/)**_
 
-      	- _**[TSLint](https://github.com/palantir/tslint/)**_
+## **🛠 Build tools**
 
-* ### 🔥 _**SCSS (Featuring BEM architecture & 7-1 pattern)**_
-* ### 🔥 _**Localisation**_
+- _**[Webpack](https://webpack.js.org/)**_
+- _**[Babel](https://babeljs.io/)**_
 
-      	- _**[react-i18next](https://github.com/i18next/react-i18next/)**_
-
-* ### 🔥 _**Webpack + Babel**_
-
-## **🛠 Rapid development workflow**
+## **🔥 Rapid development workflow**
 
 - _**[React Hot Loader](https://github.com/gaearon/react-hot-loader)**_
 - _**[Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)**_
-- _**[Redux logger](https://github.com/LogRocket/redux-logger)**_
+- _**[Redux Logger](https://github.com/LogRocket/redux-logger)**_
 
 ## **💎 Rich utilities: Git hooks and code formatting**
 
 - _**[Prittier](https://github.com/prettier/prettier)**_
 - _**[Husky](https://github.com/typicode/husky/)**_
 - _**[Lint Stage](https://github.com/okonet/lint-staged/)**_
+- _**[TSLint](https://github.com/palantir/tslint/)**_
 
 ## **🛡 Testing**
 
