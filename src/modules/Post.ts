@@ -42,6 +42,12 @@ const post = (state = initialState, action: Action<Post>) =>
 export const reducer = post
 
 // ------------------------------------
+// Selectors
+// ------------------------------------
+
+export const postSelector = state => state.post || initialState
+
+// ------------------------------------
 // Actions
 // ------------------------------------
 
