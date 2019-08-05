@@ -1,10 +1,11 @@
 {
 	"presets": [
+		"babel-plugin-styled-components",
 		[
 			"@babel/preset-env",
 			{
-				"modules": false,
-			},
+				"modules": false
+			}
 		],
 		"@babel/preset-react",
 		"@babel/preset-typescript"
@@ -19,6 +20,7 @@
 		"production": {
 			"only": ["src"],
 			"plugins": [
+				"babel-plugin-styled-components",
 				"lodash",
 				"transform-react-remove-prop-types",
 				"@babel/plugin-transform-react-inline-elements",

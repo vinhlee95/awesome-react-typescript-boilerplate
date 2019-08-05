@@ -6,7 +6,7 @@ import {configureStore, history} from './configStore'
 import './services/i18n'
 import './services/api'
 import App from './App'
-import './styles/index.scss'
+import {GlobalStyle} from './styles/GlobalStyle'
 
 const store = configureStore()
 
@@ -15,6 +15,7 @@ const app = (
 		<ConnectedRouter history={history}>
 			<React.Suspense fallback={<div>Loading...</div>}>
 				<App />
+				<GlobalStyle />
 			</React.Suspense>
 		</ConnectedRouter>
 	</Provider>
