@@ -10,6 +10,7 @@ import {useEffect} from 'react'
 import {hot} from 'react-hot-loader/root'
 import {connect} from 'react-redux'
 import {initialize, tearDown} from './modules/App'
+import 'sanitize.css/sanitize.css'
 
 // Components
 import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
