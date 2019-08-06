@@ -1,7 +1,7 @@
 import produce from 'immer'
 import {getType} from 'typesafe-actions'
 import {startFetching, endWithError, updateData} from './commons/common'
-import useModuleEpic from './commons/moduleActions'
+import useModuleEpic from './commons/moduleEpics'
 
 import Post from '../models/Post'
 import ModelState from '../models/bases/ModelState'
