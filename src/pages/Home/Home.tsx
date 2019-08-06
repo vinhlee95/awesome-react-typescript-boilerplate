@@ -13,8 +13,8 @@ import ModelState from '../../models/bases/ModelState'
 import Post from '../../models/Post'
 
 // Modules
-import {getPost, cancelPostRequest} from '../../modules/Post'
-import {getPosts, cancelPostsRequest} from '../../modules/Posts'
+import {getPost, cancelGetPost} from '../../modules/Post'
+import {getPosts, cancelGetPosts} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
 
 import './Home.scss'
@@ -117,8 +117,8 @@ const mapDispatchToProps = {
 	changeLanguage,
 	getPosts,
 	getPost,
-	cancelPostRequest,
-	cancelPostsRequest,
+	cancelPostRequest: cancelGetPost,
+	cancelPostsRequest: cancelGetPosts,
 }
 
 export default connect(
