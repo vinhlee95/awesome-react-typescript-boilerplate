@@ -13,8 +13,8 @@ import {initialize, tearDown} from './modules/App'
 import 'sanitize.css/sanitize.css'
 
 // Components
-import CoreLayout from './shared/layout/CoreLayout/CoreLayout'
-import ErrorBoundaries from './shared/components/ErrorBoundaries/ErrorBoundaries'
+import CoreLayout from './layout/CoreLayout/CoreLayout'
+import ErrorBoundaries from './components/ErrorBoundaries/ErrorBoundaries'
 import Router from './router/Router'
 
 interface Props {

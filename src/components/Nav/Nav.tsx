@@ -9,7 +9,7 @@
 import * as React from 'react'
 import {NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
-import {RouterPath} from '../../../router/Router'
+import {RouterPath} from '../../router/Router'
 
 const Nav = () => {
 	const [t] = useTranslation()

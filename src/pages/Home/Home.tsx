@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next'
 // Components
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
-import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
+import LanguageSelector from '../../components/LanguageSelector/LanguageSelector'
 
 // Models
 import ModelState from '../../models/bases/ModelState'
