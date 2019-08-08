@@ -1,7 +1,7 @@
 export const maxWidth = (maxWidth: number) =>
 	`@media (max-width: ${maxWidth / 16}em)`
 export const minWidth = (minWidth: number) =>
-	`@media (max-width: ${minWidth / 16}em)`
+	`@media (min-width: ${minWidth / 16}em)`
 
 export const media = {
 	phone: maxWidth(600),

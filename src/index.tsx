@@ -9,6 +9,7 @@ import './services/api'
 import App from './App'
 import {GlobalStyle} from './styles/GlobalStyle'
 import {theme} from './styles/theme'
+import 'sanitize.css/sanitize.css'
 
 const store = configureStore()
 
