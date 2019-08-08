@@ -27,6 +27,8 @@ export const GlobalStyle = createGlobalStyle`
 		line-height: 1.7;
 		color: ${props => props.theme.colors.primaryColor} ;
 		font-size: ${props => props.theme.fontSizes.md} ;
+		
+		padding: ${props => props.theme.space[2]}
 	}
 
 	h1 {

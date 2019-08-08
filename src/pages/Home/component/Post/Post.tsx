@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PostModel from '../../../../models/Post'
-import {SPost} from './style'
+import {Wrapper} from './style'
 
 interface Props {
 	post: PostModel
@@ -14,10 +14,10 @@ const Post = (props: Props) => {
 
 	return (
 		post && (
-			<SPost data-testid="post-component" key={post.id} onClick={onPostClick}>
+			<Wrapper data-testid="post-component" key={post.id} onClick={onPostClick}>
 				<p>id: {post.id}</p>
 				<p>title: {post.title}</p>
-			</SPost>
+			</Wrapper>
 		)
 	)
 }

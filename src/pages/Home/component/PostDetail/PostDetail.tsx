@@ -10,10 +10,10 @@ const PostDetail = (props: Props) => {
 
 	return (
 		post && (
-			<div className="post-detail" key={post.id}>
-				<p className="post-detail__id">id: {post.id}</p>
-				<p className="post-detail__title">title: {post.title}</p>
-				<p className="post-detail__body">body: {post.body}</p>
+			<div key={post.id}>
+				<p>id: {post.id}</p>
+				<p>title: {post.title}</p>
+				<p>body: {post.body}</p>
 			</div>
 		)
 	)

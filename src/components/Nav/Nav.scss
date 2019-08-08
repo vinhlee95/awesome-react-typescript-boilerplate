@@ -9,24 +9,5 @@ $link-border-bottom: 0.1rem solid $active-link-color;
 	justify-content: flex-end;
 
 	&__item {
-		text-decoration: none;
-		color: $link-color;
-		text-transform: uppercase;
-		border-bottom: $link-border-default;
-
-		&:hover,
-		&:active {
-			color: $active-link-color;
-			border-bottom: $link-border-bottom;
-		}
-
-		&:last-child {
-			margin-left: 0.8rem;
-		}
-
-		&.active {
-			color: $active-link-color;
-			border-bottom: $link-border-bottom;
-		}
 	}
 }
