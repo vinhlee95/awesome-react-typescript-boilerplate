@@ -11,9 +11,6 @@ import {NavLink} from 'react-router-dom'
 import {useTranslation} from 'react-i18next'
 import {RouterPath} from '../../../router/Router'
 
-// Styles
-import './Nav.scss'
-
 const Nav = () => {
 	const [t] = useTranslation()
 

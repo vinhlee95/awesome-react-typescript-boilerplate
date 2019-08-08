@@ -16,8 +16,7 @@ import Post from '../../models/Post'
 import {getPost, cancelPostRequest} from '../../modules/Post'
 import {getPosts, cancelPostsRequest} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
-
-import './Home.scss'
+import {SPostContainer, SPostDetail, SPostList} from './style'
 
 interface Props {
 	posts: ModelState<Post[]>
@@ -98,10 +97,10 @@ const Home: React.FunctionComponent<Props> = props => {
 			<div className="language-selector">
 				<LanguageSelector onChangeLanguage={changeLanguage} />
 			</div>
-			<div className="post-container">
-				<div className="post-container__list">{renderPostList()}</div>
-				<div className="post-container__detail">{renderPostDetail()}</div>
-			</div>
+			<SPostContainer>
+				<SPostList>{renderPostList()}</SPostList>
+				<SPostDetail>{renderPostDetail()}</SPostDetail>
+			</SPostContainer>
 		</div>
 	)
 }

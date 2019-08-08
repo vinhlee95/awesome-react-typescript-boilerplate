@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PostModel from '../../../../models/Post'
-import './Post.scss'
+import {SPost} from './style'
 
 interface Props {
 	post: PostModel
@@ -14,15 +14,10 @@ const Post = (props: Props) => {
 
 	return (
 		post && (
-			<div
-				data-testid="post-component"
-				className="post"
-				key={post.id}
-				onClick={onPostClick}
-			>
-				<p className="post__id">id: {post.id}</p>
-				<p className="post__title">title: {post.title}</p>
-			</div>
+			<SPost data-testid="post-component" key={post.id} onClick={onPostClick}>
+				<p>id: {post.id}</p>
+				<p>title: {post.title}</p>
+			</SPost>
 		)
 	)
 }
