@@ -94,9 +94,7 @@ const Home: React.FunctionComponent<Props> = props => {
 	return (
 		<div data-testid="home-page">
 			<h2>{t('common.welcome')}</h2>
-			<div className="language-selector">
-				<LanguageSelector onChangeLanguage={changeLanguage} />
-			</div>
+			<LanguageSelector onChangeLanguage={changeLanguage} />
 			<PostContainer>
 				<PostListContainer>{renderPostList()}</PostListContainer>
 				<PostDetailcontainer>{renderPostDetail()}</PostDetailcontainer>

@@ -20,7 +20,6 @@
 		"production": {
 			"only": ["src"],
 			"plugins": [
-				"babel-plugin-styled-components",
 				"lodash",
 				"transform-react-remove-prop-types",
 				"@babel/plugin-transform-react-inline-elements",
