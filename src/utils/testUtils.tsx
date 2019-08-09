@@ -4,7 +4,7 @@ import {createMemoryHistory} from 'history'
 import {Router} from 'react-router'
 import {Provider} from 'react-redux'
 import {configureStore} from '../configStore'
-import CoreLayout from '../shared/layout/CoreLayout/CoreLayout'
+import CoreLayout from '../layout/CoreLayout/CoreLayout'
 
 export const render = (
 	ui,

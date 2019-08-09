@@ -1,7 +1,6 @@
 import produce from 'immer'
-import {startFetching, updateData, endFetching, Action} from './commons/common'
+import {startFetching, updateData, endWithError, Action} from './commons/common'
 import useModuleActions from './commons/moduleActions'
-
 import Post from '../models/Post'
 import ModelState from '../models/bases/ModelState'
 
@@ -19,9 +18,9 @@ const {moduleActionTypes, moduleActions} = useModuleActions(moduleName, path)
 // ------------------------------------
 
 const initialState: ModelState<Post> = {
-	data: undefined,
-	loading: undefined,
-	error: undefined,
+	data: null,
+	status: 'idle',
+	error: null,
 }
 
 const post = (state = initialState, action: Action<Post>) =>
@@ -34,7 +33,7 @@ const post = (state = initialState, action: Action<Post>) =>
 				updateData(draft, action.payload)
 				break
 			case moduleActionTypes.GET_MODEL_FAIL:
-				endFetching(draft, action.error)
+				endWithError(draft, action.error)
 				break
 		}
 	})

@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next'
 // Components
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
-import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
+import LanguageSelector from '../../components/LanguageSelector/LanguageSelector'
 
 // Models
 import ModelState from '../../models/bases/ModelState'
@@ -41,13 +41,13 @@ const Home: React.FunctionComponent<Props> = props => {
 	}
 
 	const renderPostList = () => {
-		const {loading, error, data} = posts
+		const {status, error, data} = posts
 
-		if (loading) {
+		if (status === 'fetching') {
 			return <p data-testid="loading-post-list">Loading ...</p>
 		}
 
-		if (error) {
+		if (status === 'error') {
 			return <p data-testid="error-post-list">Error: {error}</p>
 		}
 
@@ -60,17 +60,17 @@ const Home: React.FunctionComponent<Props> = props => {
 	}
 
 	const renderPostDetail = () => {
-		const {loading, error, data} = post
+		const {status, error, data} = post
 
-		if (loading) {
+		if (status === 'fetching') {
 			return <p data-testid="loading-post-detail">Loading ...</p>
 		}
 
-		if (error) {
+		if (status === 'error') {
 			return <p data-testid="error-post-detail">Error: {error}</p>
 		}
 
-		if (!data) {
+		if (status === 'idle') {
 			return <p>Post Detail</p>
 		}
 
