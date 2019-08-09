@@ -9,7 +9,7 @@
 import * as React from 'react'
 import i18next from 'i18next'
 import {withTranslation} from 'react-i18next'
-import './ErrorBoundaries.scss'
+import {Details} from './style'
 
 interface Props {
 	t: i18next.TFunction
@@ -38,15 +38,13 @@ class ErrorBoundaries extends React.Component<Props, State> {
 
 		if (this.state.errorInfo) {
 			return (
-				<div className="error-boundaries">
-					<h2 className="error-boundaries__header">
-						{t('error.unexpectedError')}
-					</h2>
-					<details className="error-boundaries__detail">
+				<div>
+					<h2>{t('error.unexpectedError')}</h2>
+					<Details>
 						{this.state.error && this.state.error.toString()}
 						<br />
 						{this.state.errorInfo.componentStack}
-					</details>
+					</Details>
 				</div>
 			)
 		}

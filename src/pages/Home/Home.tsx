@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next'
 // Components
 import PostComponent from './component/Post/Post'
 import PostDetail from './component/PostDetail/PostDetail'
-import LanguageSelector from '../../shared/components/LanguageSelector/LanguageSelector'
+import LanguageSelector from '../../components/LanguageSelector/LanguageSelector'
 
 // Models
 import ModelState from '../../models/bases/ModelState'
@@ -16,8 +16,7 @@ import Post from '../../models/Post'
 import {getPost, cancelGetPost} from '../../modules/Post'
 import {getPosts, cancelGetPosts} from '../../modules/Posts'
 import {changeLanguage} from '../../modules/App'
-
-import './Home.scss'
+import {PostContainer, PostDetailcontainer, PostListContainer} from './style'
 
 interface Props {
 	posts: ModelState<Post[]>
@@ -95,13 +94,11 @@ const Home: React.FunctionComponent<Props> = props => {
 	return (
 		<div data-testid="home-page">
 			<h2>{t('common.welcome')}</h2>
-			<div className="language-selector">
-				<LanguageSelector onChangeLanguage={changeLanguage} />
-			</div>
-			<div className="post-container">
-				<div className="post-container__list">{renderPostList()}</div>
-				<div className="post-container__detail">{renderPostDetail()}</div>
-			</div>
+			<LanguageSelector onChangeLanguage={changeLanguage} />
+			<PostContainer>
+				<PostListContainer>{renderPostList()}</PostListContainer>
+				<PostDetailcontainer>{renderPostDetail()}</PostDetailcontainer>
+			</PostContainer>
 		</div>
 	)
 }

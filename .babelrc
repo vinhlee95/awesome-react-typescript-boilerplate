@@ -3,8 +3,8 @@
 		[
 			"@babel/preset-env",
 			{
-				"modules": false,
-			},
+				"modules": false
+			}
 		],
 		"@babel/preset-react",
 		"@babel/preset-typescript"
@@ -13,7 +13,8 @@
 		"@babel/plugin-proposal-object-rest-spread",
 		"@babel/plugin-proposal-class-properties",
 		"@babel/plugin-syntax-dynamic-import",
-		"react-hot-loader/babel"
+		"react-hot-loader/babel",
+		"babel-plugin-styled-components"
 	],
 	"env": {
 		"production": {
@@ -22,8 +23,8 @@
 				"lodash",
 				"transform-react-remove-prop-types",
 				"@babel/plugin-transform-react-inline-elements",
-				"@babel/plugin-transform-react-constant-elements",
-			],
-		},
+				"@babel/plugin-transform-react-constant-elements"
+			]
+		}
 	}
 }
