@@ -1,17 +1,17 @@
-import {styled} from '../../styles'
+import styled from 'styled-components'
 
-export const SPostContainer = styled.div`
+export const PostContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	display: flex;
 `
 
-export const SPostDetail = styled.div`
+export const PostDetailcontainer = styled.div`
 	flex: 0 0 30%;
-	background-color: bisque;
+	background-color: ${props => props.theme.appColors.primary};
 `
 
-export const SPostList = styled.div`
+export const PostListContainer = styled.div`
 	flex: 0 0 70%;
-	background-color: aliceblue;
+	background-color: ${props => props.theme.appColors.secondary};
 `

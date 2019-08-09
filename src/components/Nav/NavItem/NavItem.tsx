@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Wrapper} from './style'
+import {StyledNavLink} from './style'
 
 export interface NavItemProps {
 	path: string
@@ -11,8 +11,8 @@ export const NavItem: React.FunctionComponent<NavItemProps> = props => {
 	const {path, name, exact} = props
 
 	return (
-		<Wrapper exact={exact} to={path} activeClassName="active">
+		<StyledNavLink exact={exact} to={path} activeClassName="active">
 			{name}
-		</Wrapper>
+		</StyledNavLink>
 	)
 }

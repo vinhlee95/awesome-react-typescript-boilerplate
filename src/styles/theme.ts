@@ -1,10 +1,17 @@
-const appColors = {
-	white: '#fff',
-	black: '#191919',
-}
+import {DefaultTheme} from 'styled-components'
 
 export const colors = {
-	primaryColor: appColors.black,
+	white: '#fff',
+	black: '#191919',
+	lightGray: '#858181',
+	bisque: '#ffe4c4',
+	aliceblue: '#f0f8ff',
+}
+
+export const appColors = {
+	primary: colors.bisque,
+	secondary: colors.aliceblue,
+	text: colors.black,
 }
 
 export const fontSizes = {
@@ -28,14 +35,9 @@ const space = [
 	'9.6rem',
 ]
 
-export interface StyledTheme {
-	space: string[]
-	fontSizes: {[key in keyof typeof fontSizes]: string}
-	colors: {[key in keyof typeof colors]: string}
-}
-
-export const theme: StyledTheme = {
+export const theme: DefaultTheme = {
 	space,
 	fontSizes,
+	appColors,
 	colors,
 }

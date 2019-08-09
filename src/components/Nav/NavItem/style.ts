@@ -1,7 +1,7 @@
-import {styled} from '../../../styles'
+import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 
-export const Wrapper = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)`
 	text-decoration: none;
 	color: rgb(133, 129, 129);
 	text-transform: uppercase;

@@ -1,10 +1,10 @@
-import {createGlobalStyle} from './index'
+import {createGlobalStyle} from 'styled-components'
 import {media} from './utils'
 
 export const GlobalStyle = createGlobalStyle`
 
 :root {
-	font-size: 56.25%;
+	font-size: 62.5%;
 		
 	${media.tabLand} {
 		font-size: 56.25%;
@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 			'Segoe UI Symbol';
 		font-weight: 400;
 		line-height: 1.7;
-		color: ${props => props.theme.colors.primaryColor} ;
+		color: ${props => props.theme.appColors.text} ;
 		font-size: ${props => props.theme.fontSizes.md} ;
 		
 		padding: ${props => props.theme.space[2]}
