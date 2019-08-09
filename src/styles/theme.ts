@@ -1,4 +1,4 @@
-import {DefaultTheme} from 'styled-components'
+import {css, DefaultTheme} from 'styled-components'
 
 export const colors = {
 	white: '#fff',
@@ -13,6 +13,10 @@ export const appColors = {
 	secondary: colors.aliceblue,
 	text: colors.black,
 }
+
+export const fontStack = css`-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+			Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+			'Segoe UI Symbol'`
 
 export const fontSizes = {
 	xs: '1.2rem',
@@ -40,4 +44,5 @@ export const theme: DefaultTheme = {
 	fontSizes,
 	appColors,
 	colors,
+	fontStack,
 }

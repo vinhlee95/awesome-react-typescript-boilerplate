@@ -20,9 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
  body {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-			Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-			'Segoe UI Symbol';
+		font-family: ${props => props.theme.fontStack};
 		font-weight: 400;
 		line-height: 1.7;
 		color: ${props => props.theme.appColors.text} ;
