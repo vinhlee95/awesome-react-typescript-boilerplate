@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {render} from 'react-testing-library'
 import PostDetail from '../PostDetail'
 import 'jest-dom/extend-expect'
 import Post from '../../../../../models/Post'
 import {postBuilder} from '../../../../../utils/mockUtils'
+import {render} from '../../../../../utils/testUtils'
 
 describe('<PostDetail/>', () => {
 	it('should render PostDetail', () => {
