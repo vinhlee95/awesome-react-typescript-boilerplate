@@ -24,7 +24,7 @@
 		}
 	},
 	"lint-staged": {
-		"src/*.{ts, tsx}": "npm run lint:style",
+		"src/*.{ts, tsx}": "npm run lint & npm run lint:style",
 		"**/*.+(js|jsx|json|ts|tsx|css|scss|md|mdx|graphql)": [
 			"npm run format",
 			"git add"
