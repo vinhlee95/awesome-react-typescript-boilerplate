@@ -51,9 +51,9 @@ A boilerplate for React applications with all the latest and greatest technologi
 
 ## **💎 Rich utilities: Git hooks and code formatting**
 
-- _**[Prittier](https://github.com/prettier/prettier)**_
+- _**[Prettier](https://github.com/prettier/prettier)**_
 - _**[Husky](https://github.com/typicode/husky/)**_
-- _**[Lint Stage](https://github.com/okonet/lint-staged/)**_
+- _**[Lint-staged](https://github.com/okonet/lint-staged/)**_
 - _**[TSLint](https://github.com/palantir/tslint/)**_
 
 ## **🛡 Testing**
