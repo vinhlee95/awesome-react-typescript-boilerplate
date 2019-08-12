@@ -53,6 +53,7 @@ A boilerplate for React applications with all the latest and greatest technologi
 - _**[Husky](https://github.com/typicode/husky/)**_
 - _**[Lint Stage](https://github.com/okonet/lint-staged/)**_
 - _**[TSLint](https://github.com/palantir/tslint/)**_
+- _**[Stylelint](https://github.com/stylelint/stylelint)**_
 
 ## **🛡 Testing**
 
@@ -72,6 +73,7 @@ A boilerplate for React applications with all the latest and greatest technologi
 ## **🎁 Other NPM modules**
 
 - _**[DotEnv](https://www.npmjs.com/package/dotenv)**_
+- _**[typesafe-actions](https://github.com/piotrwitek/typesafe-actions)**_
 
 ## Prerequisites
 
