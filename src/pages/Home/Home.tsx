@@ -23,8 +23,8 @@ interface Props {
 	post: ModelState<Post>
 	getPosts: () => any
 	getPost: (id: string) => any
-	cancelPostRequest: () => any
-	cancelPostsRequest: () => any
+	cancelGetPost: () => any
+	cancelGetPosts: () => any
 	changeLanguage: (language: string) => any
 }
 
@@ -35,8 +35,8 @@ const Home: React.FunctionComponent<Props> = props => {
 		getPosts,
 		getPost,
 		changeLanguage,
-		cancelPostsRequest,
-		cancelPostRequest,
+		cancelGetPosts,
+		cancelGetPost,
 	} = props
 
 	const [t] = useTranslation()
@@ -45,8 +45,8 @@ const Home: React.FunctionComponent<Props> = props => {
 		getPosts()
 
 		return () => {
-			cancelPostRequest()
-			cancelPostsRequest()
+			cancelGetPost()
+			cancelGetPosts()
 		}
 	}, [])
 
@@ -113,9 +113,9 @@ const mapStateToProps = ({posts, post}) => {
 const mapDispatchToProps = {
 	changeLanguage,
 	getPosts,
+	cancelGetPost,
 	getPost,
-	cancelPostRequest: cancelGetPost,
-	cancelPostsRequest: cancelGetPosts,
+	cancelGetPosts,
 }
 
 export default connect(
