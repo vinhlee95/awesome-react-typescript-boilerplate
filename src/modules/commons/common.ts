@@ -12,12 +12,17 @@ export const startSaving = (state: BaseState) => {
 	state.error = null
 }
 
+export const savingSuccess = <T>(state: ModelState<T>) => {
+	state.status = 'success'
+	state.error = null
+}
+
 export const endWithError = (state: BaseState, error: string) => {
 	state.status = 'error'
 	state.error = error
 }
 
-export const updateData = <T>(state: ModelState<T>, data: T) => {
+export const fetchingSuccess = <T>(state: ModelState<T>, data: T) => {
 	state.status = 'success'
 	state.error = null
 	state.data = data

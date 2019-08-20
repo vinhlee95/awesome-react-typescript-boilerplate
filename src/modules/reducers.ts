@@ -7,13 +7,23 @@
 
 import {combineReducers} from 'redux'
 import {History} from 'history'
-import {connectRouter} from 'connected-react-router'
-import {reducer as postsReducer} from './Posts'
-import {reducer as postReducer} from './Post'
-import {reducer as appReducer} from './App'
+import {connectRouter, RouterState} from 'connected-react-router'
+import {postsReducer} from './Posts'
+import {postReducer} from './Post'
+import {appReducer} from './App'
+import ModelState from '../models/bases/ModelState'
+import Post from '../models/Post'
+import App from '../models/App'
+
+interface RootReducer {
+	posts: ModelState<Post[]>
+	post: ModelState<Post>
+	app: App
+	router: RouterState
+}
 
 const rootReducer = (history: History) =>
-	combineReducers({
+	combineReducers<RootReducer>({
 		posts: postsReducer,
 		post: postReducer,
 		app: appReducer,

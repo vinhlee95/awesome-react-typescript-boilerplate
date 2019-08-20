@@ -4,13 +4,26 @@ import {createAction} from './commons/common'
 import i18n from '../services/i18n'
 
 // ------------------------------------
+// Reducer
+// ------------------------------------
+
+const initialState: App = {
+	language: undefined,
+}
+
+export const appReducer = (state = initialState, action) =>
+	produce(state, draft => {
+		switch (action.type) {
+			case types.CHANGE_LANGUAGE:
+				draft.language = action.payload
+				break
+		}
+	})
+
+// ------------------------------------
 // Const
 // ------------------------------------
 const moduleName = 'app'
-
-// ------------------------------------
-// Action Creator
-// ------------------------------------
 
 const types = {
 	INITIALIZE: `@@${moduleName}/INITIALIZE`,
@@ -23,25 +36,6 @@ const actions = {
 	tearDown: createAction(types.TEAR_DOWN),
 	changeLanguage: createAction(types.CHANGE_LANGUAGE),
 }
-
-// ------------------------------------
-// Reducer
-// ------------------------------------
-
-const initialState: App = {
-	language: undefined,
-}
-
-const app = (state = initialState, action) =>
-	produce(state, draft => {
-		switch (action.type) {
-			case types.CHANGE_LANGUAGE:
-				draft.language = action.payload
-				break
-		}
-	})
-
-export const reducer = app
 
 // ------------------------------------
 // Actions
