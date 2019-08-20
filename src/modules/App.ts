@@ -32,7 +32,7 @@ const initialState: App = {
 	language: undefined,
 }
 
-const app = (state = initialState, action) =>
+export const appReducer = (state = initialState, action) =>
 	produce(state, draft => {
 		switch (action.type) {
 			case types.CHANGE_LANGUAGE:
@@ -40,8 +40,6 @@ const app = (state = initialState, action) =>
 				break
 		}
 	})
-
-export const reducer = app
 
 // ------------------------------------
 // Actions
