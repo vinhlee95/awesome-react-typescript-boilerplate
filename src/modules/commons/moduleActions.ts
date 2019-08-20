@@ -7,7 +7,7 @@ import {
 } from '../../services/api'
 import {Dispatch} from 'redux'
 
-const useModuleActions = <T>(moduleName: string, path: string) => {
+const useModuleActions = <T>(moduleName: string) => {
 	// ------------------------------------
 	// Action Creator
 	// ------------------------------------
@@ -53,42 +53,42 @@ const useModuleActions = <T>(moduleName: string, path: string) => {
 	// ------------------------------------
 
 	const moduleActions = {
-		getModel: (params?: string, query?: object) => (dispatch: Dispatch) => {
+		getModel: (path: string, query?: object) => (dispatch: Dispatch) => {
 			dispatch(actions.getModel())
 
-			getRequest(path, params, query)
+			getRequest(path, query)
 				.then((data: T) => dispatch(actions.getModelSuccess(data)))
 				.catch((error: Error) =>
 					dispatch(actions.getModelFail(undefined, error.message)),
 				)
 		},
 
-		createModel: (body: object, params?: string, query?: object) => (
+		createModel: (path: string, body: object, query?: object) => (
 			dispatch: Dispatch,
 		) => {
 			dispatch(actions.createModel())
-			postRequest(path, body, params, query)
+			postRequest(path, body, query)
 				.then((data: T) => dispatch(actions.createModelSuccess(data)))
 				.catch((error: Error) =>
 					dispatch(actions.createModelFail(undefined, error.message)),
 				)
 		},
 
-		updateModel: (body: object, params?: string, query?: object) => (
+		updateModel: (path: string, body: object, query?: object) => (
 			dispatch: Dispatch,
 		) => {
 			dispatch(actions.updateModel())
-			putRequest(path, body, params, query)
+			putRequest(path, body, query)
 				.then((data: T) => dispatch(actions.updateModelSuccess(data)))
 				.catch((error: Error) =>
 					dispatch(actions.updateModelFail(undefined, error.message)),
 				)
 		},
 
-		deleteModel: (params?: string, query?: object) => (dispatch: Dispatch) => {
+		deleteModel: (path: string, query?: object) => (dispatch: Dispatch) => {
 			dispatch(actions.deleteModel())
 
-			deleteRequest(path, params, query)
+			deleteRequest(path, query)
 				.then((data: T) => dispatch(actions.deleteModelSuccess(data)))
 				.catch((error: Error) =>
 					dispatch(actions.deleteModelFail(undefined, error.message)),
