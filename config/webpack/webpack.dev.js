@@ -24,6 +24,7 @@ module.exports = env =>
 				overlay: true,
 				hot: true,
 				historyApiFallback: true,
+				host: '0.0.0.0'
 			},
 
 			module: {
